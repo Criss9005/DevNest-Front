@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/DevNest-Front/static/css/main.7acaea2f.css",
+    "main.js": "/DevNest-Front/static/js/main.a43cc1c5.js",
+    "index.html": "/DevNest-Front/index.html",
+    "main.7acaea2f.css.map": "/DevNest-Front/static/css/main.7acaea2f.css.map",
+    "main.a43cc1c5.js.map": "/DevNest-Front/static/js/main.a43cc1c5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.a43cc1c5.js"
+  ]
+}
