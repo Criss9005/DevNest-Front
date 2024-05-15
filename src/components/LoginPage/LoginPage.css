@@ -1,0 +1,43 @@
+.login-container {
+  max-width: 600px;
+  margin: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+  font-size: 14px;
+  color: #fc842d;
+  margin-bottom: 55px;
+}
+
+label {
+  font-size: 14px;
+  color: #9b9faa;
+  font-weight: 700;
+}
+
+input {
+  width: 240px;
+  padding: 0px;
+  margin-bottom: 40px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 0;
+  outline: none;
+}
+
+button {
+  width: 181px;
+  height: 44px;
+  margin: 20px 32px 20px 0px;
+  border: 2px solid #fc842d;
+  border-radius: 30px;
+  background-color: #ffffff;
+  color: #fc842d;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #fc842d;
+  color: #ffffff;
+}
