@@ -1,0 +1,156 @@
+/* General styles */
+
+.headercontaineer {
+  border-bottom: 2px solid #e0e0e0;
+  width: 320px;
+  height: 44px;
+  top: 20px;
+  left: 20px;
+}
+
+.logo {
+  width: 46px;
+  height: 44px;
+  top: 20px;
+  left: 20px;
+  gap: 0px;
+  opacity: 0px;
+}
+
+.slim {
+  height: 16px;
+  top: 33px;
+  left: 89px;
+  gap: 0px;
+  opacity: 0px;
+  color: #212121;
+}
+
+.mom {
+  width: 52.51px;
+  height: 15.41px;
+  top: 33.06px;
+  left: 141.79px;
+  gap: 0px;
+  opacity: 0px;
+  color: #fc842d;
+}
+
+.buttonLogin {
+  color: #9b9faa;
+  font-family: Verdana;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17.01px;
+  letter-spacing: 0.04em;
+  text-align: right;
+}
+
+.buttonLogin:hover {
+  color: #212121;
+  cursor: pointer;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .headercontaineer {
+    display: flex;
+    max-width: 100vh;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .slimMon {
+    display: none;
+  }
+
+  .logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .sectionRegister {
+    gap: 22px;
+    display: flex;
+  }
+
+  .buttonLogin {
+    background: none;
+    border: none;
+  }
+}
+
+/* Tablet styles */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .headercontaineer {
+    display: flex;
+    max-width: 100vh;
+    align-items: center;
+    justify-content: space-around;
+    width: 704px;
+    height: 44px;
+    top: 20px;
+    left: 32px;
+    gap: 0px;
+    opacity: 0px;
+
+    /*     border-bottom: 2px solid #e0e0e0;
+    width: 768px;
+    height: 0px;
+    top: 80px;
+    gap: 0px;
+    border: 2px 0px 0px 0px;
+    opacity: 0px; */
+  }
+
+  .sectionRegister {
+    gap: 22px;
+    display: flex;
+  }
+
+  .buttonLogin {
+    background: none;
+    border: none;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+  .slimMon {
+    display: flex;
+  }
+  .mom {
+    color: orange;
+  }
+}
+
+/* Destock styles */
+@media (min-width: 1025px) {
+  .headercontaineer {
+    display: flex;
+    max-width: 300px;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 82px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+  .slimMon {
+    display: flex;
+  }
+  .mom {
+    color: orange;
+  }
+  .sectionRegister {
+    gap: 22px;
+    display: flex;
+  }
+  .buttonLogin {
+    background: none;
+    border: none;
+  }
+}
