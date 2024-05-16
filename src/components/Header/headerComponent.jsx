@@ -23,7 +23,7 @@ export default function Header() {
       <header className={css.headercontaineer}>
         <section onClick={handleLogoClick}>
           {' '}
-          {/* Agrega el evento de clic a esta sección */}
+          {}
           <img className={css.logo} src={logo} alt="logo_empresa" />
         </section>
         <section className={css.slimMon}>
