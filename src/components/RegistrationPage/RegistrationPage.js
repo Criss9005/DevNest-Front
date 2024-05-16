@@ -50,7 +50,7 @@ const RegistrationPage = () => {
           />
         </label>
 
-        <div>
+        <div className="div_button">
           <button type="submit">Register</button>
           <button className="login-button">Log in</button>
         </div>

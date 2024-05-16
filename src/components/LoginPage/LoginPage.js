@@ -39,7 +39,7 @@ const LoginPage = () => {
           />
         </label>
 
-        <div>
+        <div className="div_button">
           <button type="submit">Log in</button>
           <button className="register-button">Register</button>
         </div>

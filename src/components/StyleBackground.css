@@ -1,0 +1,53 @@
+.container {
+  margin: auto;
+  width: 1280px;
+}
+
+.background {
+  position: fixed;
+  z-index: -1;
+  top: 34px;
+  background-image: url('images/background_desktop.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  width: 1280px;
+  height: 100vh;
+  /* height: 816px; */
+}
+
+/* IMAGES */
+.leaves {
+  position: absolute;
+  top: -30px;
+  left: 345px;
+  width: 746px;
+  height: 846px;
+  background-image: url('images/leaves_desktop.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.banana {
+  position: absolute;
+  z-index: -2;
+  top: -102px;
+  right: 0%;
+  width: 773px;
+  height: 552px;
+  background-image: url('images/banana_desktop.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.strawberry {
+  position: absolute;
+  z-index: -2;
+  top: 506px;
+  left: 944px;
+  width: 286px;
+  height: 279px;
+  background-image: url('images/strawberry_desktop.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
