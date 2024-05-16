@@ -52,7 +52,7 @@ const RegistrationPage = () => {
 
         <div>
           <button type="submit">Register</button>
-          <button className="login-button">Log In</button>
+          <button className="login-button">Log in</button>
         </div>
       </form>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './LoginPage.css';
+import '../StyleComponents.css';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -40,7 +40,7 @@ const LoginPage = () => {
         </label>
 
         <div>
-          <button type="submit">Login</button>
+          <button type="submit">Log in</button>
           <button className="register-button">Register</button>
         </div>
       </form>
