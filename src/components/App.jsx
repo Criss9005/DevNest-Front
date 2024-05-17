@@ -1,7 +1,11 @@
-export const App = () => {
+import React from 'react';
+
+import MainPage from '../pages/MainPage'; 
+
+function App() {
   return (
-    <div> 
-    <h1>React template...</h1>
-    </div>
+    <MainPage />
   );
-};
+}
+
+export default App;
