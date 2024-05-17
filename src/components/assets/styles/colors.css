@@ -1,0 +1,9 @@
+:root {
+    /* color palette */
+    --accent-main: #FC842D;
+    --text: #9B9FAA;
+    --text-second: #212121;
+    --text-error: #ff0000; 
+    --form-input: #E0E0E0;
+    --background: #ffffff; 
+  }
