@@ -1,7 +1,9 @@
+import Modals from "./Modal/Modals";
+
 export const App = () => {
   return (
-    <div> 
-    <h1>React template...</h1>
-    </div>
+    <>
+    <Modals/>
+    </>
   );
 };
