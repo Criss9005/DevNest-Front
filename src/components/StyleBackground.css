@@ -1,53 +1,134 @@
-.container {
-  margin: auto;
-  width: 1280px;
+@media screen and (min-width: 769px) {
+  .container {
+    margin: auto;
+    width: 1280px;
+  }
+
+  .background {
+    position: fixed;
+    z-index: -1;
+    top: 34px;
+    background-image: url('images/background_desktop.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    width: 1280px;
+    height: 100vh;
+    /* height: 816px; */
+  }
+
+  /* IMAGES */
+  .leaves {
+    position: absolute;
+    top: -30px;
+    left: 320px;
+    width: 746px;
+    height: 846px;
+    background-image: url('images/leaves_desktop.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .banana {
+    position: absolute;
+    z-index: -2;
+    top: -102px;
+    right: 0%;
+    width: 773px;
+    height: 552px;
+    background-image: url('images/banana_desktop.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  .strawberry {
+    position: absolute;
+    z-index: -2;
+    top: 506px;
+    left: 944px;
+    width: 286px;
+    height: 279px;
+    background-image: url('images/strawberry_desktop.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 }
 
-.background {
-  position: fixed;
-  z-index: -1;
-  top: 34px;
-  background-image: url('images/background_desktop.png');
-  background-repeat: no-repeat;
-  background-position: right center;
-  width: 1280px;
-  height: 100vh;
-  /* height: 816px; */
+/* TABLET */
+@media screen and (min-width: 402px) and (max-width: 768px) {
+  .container {
+    margin: auto;
+    width: 100%;
+  }
+
+  .background {
+    position: fixed;
+    z-index: -1;
+    top: 505px;
+    left: 229px;
+    background-image: url('images/background_tablet.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 553px 750px;
+    width: 553px;
+    height: 750px;
+  }
+
+  /* IMAGES TABLET*/
+  .leaves {
+    position: absolute;
+    top: -500px;
+    left: -240px;
+    width: 740px;
+    height: 842px;
+    background-image: url('images/leaves_tablet.png');
+
+    background-repeat: no-repeat;
+  }
+
+  .banana {
+    position: absolute;
+    z-index: -2;
+    top: 240px;
+    left: -60px;
+    width: 600px;
+    height: 400px;
+    background-image: url('images/banana_tablet.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  .strawberry {
+    position: absolute;
+    z-index: -2;
+    top: 0px;
+    right: 15px;
+    width: 300px;
+    height: 500px;
+    background-image: url('images/strawberry_tablet.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
 }
 
-/* IMAGES */
-.leaves {
-  position: absolute;
-  top: -30px;
-  left: 345px;
-  width: 746px;
-  height: 846px;
-  background-image: url('images/leaves_desktop.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
+/* @media screen and (max-width: 400px) {
+  .container {
+    margin: auto;
+    width: 400px;
+  }
 
-.banana {
-  position: absolute;
-  z-index: -2;
-  top: -102px;
-  right: 0%;
-  width: 773px;
-  height: 552px;
-  background-image: url('images/banana_desktop.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right;
-}
-
-.strawberry {
-  position: absolute;
-  z-index: -2;
-  top: 506px;
-  left: 944px;
-  width: 286px;
-  height: 279px;
-  background-image: url('images/strawberry_desktop.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
+  .background {
+    display: none;
+  }
+  .strawberry {
+    display: none;
+  }
+  .banana {
+    display: none;
+  }
+  .leaves {
+    display: none;
+  }
+} */
