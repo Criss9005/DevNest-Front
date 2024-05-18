@@ -3,27 +3,7 @@
 .headercontaineer {
   border-bottom: 2px solid #e0e0e0;
   width: 320px;
-  height: 44px;
-  top: 20px;
-  left: 20px;
-}
-
-.logo {
-  width: 46px;
-  height: 44px;
-  top: 20px;
-  left: 20px;
-  gap: 0px;
-  opacity: 0px;
-}
-
-.slim {
-  height: 16px;
-  top: 33px;
-  left: 89px;
-  gap: 0px;
-  opacity: 0px;
-  color: #212121;
+  top: 80px;
 }
 
 .mom {
@@ -51,31 +31,72 @@
   cursor: pointer;
 }
 
+.userInfo {
+  font-weight: 700;
+  line-height: 17.01px;
+}
+
+.buttonLogout {
+  font-weight: 700;
+  line-height: 17.01px;
+  background: none;
+  border: none;
+  margin-top: -3px;
+  color: #9b9faa;
+}
+
+.buttonLogout:hover {
+  color: #212121;
+  cursor: pointer;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+}
+
 /* Mobile styles */
 @media (max-width: 768px) {
   .headercontaineer {
+    border-bottom: 2px solid #e0e0e0;
+    width: 320px;
+    top: 80px;
     display: flex;
-    max-width: 100vh;
     align-items: center;
     justify-content: space-around;
   }
+
   .slimMon {
     display: none;
   }
 
   .logo {
-    width: 30px;
-    height: 30px;
+    width: 46px;
+    height: 44px;
+    margin-left: 10px;
   }
 
   .sectionRegister {
     gap: 22px;
     display: flex;
+    margin-left: 40px;
   }
 
   .buttonLogin {
     background: none;
     border: none;
+    margin-left: -20px;
+  }
+
+  .buttonLogout {
+    display: none;
+  }
+
+  .menuButton {
+    display: inline-block;
+  }
+  .userInfo {
+    display: none;
   }
 }
 
@@ -83,51 +104,59 @@
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .headercontaineer {
+    width: 769px;
     display: flex;
-    max-width: 100vh;
     align-items: center;
     justify-content: space-around;
-    width: 704px;
-    height: 44px;
-    top: 20px;
-    left: 32px;
-    gap: 0px;
-    opacity: 0px;
-
-    /*     border-bottom: 2px solid #e0e0e0;
-    width: 768px;
-    height: 0px;
-    top: 80px;
-    gap: 0px;
-    border: 2px 0px 0px 0px;
-    opacity: 0px; */
+    margin-top: 4px;
   }
 
   .sectionRegister {
-    gap: 22px;
     display: flex;
+    margin-left: 60px;
   }
 
   .buttonLogin {
+    margin-left: 15px;
     background: none;
     border: none;
   }
 
   .logo {
-    width: 50px;
-    height: 50px;
+    width: 46.67px;
+    height: 44px;
+    margin-left: 12px;
   }
   .slimMon {
     display: flex;
+    margin-left: -154px;
   }
+
+  .slim {
+    width: 47.2px;
+    color: #212121;
+  }
+
   .mom {
+    width: 52.51px;
+    margin-left: -16px;
     color: orange;
+  }
+
+  .userInfo {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .menuButton {
+    display: inline-block;
   }
 }
 
 /* Destock styles */
 @media (min-width: 1025px) {
   .headercontaineer {
+    border-bottom: none;
     display: flex;
     max-width: 300px;
     align-items: center;
@@ -136,21 +165,37 @@
   }
 
   .logo {
-    width: 50px;
-    height: 50px;
+    width: 70.25px;
+    height: 66px;
+    margin-top: 70.25px;
+    margin-left: 20px;
   }
+
   .slimMon {
     display: flex;
+    margin-top: 105px;
+    margin-left: -10px;
   }
+
   .mom {
-    color: orange;
+    width: 53.6px;
+    height: 15.67px;
+    top: 127px;
+    left: 129.4px;
   }
+
   .sectionRegister {
-    gap: 22px;
     display: flex;
+    gap: 15px;
+    margin-top: 110px;
+    margin-left: 10px;
   }
+
   .buttonLogin {
     background: none;
     border: none;
   }
 }
+
+/* 
+fill="#212121" */

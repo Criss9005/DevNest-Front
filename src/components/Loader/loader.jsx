@@ -44,8 +44,8 @@ function Loader() {
       visible={true}
       height="100"
       width="100"
-      color="#4fa94d"
-      secondaryColor="#4fa94d"
+      color="#fc842d"
+      secondaryColor="##fc842d"
       radius="12.5"
       ariaLabel="mutating-dots-loading"
       wrapperStyle={{}}
