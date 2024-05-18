@@ -8,6 +8,7 @@ import styles from './BackgroundM.module.css';
 
 const BackgroundM = () => {
   return (
+    <div className={styles['background__container']}>
       <div className={styles['backgroung__img-wrapper']}>
       <img src={leavesTablet} className={styles['backgroung__leavesTablet']} alt="leaves" />
     <img src={leaves} className={styles['backgroung__leaves']} alt="leaves" />
@@ -25,6 +26,9 @@ const BackgroundM = () => {
       alt="backround-vector"
     />
       </div>
+      </div>
+  
+      
 );
 };
 
