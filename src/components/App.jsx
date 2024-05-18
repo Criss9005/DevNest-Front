@@ -1,7 +1,12 @@
-export const App = () => {
+import React from 'react';
+import Diary from './diary/Diary';
+
+const App = () => {
   return (
-    <div> 
-    <h1>React template...</h1>
+    <div>
+      <Diary />
     </div>
   );
 };
+
+export default App;

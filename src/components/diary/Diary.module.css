@@ -1,0 +1,60 @@
+.diaryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.calendarSection,
+.foodListSection,
+.summarySection {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.calendarSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.foodListSection {
+  background-color: #fff;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.summarySection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .diaryContainer {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  .calendarSection,
+  .foodListSection,
+  .summarySection {
+    width: 30%;
+    margin-bottom: 0;
+  }
+}
