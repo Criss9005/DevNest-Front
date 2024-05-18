@@ -4,6 +4,7 @@ import LoginPage from './LoginPage/LoginPage';
 import RegistrationPage from './RegistrationPage/RegistrationPage.js';
 import Menu from './Menu/Menu.js';
 import Background from './Background/Background';
+import MainPage from '../pages/MainPage'; 
 
 export const App = () => {
   return (
@@ -12,11 +13,14 @@ export const App = () => {
         <Background />
         <Menu />
         <Routes>
-          
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegistrationPage />} />
         </Routes>
       </div>
     </Router>
+
   );
-};
+}
+
+export default App;
