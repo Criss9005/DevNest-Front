@@ -1,4 +1,4 @@
-import { children } from "react";
+
 import css from "./modal.module.css";
 
 const Modal = ({children, isOpen, closeModal}) => {
