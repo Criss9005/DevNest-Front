@@ -4,7 +4,7 @@ import LoginPage from './LoginPage/LoginPage';
 import RegistrationPage from './RegistrationPage/RegistrationPage.js';
 import Menu from './Menu/Menu.js';
 import Background from './Background/Background';
-import MainPage from '../pages/MainPage'; 
+import MainPage from '../pages/MainPage/MainPage'; 
 
 export const App = () => {
   return (

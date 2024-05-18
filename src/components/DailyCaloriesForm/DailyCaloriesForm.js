@@ -3,6 +3,7 @@ import styles from './DailyCaloriesForm.module.css';
 import Button from '../Button/Button';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import Modal from '../Modal/Modals'
 
 const validationSchema = yup.object().shape({
   height: yup.number()
@@ -173,7 +174,7 @@ function DailyCaloriesForm({ onFormSubmit }) {
                 </label>
               </div>
             </div>
-
+              <Modal></Modal>
             <Button
               id={'button-form'}
               type="submit"
