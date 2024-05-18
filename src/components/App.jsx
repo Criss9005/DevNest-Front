@@ -12,6 +12,7 @@ export const App = () => {
         <Background />
         <Menu />
         <Routes>
+          
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegistrationPage />} />
         </Routes>
