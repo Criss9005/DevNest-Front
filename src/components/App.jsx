@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginPage from './LoginPage/LoginPage';
 import RegistrationPage from './RegistrationPage/RegistrationPage.js';
 import Menu from './Menu/Menu.js';
-//import Background from './Background/Background';
 import BackgroundM from './BackgroundM/BackgroundM';
-import MainPage from '../pages/MainPage'; 
+import MainPage from '../pages/MainPage/MainPage';
 
 export const App = () => {
   return (
@@ -21,6 +20,6 @@ export const App = () => {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
