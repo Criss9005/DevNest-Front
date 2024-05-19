@@ -1,0 +1,153 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.modal {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Ajuste en la opacidad del fondo */
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.isopen {
+  display: flex;
+}
+
+.modcontainer {
+  position: relative;
+  background-color: #fff;
+  max-width: 672px;
+  max-height: 90vh; /* Ajuste para asegurar que el contenedor no se salga de la vista en pantallas pequeñas */
+  overflow-y: auto;
+  box-shadow: 0px 22px 40px 0px rgba(0, 0, 0, 0.1);
+  padding: 5%; /* Ajuste de padding para una mejor visualización en pantallas pequeñas */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalclose {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer; /* Añadir cursor pointer para indicar que es clickeable */
+}
+
+.startlose {
+  width: 100%;
+  max-width: 210px;
+  height: 43px;
+  margin: 10px 0; /* Reemplaza gap con margin */
+  border-radius: 30px;
+  background-color: rgba(252, 132, 45, 1);
+  box-shadow: 0px 4px 10px 0px rgba(252, 132, 45, 0.5);
+  color: white;
+  border: none;
+  font-weight: 700;
+  opacity: 1; /* Ajuste para que el botón sea visible */
+}
+
+.titlemodal {
+  width: 100%;
+  max-width: 508px;
+  height: auto; /* Ajuste para que la altura sea automática */
+  font-size: 24px; /* Ajuste de tamaño de fuente para pantallas más pequeñas */
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Media Queries para hacer el diseño responsive */
+
+@media (max-width: 768px) {
+  .modcontainer {
+    max-width: 90%; /* Ajuste de ancho máximo para pantallas medianas */
+    padding: 4%;
+  }
+
+  .titlemodal {
+    font-size: 22px; /* Ajuste de tamaño de fuente para pantallas medianas */
+  }
+}
+
+@media (max-width: 480px) {
+  .modcontainer {
+    max-width: 95%; /* Ajuste de ancho máximo para pantallas pequeñas */
+    padding: 3%;
+  }
+
+  .titlemodal {
+    font-size: 18px; /* Ajuste de tamaño de fuente para pantallas pequeñas */
+  }
+}
+
+/* * {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.modal {
+    position: fixed;
+    z-index: 999;
+    top:0;
+    left:0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(0,0,0,50%);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.isopen{
+    display: flex;
+
+}
+
+.modcontainer {
+    position: relative;
+    background-color: rgba(255, 255, 255, 1);
+    max-width: 672px;
+    max-height: 574px;
+    overflow-y: auto;
+    box-shadow: 0px 22px 40px 0px rgba(0, 0, 0, 0.1);
+    padding: 8%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.modalclose{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.startlose {
+    width: 210px;
+    height: 43px;
+    gap: 10px;
+    border-radius: 30px;
+    opacity: 0px;
+    background-color: rgba(252, 132, 45, 1);
+    box-shadow: 0px 4px 10px 0px rgba(252, 132, 45, 0.5);
+    color: white;
+    border: none;
+    font-weight: 700;
+}
+
+.titlemodal {
+    width: 508px;
+    height: 70px;
+    font-family: Verdana;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+} */

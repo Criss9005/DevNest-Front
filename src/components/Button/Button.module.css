@@ -4,7 +4,6 @@
     width: fit-content;
     min-width: 210px;
     margin: 0 auto;
-    padding: 15px 25px;
     border: none;
     color: var(--background);
     border: 1px solid var(--accent-main);
@@ -29,7 +28,7 @@
     width: fit-content;
     min-width: 210px;
     margin: 0 auto;
-    padding: 15px 25px;
+    padding: 0 25px;
     border: none;
     color: var(--background);
     border: 1px solid var(--accent-main);
