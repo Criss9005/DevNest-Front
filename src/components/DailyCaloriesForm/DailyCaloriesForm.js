@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import styles from './DailyCaloriesForm.module.css';
 import Button from '../Button/Button';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import { values } from 'lodash-es';
 
 const validationSchema = yup.object().shape({
   height: yup
@@ -36,23 +34,7 @@ const validationSchema = yup.object().shape({
     .required('Blood type is required'),
 });
 
-function DailyCaloriesForm() {
-  const [result, setResult] = useState(null);
-
-  const handleFormSubmit = async values => {
-    try {
-      const response = await axios.get(
-        'http://localhost:5000/api/food/public/daily-intake',
-        {
-          params: values,
-        }
-      );
-      setResult(response.data);
-    } catch (error) {
-      console.error('Error fetching daily intake data', error);
-    }
-  };
-
+function DailyCaloriesForm({ onFormSubmit }) {
   return (
     <Formik
       initialValues={{
@@ -63,7 +45,7 @@ function DailyCaloriesForm() {
         bloodType: '1', // Valor por defecto
       }}
       validationSchema={validationSchema}
-      onSubmit={handleFormSubmit}
+      onSubmit={onFormSubmit}
     >
       {formik => {
         const { handleSubmit, isValid, dirty, errors, touched } = formik;
