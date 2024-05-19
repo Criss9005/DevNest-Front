@@ -1,32 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import styles from './DailyCaloriesForm.module.css';
 import Button from '../Button/Button';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import { values } from 'lodash-es';
 
 const validationSchema = yup.object().shape({
-  height: yup.number()
+  height: yup
+    .number()
     .min(100, 'Height must be greater than or equal to 100 cm')
     .max(220, 'Height must be less than or equal to 250 cm')
     .required('Height is required'),
-  age: yup.number()
+  age: yup
+    .number()
     .min(18, 'Age must be greater than or equal to 18 years')
     .max(120, 'Age must be less than or equal to 100 years')
     .required('Age is required'),
-  currentWeight: yup.number()
+  currentWeight: yup
+    .number()
     .min(30, 'Current weight must be greater than or equal to 20 kg')
     .max(200, 'Current weight must be less than or equal to 500 kg')
     .required('Current weight is required'),
-  desiredWeight: yup.number()
+  desiredWeight: yup
+    .number()
     .min(30, 'Desired weight must be greater than or equal to 20 kg')
     .max(200, 'Desired weight must be less than or equal to 500 kg')
     .required('Desired weight is required'),
-    bloodType: yup.number()
-    .oneOf([1, 2, 3, 4], 'Blood type must be one of the following values: 1, 2, 3, 4')
+  bloodType: yup
+    .number()
+    .oneOf(
+      [1, 2, 3, 4],
+      'Blood type must be one of the following values: 1, 2, 3, 4'
+    )
     .required('Blood type is required'),
 });
 
-function DailyCaloriesForm({ onFormSubmit }) {
+function DailyCaloriesForm() {
+  const [result, setResult] = useState(null);
+
+  const handleFormSubmit = async values => {
+    try {
+      const response = await axios.get(
+        'http://localhost:5000/api/food/public/daily-intake',
+        {
+          params: values,
+        }
+      );
+      setResult(response.data);
+    } catch (error) {
+      console.error('Error fetching daily intake data', error);
+    }
+  };
+
   return (
     <Formik
       initialValues={{
@@ -34,10 +60,10 @@ function DailyCaloriesForm({ onFormSubmit }) {
         age: '',
         currentWeight: '',
         desiredWeight: '',
-        bloodType: '1' // Valor por defecto
+        bloodType: '1', // Valor por defecto
       }}
       validationSchema={validationSchema}
-      onSubmit={onFormSubmit}
+      onSubmit={handleFormSubmit}
     >
       {formik => {
         const { handleSubmit, isValid, dirty, errors, touched } = formik;
@@ -96,7 +122,10 @@ function DailyCaloriesForm({ onFormSubmit }) {
                     : styles['calculate__field']
                 }
               />
-              <label htmlFor="currentWeight" className={styles['floating-label']}>
+              <label
+                htmlFor="currentWeight"
+                className={styles['floating-label']}
+              >
                 Current weight *
               </label>
               <ErrorMessage
@@ -117,7 +146,10 @@ function DailyCaloriesForm({ onFormSubmit }) {
                     : styles['calculate__field']
                 }
               />
-              <label htmlFor="desiredWeight" className={styles['floating-label']}>
+              <label
+                htmlFor="desiredWeight"
+                className={styles['floating-label']}
+              >
                 Desired weight *
               </label>
               <ErrorMessage
@@ -182,7 +214,9 @@ function DailyCaloriesForm({ onFormSubmit }) {
               type="submit"
               disabled={!(dirty && isValid && formik.values.bloodType)}
               className={
-                !(dirty && isValid && formik.values.bloodType) ? 'disabled-btn' : ''
+                !(dirty && isValid && formik.values.bloodType)
+                  ? 'disabled-btn'
+                  : ''
               }
               title={'Start losing weight'}
             />
