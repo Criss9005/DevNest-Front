@@ -6,21 +6,24 @@ import * as yup from 'yup';
 
 const validationSchema = yup.object().shape({
   height: yup.number()
-    .min(100, 'Height must be greater than or equal to 100')
-    .max(220, 'Height must be less than or equal to 220')
+    .min(100, 'Height must be greater than or equal to 100 cm')
+    .max(220, 'Height must be less than or equal to 250 cm')
     .required('Height is required'),
   age: yup.number()
-    .min(18, 'Age must be greater than or equal to 18')
-    .max(120, 'Age must be less than or equal to 120')
+    .min(18, 'Age must be greater than or equal to 18 years')
+    .max(120, 'Age must be less than or equal to 100 years')
     .required('Age is required'),
   currentWeight: yup.number()
-    .min(30, 'Current weight must be greater than or equal to 30')
-    .max(200, 'Current weight must be less than or equal to 200')
+    .min(30, 'Current weight must be greater than or equal to 20 kg')
+    .max(200, 'Current weight must be less than or equal to 500 kg')
     .required('Current weight is required'),
   desiredWeight: yup.number()
-    .min(30, 'Desired weight must be greater than or equal to 30')
-    .max(200, 'Desired weight must be less than or equal to 200')
+    .min(30, 'Desired weight must be greater than or equal to 20 kg')
+    .max(200, 'Desired weight must be less than or equal to 500 kg')
     .required('Desired weight is required'),
+    bloodType: yup.number()
+    .oneOf([1, 2, 3, 4], 'Blood type must be one of the following values: 1, 2, 3, 4')
+    .required('Blood type is required'),
 });
 
 function DailyCaloriesForm({ onFormSubmit }) {
