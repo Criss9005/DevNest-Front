@@ -3,14 +3,15 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginPage from './LoginPage/LoginPage';
 import RegistrationPage from './RegistrationPage/RegistrationPage.js';
 import Menu from './Menu/Menu.js';
-import Background from './Background/Background';
-import MainPage from '../pages/MainPage/MainPage'; 
+//import Background from './Background/Background';
+import BackgroundM from './BackgroundM/BackgroundM';
+import MainPage from '../pages/MainPage'; 
 
 export const App = () => {
   return (
     <Router>
       <div className="container">
-        <Background />
+        <BackgroundM />
         <Menu />
         <Routes>
           <Route path="/" element={<MainPage />} />
