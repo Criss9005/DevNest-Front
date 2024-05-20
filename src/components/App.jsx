@@ -1,15 +1,17 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LoginPage from './LoginPage/LoginPage';
-import RegistrationPage from './RegistrationPage/RegistrationPage.js';
-import Menu from './Menu/Menu.js';
+import { Routes, Route } from 'react-router-dom';
+import { Suspense } from 'react';
+import MainPage from '../pages/MainPage/MainPage';
 import BackgroundM from './BackgroundM/BackgroundM';
+import Menu from './Menu/Menu';
+import LoginPage from './LoginPage/LoginPage';
+import RegistrationPage from './RegistrationPage/RegistrationPage';
+
 import MainPage from '../pages/MainPage/MainPage';
 import Diary from '../components/diary/Diary';
 
-export const App = () => {
+const App = () => {
   return (
-    <Router>
+    <Suspense fallback={<div>Loading...</div>}>
       <div className="container">
         <BackgroundM />
         <Menu />
@@ -20,7 +22,7 @@ export const App = () => {
           <Route path="/diary" element={<Diary />} />
         </Routes>
       </div>
-    </Router>
+    </Suspense>
   );
 };
 

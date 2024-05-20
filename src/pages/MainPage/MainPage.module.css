@@ -32,14 +32,15 @@
   @media screen and (min-width: 768px) {
     .main__content {
       position: fixed;
+      width: 590px;
       padding: 0 30px 100px;
       z-index: 999;
     }
   }
   
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1024px) {
     .main__content {
-      width: 600px;
+      width: 640px;
       padding: 0 15px 110px;
     }
   }
@@ -53,14 +54,20 @@
     color: var(--text-second);
     margin-top: 0;
     margin-bottom: 20px;
+    width: 280px;
+    
   }
   
   @media screen and (min-width: 768px) {
     .main__title {
       font-size: 34px;
       line-height: 41px;
+      width: 640px;
+      
     }
   }
+
+  
   
   
 
