@@ -1,24 +1,31 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LoginPage from './LoginPage/LoginPage';
-import RegistrationPage from './RegistrationPage/RegistrationPage.js';
-import Menu from './Menu/Menu.js';
-import BackgroundM from './BackgroundM/BackgroundM';
-import MainPage from '../pages/MainPage/MainPage';
 
-export const App = () => {
+import { Routes, Route  } from "react-router-dom";
+import { Suspense } from 'react';
+import MainPage from '../pages/MainPage/MainPage';
+import BackgroundM from './BackgroundM/BackgroundM';
+import Menu from './Menu/Menu';
+import LoginPage from "./LoginPage/LoginPage";
+import RegistrationPage from "./RegistrationPage/RegistrationPage";
+
+
+const App = () => {
   return (
-    <Router>
+    <Suspense fallback={<div>Loading...</div>}>
       <div className="container">
-        <BackgroundM />
-        <Menu />
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegistrationPage />} />
-        </Routes>
-      </div>
-    </Router>
+      <BackgroundM />
+      <Menu />
+      <Routes>
+        <Route path='/' element={<MainPage />} />
+        <Route path='/login' element={ <LoginPage/> } />
+        <Route path='/register' element={ <RegistrationPage/> } />
+        
+      </Routes>
+     </div>
+    </Suspense>
+    
+     
+        
+    
   );
 };
 
