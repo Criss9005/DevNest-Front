@@ -1,25 +1,19 @@
 {
   "files": {
-    "main.css": "/DevNest-Front/static/css/main.0c659258.css",
-    "main.js": "/DevNest-Front/static/js/main.be75bea3.js",
-    "static/media/strawberry_desktop.png": "/DevNest-Front/static/media/strawberry_desktop.1b4b3c8899f765b70983.png",
-    "static/media/strawberry.png": "/DevNest-Front/static/media/strawberry.710d7026c4b284b6be95.png",
-    "static/media/strawberry_tablet.png": "/DevNest-Front/static/media/strawberry_tablet.73b414af5463d8e865f0.png",
-    "static/media/banana_desktop.png": "/DevNest-Front/static/media/banana_desktop.6ecc29ed702aa64a9861.png",
-    "static/media/banana.png": "/DevNest-Front/static/media/banana.2da01581a1ed4f4189b1.png",
-    "static/media/banana_tablet.png": "/DevNest-Front/static/media/banana_tablet.f24511a2d04fd6c36038.png",
-    "static/media/leaves_desktop_2.png": "/DevNest-Front/static/media/leaves_desktop_2.6594c140e7b671a5a24c.png",
-    "static/media/leaves_desktop.png": "/DevNest-Front/static/media/leaves_desktop.1d0977f6a1a80da94e8f.png",
-    "static/media/leaves_tablet.png": "/DevNest-Front/static/media/leaves_tablet.ab2ea6027bcd393c10fa.png",
-    "static/media/logo.svg": "/DevNest-Front/static/media/logo.be4ddc7887159f4712acf8e7fabd6664.svg",
-    "static/media/leaves_tablet_2.png": "/DevNest-Front/static/media/leaves_tablet_2.d487383fc8f64fe776c2.png",
-    "index.html": "/DevNest-Front/index.html",
-    "static/media/main_vector.svg": "/DevNest-Front/static/media/main_vector.c655d736b7c28331ec143c1de45f86c8.svg",
-    "main.0c659258.css.map": "/DevNest-Front/static/css/main.0c659258.css.map",
-    "main.be75bea3.js.map": "/DevNest-Front/static/js/main.be75bea3.js.map"
+    "main.css": "/static/css/main.d31ebae0.css",
+    "main.js": "/static/js/main.a061d768.js",
+    "static/media/strawberry.png": "/static/media/strawberry.710d7026c4b284b6be95.png",
+    "static/media/banana.png": "/static/media/banana.2da01581a1ed4f4189b1.png",
+    "static/media/leaves_desktop.png": "/static/media/leaves_desktop.6594c140e7b671a5a24c.png",
+    "static/media/logo.svg": "/static/media/logo.be4ddc7887159f4712acf8e7fabd6664.svg",
+    "static/media/leaves_tablet.png": "/static/media/leaves_tablet.d487383fc8f64fe776c2.png",
+    "index.html": "/index.html",
+    "static/media/main_vector.svg": "/static/media/main_vector.c655d736b7c28331ec143c1de45f86c8.svg",
+    "main.d31ebae0.css.map": "/static/css/main.d31ebae0.css.map",
+    "main.a061d768.js.map": "/static/js/main.a061d768.js.map"
   },
   "entrypoints": [
-    "static/css/main.0c659258.css",
-    "static/js/main.be75bea3.js"
+    "static/css/main.d31ebae0.css",
+    "static/js/main.a061d768.js"
   ]
 }
