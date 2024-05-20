@@ -5,6 +5,7 @@ import RegistrationPage from './RegistrationPage/RegistrationPage.js';
 import Menu from './Menu/Menu.js';
 import BackgroundM from './BackgroundM/BackgroundM';
 import MainPage from '../pages/MainPage/MainPage';
+import Diary from '../components/diary/Diary';
 
 export const App = () => {
   return (
@@ -16,6 +17,7 @@ export const App = () => {
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegistrationPage />} />
+          <Route path="/diary" element={<Diary />} />
         </Routes>
       </div>
     </Router>
