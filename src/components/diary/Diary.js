@@ -8,6 +8,7 @@ import { getConsumedFoods } from './api/apiServices';
 const Diary = () => {
   const [consumedCalories, setConsumedCalories] = useState(0);
   const [foodList, setFoodList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const addFoodToList = food => {
     setFoodList([...foodList, ...food]);
@@ -21,10 +22,11 @@ const Diary = () => {
   };
 
   const getFoodList = async () => {
-    console.log('getfoodlist');
+    setIsLoading(true);
     const result = await getConsumedFoods('123456asd', '16-05-2024');
     // console.log(result + 'resultado');
     addFoodToList(result);
+    setIsLoading(false);
   };
   useEffect(() => {
     console.log('hola');
@@ -37,11 +39,15 @@ const Diary = () => {
         <DiaryCalendar />
       </div>
       <div className={styles.foodListSection}>
-        <DiaryFoodList
-          foodList={foodList}
-          addFoodToList={addFoodToList}
-          removeFoodFromList={removeFoodFromList}
-        />
+        {isLoading ? (
+          <div>Loading... </div>
+        ) : (
+          <DiaryFoodList
+            foodList={foodList}
+            addFoodToList={addFoodToList}
+            removeFoodFromList={removeFoodFromList}
+          />
+        )}
       </div>
       <div className={styles.summarySection}>
         <DiarySummary consumedCalories={consumedCalories} />

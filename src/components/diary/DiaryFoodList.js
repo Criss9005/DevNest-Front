@@ -13,7 +13,7 @@ const DiaryFoodList = ({ foodList, addFoodToList, removeFoodFromList }) => {
         name: selectedFood,
         grams: parseInt(grams),
         // Aquí deberías obtener las calorías reales del backend
-        calories: 100 // Valor de ejemplo
+        calories: 100, // Valor de ejemplo
       };
       addFoodToList(food);
       setSelectedFood('');
@@ -32,18 +32,29 @@ const DiaryFoodList = ({ foodList, addFoodToList, removeFoodFromList }) => {
           </tr>
         </thead>
         <tbody>
-          {foodList.map((food, index) => (
-            <tr key={index}>
-              <td>{food.name}</td>
-              <td>{food.grams}</td>
-              <td>{(food.calories * food.grams) / 100}</td>
-              <td><FaTimes onClick={() => removeFoodFromList(food)} /></td>
-            </tr>
-          ))}
+          {foodList.length ? (
+            foodList.map((food, index) => (
+              <tr key={index}>
+                <td>{food.name}</td>
+                <td>{food.grams}</td>
+                <td>{(food.calories * food.grams) / 100}</td>
+                <td>
+                  <FaTimes onClick={() => removeFoodFromList(food)} />
+                </td>
+              </tr>
+            ))
+          ) : (
+            <div>No data to show</div>
+          )}
           {!showAddFood && (
             <tr>
               <td colSpan="4">
-                <button className={styles.addButton} onClick={() => setShowAddFood(true)}>+</button>
+                <button
+                  className={styles.addButton}
+                  onClick={() => setShowAddFood(true)}
+                >
+                  +
+                </button>
               </td>
             </tr>
           )}
@@ -54,17 +65,22 @@ const DiaryFoodList = ({ foodList, addFoodToList, removeFoodFromList }) => {
           <input
             type="text"
             value={selectedFood}
-            onChange={(e) => setSelectedFood(e.target.value)}
+            onChange={e => setSelectedFood(e.target.value)}
             placeholder="Alimento"
           />
           <input
             type="text"
             value={grams}
-            onChange={(e) => setGrams(e.target.value)}
+            onChange={e => setGrams(e.target.value)}
             placeholder="Gramos"
           />
           <button onClick={handleAddFood}>Agregar</button>
-          <button className={styles.backButton} onClick={() => setShowAddFood(false)}><FaChevronLeft /></button>
+          <button
+            className={styles.backButton}
+            onClick={() => setShowAddFood(false)}
+          >
+            <FaChevronLeft />
+          </button>
         </div>
       )}
     </div>

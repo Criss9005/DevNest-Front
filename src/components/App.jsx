@@ -5,8 +5,6 @@ import BackgroundM from './BackgroundM/BackgroundM';
 import Menu from './Menu/Menu';
 import LoginPage from './LoginPage/LoginPage';
 import RegistrationPage from './RegistrationPage/RegistrationPage';
-
-import MainPage from '../pages/MainPage/MainPage';
 import Diary from '../components/diary/Diary';
 
 const App = () => {
