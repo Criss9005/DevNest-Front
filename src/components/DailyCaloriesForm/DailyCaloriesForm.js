@@ -75,6 +75,10 @@ function DailyCaloriesForm() {
           const { handleSubmit, isValid, dirty, errors, touched } = formik;
           return (
             <Form className={styles['calculate__form']} onSubmit={handleSubmit}>
+              <h1 className={styles['calculate__form-title']}>
+          Calculate your daily calorie intake right now
+        </h1>
+              
               <div className={styles['calculate__form-container']}>
               <div className={styles['calculate__field-wrapper']}>
                 <Field

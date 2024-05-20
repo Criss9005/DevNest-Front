@@ -227,5 +227,32 @@
     color: var(--text);
   }
 
+  /*Nuevo*/
+
+  .calculate__form-title {
+    font-family: 'Verdana', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+    color: var(--text-second);
+    margin-top: 0;
+    margin-bottom: 20px;
+    width: 280px;
+    padding-bottom: 20px;
+    
+  }
+  
+  @media screen and (min-width: 768px) {
+    .calculate__form-title {
+      font-size: 34px;
+      line-height: 41px;
+      width: 640px;
+      padding-bottom: 45px;
+      
+    }
+  }
+
+
 
   
