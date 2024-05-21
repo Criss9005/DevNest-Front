@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaCalendarAlt } from 'react-icons/fa';
-import './DiaryCalendar.module.css';
+import styles from './DiaryCalendar.module.css'; 
 
 const DiaryCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -23,10 +23,11 @@ const DiaryCalendar = () => {
 
   return (
     <div>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div className={styles.calendarSection}>
+      <span className={styles.dateText}>{formatDate(selectedDate)}</span>
         <FaCalendarAlt
           size={24}
-          style={{ cursor: 'pointer', marginRight: '10px' }}
+          className={styles.icon}
           onClick={() => document.getElementById('date-picker').showPicker()}
         />
         <input
@@ -34,12 +35,13 @@ const DiaryCalendar = () => {
           type="date"
           onChange={handleDateChange}
           max={new Date().toISOString().split('T')[0]}
-          style={{ display: 'none' }}
+          className={styles.hiddenInput}
         />
-        <span style={{ marginLeft: '10px' }}>{formatDate(selectedDate)}</span>
+        
       </div>
     </div>
   );
 };
 
 export default DiaryCalendar;
+

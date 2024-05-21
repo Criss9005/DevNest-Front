@@ -35,7 +35,7 @@ const Diary = () => {
 
   return (
     <div className={styles.diaryContainer}>
-      <div className={styles.calendarSection}>
+      <div>
         <DiaryCalendar />
       </div>
       <div className={styles.foodListSection}>

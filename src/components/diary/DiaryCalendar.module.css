@@ -1,2 +1,25 @@
 
+.calendarSection {
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 25px 0 0 30px;
+  }
+  .dateText {
+    margin-right: 20px;
+    font-weight: 900;
+  }
+  
+  .icon {
+    cursor: pointer;
+    margin-right: 10px;
+    color: #9b9faa;
+  }
+  
+  .hiddenInput {
+    display: none;
+  }
+  
+  
   
