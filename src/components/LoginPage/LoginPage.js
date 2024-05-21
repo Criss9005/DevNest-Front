@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../StyleComponents.css';
 import { Link } from 'react-router-dom';
+import BackgroundM from 'components/BackgroundM/BackgroundM';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -22,6 +23,7 @@ const LoginPage = () => {
 
   return (
     <div className="login-container">
+      <BackgroundM />
       <h1>LOG IN</h1>
       <form onSubmit={handleSubmit}>
         <label>

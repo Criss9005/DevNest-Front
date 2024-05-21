@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import BackgroundM from 'components/BackgroundM/BackgroundM';
 
 const RegistrationPage = () => {
   const [name, setName] = useState('');
@@ -27,6 +28,7 @@ const RegistrationPage = () => {
 
   return (
     <div className="login-container">
+      <BackgroundM />
       <h1>REGISTER</h1>
       <form onSubmit={handleSubmit}>
         <label>
