@@ -7,7 +7,12 @@ import * as yup from 'yup';
 import Modal from '../Modal/Modal';
 import { useModal } from '../Modal/useModal';
 import css from '../Modal/modal.module.css';
+import { Link } from 'react-router-dom';
 
+
+function ButtonLink({ to, children }) {
+  return <Link to={to}><button>{children}</button></Link>;
+}
 const validationSchema = yup.object().shape({
   height: yup
     .number()
@@ -45,7 +50,7 @@ function DailyCaloriesForm() {
   const handleFormSubmit = async values => {
     try {
       const response = await axios.get(
-        'http://localhost:5000/api/products/public/daily-intake',
+        'https://devnest-back-1.onrender.com/api/products/public/daily-intake',
         {
           params: values,
         }
@@ -75,6 +80,10 @@ function DailyCaloriesForm() {
           const { handleSubmit, isValid, dirty, errors, touched } = formik;
           return (
             <Form className={styles['calculate__form']} onSubmit={handleSubmit}>
+              <h1 className={styles['calculate__form-title']}>
+          Calculate your daily calorie intake right now
+        </h1>
+              
               <div className={styles['calculate__form-container']}>
               <div className={styles['calculate__field-wrapper']}>
                 <Field
@@ -88,7 +97,7 @@ function DailyCaloriesForm() {
                   }
                 />
                 <label htmlFor="height" className={styles['floating-label']}>
-                  Height *
+                  Height, cm *
                 </label>
                 <ErrorMessage
                   name="height"
@@ -133,7 +142,7 @@ function DailyCaloriesForm() {
                   htmlFor="currentWeight"
                   className={styles['floating-label']}
                 >
-                  Current weight *
+                  Current weight, kg *
                 </label>
                 <ErrorMessage
                   name="currentWeight"
@@ -158,7 +167,7 @@ function DailyCaloriesForm() {
                   htmlFor="desiredWeight"
                   className={styles['floating-label']}
                 >
-                  Desired weight *
+                  Desired weight, kg *
                 </label>
                 <ErrorMessage
                   name="desiredWeight"
@@ -249,10 +258,8 @@ function DailyCaloriesForm() {
               </li>
             ))}
           </ul>
-          <button className={css.startlose} onClick={closeModal}>
-            Close
-          </button>
-        </Modal>
+          <ButtonLink className={css.startlose} to="/register">Start losing weight</ButtonLink>
+          </Modal>
       )}
     </>
   );
