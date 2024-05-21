@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+function ButtonLink({ to, children }) {
+  return <Link to={to}><button>{children}</button></Link>;
+}
 
 const RegistrationPage = () => {
   const [name, setName] = useState('');
@@ -31,13 +36,13 @@ const RegistrationPage = () => {
         <label>
           Name *
           <br />
-          <input type="text" value={name} onChange={handleNameChange} />
+          <input type="text" value={name} onChange={handleNameChange}  required/>
         </label>
         <br />
         <label>
           Email *
           <br />
-          <input type="email" value={email} onChange={handleEmailChange} />
+          <input type="email" value={email} onChange={handleEmailChange}  required/>
         </label>
         <br />
         <label>
@@ -47,12 +52,14 @@ const RegistrationPage = () => {
             type="password"
             value={password}
             onChange={handlePasswordChange}
+            required
           />
         </label>
 
         <div className="div_button">
           <button type="submit">Register</button>
-          <button className="login-button">Log in</button>
+          
+          <ButtonLink className="login-button" to="/login">Log in</ButtonLink>
         </div>
       </form>
     </div>

@@ -3,7 +3,7 @@
 .calculate__form {
     display: flex;
     flex-direction: column;
-    grid-row-gap: 25px;
+    
     
   }
   
@@ -17,19 +17,12 @@
   }
 
   .calculate__field-wrapper {
- 
+     
     padding-right: 45px;
    
   }
 
-  @media screen and (min-width: 768px) {
-    .calculate__field-wrapper {
- 
-      padding-right: 0;
-     
-    }
-  }
-  
+
   
   .calculate__field {
     width: 100%;
@@ -57,7 +50,7 @@
   }
   @media screen and (min-width: 768px) {
     .calculate__field-wrapper {
-      width: calc((100% - 30px) / 2);
+      width: 100%;
     }
   }
   
@@ -182,7 +175,7 @@
 
   .calculate__field-wrapper {
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
   }
   
   .calculate__field {
@@ -235,3 +228,4 @@
   }
 
 
+  
