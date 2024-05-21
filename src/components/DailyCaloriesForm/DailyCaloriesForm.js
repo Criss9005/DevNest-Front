@@ -229,6 +229,7 @@ function DailyCaloriesForm() {
 
               <Button
                 id={'button-form'}
+                data-keyboard="true"
                 type="submit"
                 disabled={!(dirty && isValid && formik.values.bloodType)}
                 className={
@@ -244,18 +245,15 @@ function DailyCaloriesForm() {
       </Formik>
 
       {result && (
-        <Modal isOpen={isOpen} closeModal={closeModal}>
+        <Modal isOpen={isOpen} closeModal={closeModal} tabindex='-1'>
           <h3 className={css.titlemodal}>
             Your recommended daily calorie intake is
           </h3>
-          <p>{result.dailyCalorieIntake}</p>
-          <h4>Foods you should not eat</h4>
+          <p className={css.numberCal}>{result.dailyCalorieIntake}</p>
+          <h4 className={css.foodNotEat}>Foods you should not eat</h4>
           <ul>
             {result.nonRecommendedFoods.map((food, index) => (
-              <li key={index}>
-                {index}
-                {food}
-              </li>
+              <li className={css.liFood}key={index}> {index + 1}. {food}</li>
             ))}
           </ul>
           <ButtonLink className={css.startlose} to="/register">Start losing weight</ButtonLink>
