@@ -1,25 +1,32 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LoginPage from './LoginPage/LoginPage';
-import RegistrationPage from './RegistrationPage/RegistrationPage.js';
-import Menu from './Menu/Menu.js';
-import Background from './Background/Background';
-import MainPage from '../pages/MainPage'; 
+import { Routes, Route } from 'react-router-dom';
+import { Suspense } from 'react';
+import MainPage from '../pages/MainPage/MainPage';
 
-export const App = () => {
+
+import LoginPage from "../pages/LoginPage/LoginPage";
+import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
+import Calculator from "pages/Calculator/Calculator";
+import Diary from '../components/diary/Diary';
+
+
+const App = () => {
   return (
-    <Router>
+    <Suspense fallback={<div>Loading...</div>}>
+        
       <div className="container">
-        <Background />
-        <Menu />
+
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegistrationPage />} />
+          <Route path="/diary" element={<Diary />} />
+          <Route path='/calculator' element={<Calculator/>} />
         </Routes>
       </div>
-    </Router>
+
+    </Suspense>
   );
-}
+};
 
 export default App;

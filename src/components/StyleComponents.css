@@ -1,6 +1,6 @@
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1280px) {
   .container {
-    margin: auto;
+    margin: 0;
     width: 1280px;
   }
 }
@@ -67,7 +67,6 @@ button:hover {
   h1 {
     font-size: 20px;
     margin: 56px 0px 55px;
-    text-align: center;
   }
 
   label {
