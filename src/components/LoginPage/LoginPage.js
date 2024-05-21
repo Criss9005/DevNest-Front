@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
 import '../StyleComponents.css';
+import { Link } from 'react-router-dom';
+
+import BackgroundM from 'components/BackgroundM/BackgroundM';
+
+import axios from 'axios';
+
+function ButtonLink({ to, children }) {
+  return <Link to={to}><button>{children}</button></Link>;
+}
+
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -13,20 +23,32 @@ const LoginPage = () => {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Email:', email);
-    console.log('Password:', password);
+    axios.post(`https://devnest-back-1.onrender.com/api/auth/login`, {
+      email: email,
+      password: password
+    })
+      .then(response => {
+        const data = response.data
+       console.log(data)
+        
+      })
+      .catch(e => { 
+        console.log(e)
+      })
+    
   };
 
   return (
     <div className="login-container">
+      <BackgroundM />
       <h1>LOG IN</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Email *
           <br />
-          <input type="email" value={email} onChange={handleEmailChange} />
+          <input type="email" value={email} onChange={handleEmailChange} required/>
         </label>
         <br />
         <label>
@@ -36,12 +58,14 @@ const LoginPage = () => {
             type="password"
             value={password}
             onChange={handlePasswordChange}
+            required
           />
         </label>
 
         <div className="div_button">
           <button type="submit">Log in</button>
-          <button className="register-button">Register</button>
+          <ButtonLink className="register-button" to="/register">Register</ButtonLink>
+          
         </div>
       </form>
     </div>

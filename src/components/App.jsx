@@ -2,7 +2,6 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Suspense } from 'react';
 import MainPage from '../pages/MainPage/MainPage';
-import BackgroundM from './BackgroundM/BackgroundM';
 import Menu from './Menu/Menu';
 import LoginPage from './LoginPage/LoginPage';
 import RegistrationPage from './RegistrationPage/RegistrationPage';
@@ -12,12 +11,11 @@ const App = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className="container">
-        <BackgroundM />
-        {/* <Menu /> */}
+        <Menu />
         <Routes>
-          {/* <Route path="/" element={<MainPage />} />
+          <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegistrationPage />} /> */}
+          <Route path="/register" element={<RegistrationPage />} />
           <Route path="/diary" element={<Diary />} />
         </Routes>
       </div>
