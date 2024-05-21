@@ -32,8 +32,6 @@ const Modals = ({ result }) => {
           </>
         )}
         <ButtonLink className={css.startlose} to="/register">Start losing weight</ButtonLink>
-        
-
       </Modal>
     </div>
   );
