@@ -1,70 +1,65 @@
-@import "../../components/assets/styles/colors.css"; 
+@import '../../components/assets/styles/colors.css';
 
 .main {
-    height: calc(100vh - 90px);
-    position: relative;
+  height: calc(100vh - 90px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  max-height: 820px;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .main {
     overflow: hidden;
-    display: flex;
-    max-height: 820px;
-    margin: 0;
   }
-  
-  @media screen and (min-width: 768px) {
-    .main {
-      height: 100%;
-    }
-  }
-  
-  @media screen and (min-width: 1280px) {
-    .main {
-      overflow: hidden;
-    }
-  }
-  
+}
+
+.main__content {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 30px;
+  position: relative;
+  padding: 0 20px 100px;
+  margin-top: 130px;
+}
+
+@media screen and (min-width: 768px) {
   .main__content {
-    display: flex;
-    flex-direction: column;
-    grid-row-gap: 30px;
-    position: relative;
-    padding: 0 20px 100px;
+    position: fixed;
+    padding: 0 30px 100px;
+    z-index: 999;
   }
-  
-  @media screen and (min-width: 768px) {
-    .main__content {
-      position: fixed;
-      padding: 0 30px 100px;
-      z-index: 999;
-    }
+}
+
+@media screen and (min-width: 1280px) {
+  .main__content {
+    width: 600px;
+    padding: 0 15px 110px;
+    margin-top: 10px;
   }
-  
-  @media screen and (min-width: 1280px) {
-    .main__content {
-      width: 600px;
-      padding: 0 15px 110px;
-    }
-  }
-  
+}
+
+.main__title {
+  font-family: 'Verdana', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--text-second);
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
   .main__title {
-    font-family: 'Verdana', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 26px;
-    color: var(--text-second);
-    margin-top: 0;
-    margin-bottom: 20px;
+    font-size: 34px;
+    line-height: 41px;
   }
-  
-  @media screen and (min-width: 768px) {
-    .main__title {
-      font-size: 34px;
-      line-height: 41px;
-    }
-  }
-  
-  
-
-
-
-  
- 
+}

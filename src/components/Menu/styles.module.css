@@ -1,0 +1,123 @@
+.menucontainer {
+  border-bottom: 2px solid #e0e0e0;
+  width: 320px;
+  top: 80px;
+}
+
+.logoHead {
+  display: flex;
+  margin-left: 18px;
+  margin-top: 110px;
+}
+
+.slimp {
+  display: none;
+}
+
+.buttonLogin {
+  color: #9b9faa;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17.01px;
+  letter-spacing: 0.04em;
+  text-align: right;
+  border: none;
+  background: none;
+}
+
+.buttonLogin:hover {
+  color: #212121;
+  cursor: pointer;
+}
+
+.buttonLogout {
+  font-weight: 700;
+  line-height: 17.01px;
+  background: none;
+  border: none;
+  margin-top: -3px;
+  color: #9b9faa;
+}
+
+.buttonLogout:hover {
+  color: #212121;
+  cursor: pointer;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+}
+
+.sectionRegister {
+  list-style-type: none;
+  gap: 22px;
+  display: flex;
+  margin-left: 230px;
+  margin-top: -20px;
+  margin-bottom: 130px;
+}
+
+@media screen and (max-width: 768px) {
+  .headContainer {
+    align-items: center;
+  }
+  .logoContainer {
+    border-bottom: 2px solid #e0e0e0;
+    width: 768px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .logoHead {
+    width: 162.3px;
+    height: 44px;
+    margin-left: -460px;
+    margin-top: 10px;
+  }
+
+  .slimp {
+    display: none;
+  }
+
+  .sectionRegister {
+    gap: 22px;
+    display: flex;
+    margin-left: 430px;
+    margin-top: -36px;
+    margin-bottom: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoContainer {
+    display: none;
+  }
+
+  .logoHead {
+    visibility: hidden;
+  }
+
+  .slimp {
+    display: flex;
+    width: 46px;
+    height: 44px;
+    margin-left: -790px;
+  }
+  .sectionRegister {
+    gap: 22px;
+    display: flex;
+    margin-left: 190px;
+    margin-top: -38px;
+    margin-bottom: -70px;
+  }
+
+  .logoContainer {
+    border-bottom: 2px solid #e0e0e0;
+    width: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
