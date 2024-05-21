@@ -11,12 +11,13 @@ const App = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className="container">
+
       <Menu />
-      <Routes>
+        <Routes>
         <Route path='/' element={<MainPage />} />
         <Route path='/login' element={ <LoginPage/> } />
         <Route path='/register' element={ <RegistrationPage/> } />
-        
+       
       </Routes>
      </div>
     </Suspense>
