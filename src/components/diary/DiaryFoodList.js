@@ -1,23 +1,31 @@
 import React, { useState } from 'react';
 import { FaTimes, FaChevronLeft } from 'react-icons/fa';
 import styles from './DiaryFoodList.module.css';
+import { addConsumedFood } from './api/apiServices';
 
 const DiaryFoodList = ({ foodList, addFoodToList, removeFoodFromList }) => {
   const [selectedFood, setSelectedFood] = useState('');
   const [grams, setGrams] = useState('');
   const [showAddFood, setShowAddFood] = useState(false);
 
-  const handleAddFood = () => {
+  const handleAddFood = async () => {
     if (selectedFood && grams) {
       const food = {
-        name: selectedFood,
+        productName: selectedFood,
         grams: parseInt(grams),
+        idUser: '123456asd',
         // Aquí deberías obtener las calorías reales del backend
-        calories: 100, // Valor de ejemplo
+        // calories: 100, // Valor de ejemplo
       };
-      addFoodToList(food);
-      setSelectedFood('');
-      setGrams('');
+      try {
+        const res = await addConsumedFood(food);
+        console.log(res);
+        addFoodToList(food);
+        setSelectedFood('');
+        setGrams('');
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
@@ -44,7 +52,9 @@ const DiaryFoodList = ({ foodList, addFoodToList, removeFoodFromList }) => {
               </tr>
             ))
           ) : (
-            <div>No data to show</div>
+            <tr>
+              <td colSpan="4">No data to show</td>
+            </tr>
           )}
           {!showAddFood && (
             <tr>

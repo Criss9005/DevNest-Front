@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { FaCalendarAlt } from 'react-icons/fa';
 import './DiaryCalendar.module.css';
+const today = new Date();
 
-const DiaryCalendar = () => {
+const DiaryCalendar = ({ setDate, setFoodList }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   useEffect(() => {
@@ -10,16 +11,18 @@ const DiaryCalendar = () => {
   }, []);
 
   const handleDateChange = event => {
+    setFoodList([]);
     const date = new Date(event.target.value + 'T00:00:00');
+    setDate(formatDate(date));
     setSelectedDate(date);
   };
 
-  const formatDate = date => {
+  function formatDate(date) {
     const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
-    return `${day}.${month}.${year}`;
-  };
+    return `${day}-${month}-${year}`;
+  }
 
   return (
     <div>
@@ -33,7 +36,12 @@ const DiaryCalendar = () => {
           id="date-picker"
           type="date"
           onChange={handleDateChange}
-          max={new Date().toISOString().split('T')[0]}
+          // max={new Date().toISOString().split('T')[0]}
+          max={
+            new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+              .toISOString()
+              .split('T')[0]
+          }
           style={{ display: 'none' }}
         />
         <span style={{ marginLeft: '10px' }}>{formatDate(selectedDate)}</span>
