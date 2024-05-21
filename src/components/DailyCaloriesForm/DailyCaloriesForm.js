@@ -75,6 +75,7 @@ function DailyCaloriesForm() {
           const { handleSubmit, isValid, dirty, errors, touched } = formik;
           return (
             <Form className={styles['calculate__form']} onSubmit={handleSubmit}>
+              <div className={styles['calculate__form-container']}>
               <div className={styles['calculate__field-wrapper']}>
                 <Field
                   type="number"
@@ -140,7 +141,8 @@ function DailyCaloriesForm() {
                   className={styles['subtitle-error']}
                 />
               </div>
-
+              </div>
+              <div className={styles['calculate__form-container']}>
               <div className={styles['calculate__field-wrapper']}>
                 <Field
                   type="number"
@@ -213,6 +215,7 @@ function DailyCaloriesForm() {
                     <span className={styles['checkmark']}></span>
                   </label>
                 </div>
+              </div>
               </div>
 
               <Button
