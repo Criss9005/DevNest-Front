@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
-import '../StyleComponents.css';
-import { Link } from 'react-router-dom';
+import '../../components/StyleComponents.css';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+import Notiflix from 'notiflix';
 
 function ButtonLink({ to, children }) {
   return <Link to={to}><button>{children}</button></Link>;
 }
 
+
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
 
   const handleEmailChange = event => {
     setEmail(event.target.value);
@@ -26,16 +30,26 @@ const LoginPage = () => {
       password: password
     })
       .then(response => {
-        const data = response.data
-       console.log(data)
+        const data = response.data.result
+        console.log(data)
+        
+        if (data) { 
+        const stringData = JSON.stringify(data)
+        localStorage.setItem('USER', stringData);
+        navigate('/calculator');
+        }
         
       })
       .catch(e => { 
+        //implementar alertas cuando no inicia
+        Notiflix.Notify.failure(e.response.data.message);
         console.log(e)
       })
     
   };
 
+    
+  
   return (
     <div className="login-container">
       <h1>LOG IN</h1>

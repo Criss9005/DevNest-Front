@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import Notiflix from 'notiflix';
 
 function ButtonLink({ to, children }) {
   return <Link to={to}><button>{children}</button></Link>;
@@ -9,6 +11,7 @@ const RegistrationPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+   const navigate = useNavigate();
 
   const handleNameChange = event => {
     setName(event.target.value);
@@ -24,9 +27,21 @@ const RegistrationPage = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Password:', password);
+    axios.post(`https://devnest-back-1.onrender.com/api/auth/register`, {
+      email: email,
+      password: password,
+      username: name
+    })
+      .then(response => {
+        const data = response.data
+        console.log(data)
+        navigate('/login');
+        Notiflix.Notify.success('Successful Registration');
+        
+      })
+      .catch(e => { 
+        console.log(e)
+      })
   };
 
   return (

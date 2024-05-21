@@ -4,9 +4,9 @@ import { Suspense } from 'react';
 import MainPage from '../pages/MainPage/MainPage';
 import BackgroundM from './BackgroundM/BackgroundM';
 import Menu from './Menu/Menu';
-import LoginPage from "./LoginPage/LoginPage";
-import RegistrationPage from "./RegistrationPage/RegistrationPage";
-
+import LoginPage from "../pages/LoginPage/LoginPage";
+import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
+import Calculator from "pages/Calculator/Calculator";
 
 const App = () => {
   return (
@@ -14,11 +14,13 @@ const App = () => {
       <div className="container">
       <BackgroundM/>
       
-      <Menu />
+      <Menu/>
         <Routes>
-        <Route path='/' element={<MainPage />} />
-        <Route path='/login' element={ <LoginPage/> } />
-        <Route path='/register' element={ <RegistrationPage/> } />
+        <Route path='/' element={<MainPage/>}/>
+        <Route path='/login' element={<LoginPage/>}/>
+          <Route path='/register' element={<RegistrationPage />} />
+          <Route path='/calculator' element={<Calculator/>} />
+          
        
       </Routes>
      </div>
