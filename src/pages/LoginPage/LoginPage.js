@@ -4,6 +4,7 @@ import BackgroundM from 'components/BackgroundM/BackgroundM';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import Notiflix from 'notiflix';
+import Menu from '../../components/Menu/Menu'
 
 function ButtonLink({ to, children }) {
   return <Link to={to}><button>{children}</button></Link>;
@@ -53,6 +54,7 @@ const LoginPage = () => {
   
   return (
     <div className="login-container">
+      <Menu/>
       <BackgroundM />
       <h1>LOG IN</h1>
       <form onSubmit={handleSubmit}>

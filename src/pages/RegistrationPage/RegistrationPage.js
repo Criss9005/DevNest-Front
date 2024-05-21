@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import BackgroundM from 'components/BackgroundM/BackgroundM';
-
+import Menu from '../../components/Menu/Menu'
 
 function ButtonLink({ to, children }) {
   return <Link to={to}><button>{children}</button></Link>;
@@ -50,6 +50,7 @@ const RegistrationPage = () => {
   return (
     <div className="login-container">
       <BackgroundM />
+      <Menu/>
       <h1>REGISTER</h1>
       <form onSubmit={handleSubmit}>
         <label>
