@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import BackgroundM from 'components/BackgroundM/BackgroundM';
 
 function ButtonLink({ to, children }) {
   return <Link to={to}><button>{children}</button></Link>;
@@ -31,6 +32,7 @@ const RegistrationPage = () => {
 
   return (
     <div className="login-container">
+      <BackgroundM />
       <h1>REGISTER</h1>
       <form onSubmit={handleSubmit}>
         <label>
