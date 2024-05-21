@@ -4,10 +4,14 @@ import styles from './DailyCaloriesForm.module.css';
 import Button from '../Button/Button';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+<<<<<<< HEAD
 import Modal from '../Modal/Modal';
 import { useModal } from '../Modal/useModal';
 import css from '../Modal/modal.module.css';
 import { Link } from 'react-router-dom';
+=======
+import Modals from '../Modal/Modals'
+>>>>>>> bb6419c5f1a5eb151f6c4587b3eb575d88efc3a2
 
 
 function ButtonLink({ to, children }) {
@@ -105,6 +109,7 @@ function DailyCaloriesForm() {
                   className={styles['subtitle-error']}
                 />
               </div>
+<<<<<<< HEAD
 
               <div className={styles['calculate__field-wrapper']}>
                 <Field
@@ -260,6 +265,24 @@ function DailyCaloriesForm() {
           </Modal>
       )}
     </>
+=======
+            </div>
+            <Modals />
+            
+            <Button
+              id={'button-form'}
+              type="submit"
+              disabled={!(dirty && isValid && formik.values.bloodType)}
+              className={
+                !(dirty && isValid && formik.values.bloodType) ? 'disabled-btn' : ''
+              }
+              title={'Start losing weight'}
+            />
+          </Form>
+        );
+      }}
+    </Formik>
+>>>>>>> bb6419c5f1a5eb151f6c4587b3eb575d88efc3a2
   );
 }
 
