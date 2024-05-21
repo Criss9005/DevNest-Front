@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../components/StyleComponents.css';
+import BackgroundM from 'components/BackgroundM/BackgroundM';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import Notiflix from 'notiflix';
@@ -52,6 +53,7 @@ const LoginPage = () => {
   
   return (
     <div className="login-container">
+      <BackgroundM />
       <h1>LOG IN</h1>
       <form onSubmit={handleSubmit}>
         <label>

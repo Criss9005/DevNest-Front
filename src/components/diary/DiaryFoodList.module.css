@@ -1,0 +1,157 @@
+/* Estilos generales */
+.container {
+    padding: 20px;
+  }
+  
+  /* Estilos para la tabla */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  th, td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Estilos para el botón de agregar */
+  .addButtonContainer {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+  }
+  .addButton {
+    width: auto;
+    padding: 10px 15px;
+    background-color: #fc842d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para la sección de agregar alimento */
+  .addFoodSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+  }
+  
+  .addFoodSection input[type="text"] {
+    width: calc(80% - 5px);
+    margin-right: 5px;
+    padding: 10px;
+  }
+  
+  .addFoodSection button {
+    width: 55%;
+    height: 40px;
+    margin-top: 0px;
+  }
+  
+  /* Estilos para el botón de volver */
+  .backButton {
+    margin-top: 10px;
+  }
+  
+  .backButton button {
+    background-color: transparent;
+    border: none;
+  }
+  
+  .backButton button svg {
+    color: black;
+    width: 20px;
+    height: 20px;
+  }
+
+/* Estilo para pantalla completa */
+.fullScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(250, 250, 250); /* Fondo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo para la sección de agregar comida */
+.inputField {
+  margin: 10px 0;
+  padding: 10px;
+  width: 80%;
+  max-width: 300px;
+  font-size: 16px;
+}
+.backButtonContainer {
+  width: 100vw;
+  display: flex;
+  justify-content: flex-start;
+}
+.backButton {
+  font-size: 20px; 
+  color: black;
+  cursor: pointer;
+  margin: 16px;
+  top: 38px;
+  position: absolute;
+}
+
+/* Media queries para tablet y desktop */
+@media (min-width: 768px) {
+  .addFoodSection {
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    z-index: auto;
+    display: flow-root;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .addFoodSection input[type="text"] {
+    width: auto;
+    margin-right: 5px;
+    margin-bottom: 10px;
+  }
+
+  .addFoodSection button {
+    width: auto;
+    margin-top: 10px;
+  }
+  .addButton {
+    display: none;
+  }
+  .backButton {
+    display: none;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .addFoodSection input[type="text"] {
+    width: 400px;
+  }
+}
