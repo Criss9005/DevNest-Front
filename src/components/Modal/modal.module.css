@@ -16,6 +16,7 @@ li {
 
 .foodNotEat{
   text-align: left;
+  margin-bottom: 10px;
   font-size: 14px;
   font-weight: 700;
   color: rgba(33, 33, 33, 1);
@@ -23,6 +24,7 @@ li {
 }
 
 .numberCal{
+  margin: 10px;
   font-size: 48px;
   font-weight: 700;
   color: rgba(38, 64, 97, 1);
