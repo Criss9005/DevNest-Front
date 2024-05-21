@@ -21,9 +21,17 @@
   }
   
   /* Estilos para el botón de agregar */
+  .addButtonContainer {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+  }
   .addButton {
+    width: auto;
     padding: 10px 15px;
-    background-color: orange;
+    background-color: #fc842d;
     color: white;
     border: none;
     border-radius: 50%;
@@ -33,18 +41,29 @@
   
   /* Estilos para la sección de agregar alimento */
   .addFoodSection {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
   }
   
   .addFoodSection input[type="text"] {
-    width: calc(50% - 5px);
+    width: calc(80% - 5px);
     margin-right: 5px;
     padding: 10px;
   }
   
   .addFoodSection button {
-    width: 45%;
-    margin-top: 10px;
+    width: 55%;
+    height: 40px;
+    margin-top: 0px;
   }
   
   /* Estilos para el botón de volver */
@@ -63,9 +82,6 @@
     height: 20px;
   }
 
-  
-/* DiaryFoodList.module.css */
-
 /* Estilo para pantalla completa */
 .fullScreen {
   position: fixed;
@@ -80,6 +96,62 @@
 }
 
 /* Estilo para la sección de agregar comida */
-.addFoodSection {
-  
+.inputField {
+  margin: 10px 0;
+  padding: 10px;
+  width: 80%;
+  max-width: 300px;
+  font-size: 16px;
+}
+.backButtonContainer {
+  width: 100vw;
+  display: flex;
+  justify-content: flex-start;
+}
+.backButton {
+  font-size: 20px; 
+  color: black;
+  cursor: pointer;
+  margin: 16px;
+  top: 38px;
+  position: absolute;
+}
+
+/* Media queries para tablet y desktop */
+@media (min-width: 768px) {
+  .addFoodSection {
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    z-index: auto;
+    display: flow-root;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .addFoodSection input[type="text"] {
+    width: auto;
+    margin-right: 5px;
+    margin-bottom: 10px;
+  }
+
+  .addFoodSection button {
+    width: auto;
+    margin-top: 10px;
+  }
+  .addButton {
+    display: none;
+  }
+  .backButton {
+    display: none;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .addFoodSection input[type="text"] {
+    width: 400px;
+  }
 }
