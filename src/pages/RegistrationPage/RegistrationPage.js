@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
-import '../StyleComponents.css';
-import { Link } from 'react-router-dom';
 
-import BackgroundM from 'components/BackgroundM/BackgroundM';
-
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Notiflix from 'notiflix';
+import BackgroundM from 'components/BackgroundM/BackgroundM';
+import Menu from '../../components/Menu/Menu'
 
 function ButtonLink({ to, children }) {
   return <Link to={to}><button>{children}</button></Link>;
 }
 
-
-const LoginPage = () => {
+const RegistrationPage = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+   const navigate = useNavigate();
+
+  const handleNameChange = event => {
+    setName(event.target.value);
+  };
 
   const handleEmailChange = event => {
     setEmail(event.target.value);
@@ -23,32 +28,41 @@ const LoginPage = () => {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
-    axios.post(`https://devnest-back-1.onrender.com/api/auth/login`, {
+    axios.post(`https://devnest-back-1.onrender.com/api/auth/register`, {
       email: email,
-      password: password
+      password: password,
+      username: name
     })
       .then(response => {
         const data = response.data
-       console.log(data)
+        console.log(data)
+        navigate('/login');
+        Notiflix.Notify.success('Successful Registration');
         
       })
       .catch(e => { 
         console.log(e)
       })
-    
   };
 
   return (
     <div className="login-container">
       <BackgroundM />
-      <h1>LOG IN</h1>
+      <Menu/>
+      <h1>REGISTER</h1>
       <form onSubmit={handleSubmit}>
+        <label>
+          Name *
+          <br />
+          <input type="text" value={name} onChange={handleNameChange}  required/>
+        </label>
+        <br />
         <label>
           Email *
           <br />
-          <input type="email" value={email} onChange={handleEmailChange} required/>
+          <input type="email" value={email} onChange={handleEmailChange}  required/>
         </label>
         <br />
         <label>
@@ -63,13 +77,13 @@ const LoginPage = () => {
         </label>
 
         <div className="div_button">
-          <button type="submit">Log in</button>
-          <ButtonLink className="register-button" to="/register">Register</ButtonLink>
+          <button type="submit">Register</button>
           
+          <ButtonLink className="login-button" to="/login">Log in</ButtonLink>
         </div>
       </form>
     </div>
   );
 };
 
-export default LoginPage;
+export default RegistrationPage;

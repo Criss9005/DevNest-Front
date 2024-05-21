@@ -61,6 +61,7 @@ const Diary = () => {
       setIsLoading(false);
     }
   };
+
   useEffect(() => {
     console.log('hola', date);
     getFoodList();
