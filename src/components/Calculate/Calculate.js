@@ -25,7 +25,7 @@ export default function CalculatorDailyCalories(props){
     return(
         <div className={styles['calculate__field']}>
 
-            <div>
+            <div className={styles['calculate__field__summary']}>
                 <h4 className= {styles['titles']}>Summary for {" 13.08.2023"}</h4>
                 <ul className={styles['summary__ul']}>
                     <li>
@@ -52,7 +52,7 @@ export default function CalculatorDailyCalories(props){
 
                 </ul>
             </div>
-            <div>
+            <div  className={styles['calculate__field__summary_food']}>
                 <h4 className= {styles['titles']}>Food not recommended</h4>
                 <ul className= {styles['food']}>
                     <li>Your diet will be displayed here</li>
