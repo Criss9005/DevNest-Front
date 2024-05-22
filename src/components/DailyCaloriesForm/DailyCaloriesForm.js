@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './DailyCaloriesForm.module.css';
 import Button from '../Button/Button';
@@ -47,7 +47,7 @@ const validationSchema = yup.object().shape({
 function DailyCaloriesForm() {
   const [result, setResult] = useState(null);
   const [isOpen, openModal, closeModal] = useModal(false);
-  let ag = ''
+  
     const handleFormSubmit = async values => {
       try {
 
@@ -67,17 +67,7 @@ function DailyCaloriesForm() {
     }
   };
 
-  useEffect(() => { 
-    const no_user = JSON.parse(localStorage.getItem('CAL_NO_USER'));
-    
-    if (no_user) {
-      ag = no_user.age
-      
-      }
-      console.log(no_user)
-
-    
-  })
+ 
 
   return (
     <>
