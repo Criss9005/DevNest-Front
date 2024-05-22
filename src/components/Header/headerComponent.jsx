@@ -16,7 +16,7 @@ export default function Header({ isAuthenticated, username, handleLogout }) {
   };
 
   const handleRegistrationClick = () => {
-    navigate('/registration');
+    navigate('/register');
   };
 
   const handleMenuClick = () => {};
@@ -33,15 +33,20 @@ export default function Header({ isAuthenticated, username, handleLogout }) {
       <section className={css.sectionRegister}>
         {!isAuthenticated ? (
           <>
-            <button className={css.buttonLogin} onClick={handleLoginClick}>
+            <buttonLink
+              className={css.buttonLogin}
+              onClick={handleLoginClick}
+              to="/login"
+            >
               LOGIN
-            </button>
-            <button
+            </buttonLink>
+            <buttonLink
               className={css.buttonLogin}
               onClick={handleRegistrationClick}
+              to="/register"
             >
               REGISTRATION
-            </button>
+            </buttonLink>
           </>
         ) : (
           <>
