@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/DevNest-Front/static/css/main.e4634815.css",
-    "main.js": "/DevNest-Front/static/js/main.62a374b1.js",
+    "main.css": "/DevNest-Front/static/css/main.a990064d.css",
+    "main.js": "/DevNest-Front/static/js/main.8ce4bb60.js",
     "static/media/strawberry.png": "/DevNest-Front/static/media/strawberry.710d7026c4b284b6be95.png",
     "static/media/banana.png": "/DevNest-Front/static/media/banana.2da01581a1ed4f4189b1.png",
     "static/media/leaves_desktop.png": "/DevNest-Front/static/media/leaves_desktop.6594c140e7b671a5a24c.png",
@@ -11,11 +11,11 @@
     "index.html": "/DevNest-Front/index.html",
     "static/media/main_vector.svg": "/DevNest-Front/static/media/main_vector.c655d736b7c28331ec143c1de45f86c8.svg",
     "static/media/Menu.svg": "/DevNest-Front/static/media/Menu.ad1b9ef925490361f5d1248d4b29075f.svg",
-    "main.e4634815.css.map": "/DevNest-Front/static/css/main.e4634815.css.map",
-    "main.62a374b1.js.map": "/DevNest-Front/static/js/main.62a374b1.js.map"
+    "main.a990064d.css.map": "/DevNest-Front/static/css/main.a990064d.css.map",
+    "main.8ce4bb60.js.map": "/DevNest-Front/static/js/main.8ce4bb60.js.map"
   },
   "entrypoints": [
-    "static/css/main.e4634815.css",
-    "static/js/main.62a374b1.js"
+    "static/css/main.a990064d.css",
+    "static/js/main.8ce4bb60.js"
   ]
 }
