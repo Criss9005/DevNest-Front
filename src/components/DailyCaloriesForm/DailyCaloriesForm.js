@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './DailyCaloriesForm.module.css';
 import Button from '../Button/Button';
@@ -229,7 +229,6 @@ function DailyCaloriesForm() {
 
               <Button
                 id={'button-form'}
-                data-keyboard="true"
                 type="submit"
                 disabled={!(dirty && isValid && formik.values.bloodType)}
                 className={
@@ -244,8 +243,10 @@ function DailyCaloriesForm() {
         }}
       </Formik>
 
+      
+
       {result && (
-        <Modal isOpen={isOpen} closeModal={closeModal} tabindex='-1'>
+        <Modal isOpen={isOpen} closeModal={closeModal}>
           <h3 className={css.titlemodal}>
             Your recommended daily calorie intake is
           </h3>
@@ -260,6 +261,7 @@ function DailyCaloriesForm() {
           </Modal>
       )}
     </>
-)}
+  );
+}
 
 export default DailyCaloriesForm;

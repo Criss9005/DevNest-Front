@@ -1,0 +1,14 @@
+/* Media queries para tablet y desktop */
+@media (min-width: 768px) {
+    /* Ajustes para tablet */
+    
+    h3 {
+      /* width: 300px; Ancho fijo para tablet */
+      /* position: absolute; */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    
+    
+  }
