@@ -1,4 +1,7 @@
 
+.main__container{
+    width: 100%;
+}
 .calculate__field {
     height: auto;
     padding: 8px 0;
