@@ -68,12 +68,14 @@
 
   .slimMon {
     display: none;
+    
   }
 
   .logo {
     width: 46px;
     height: 44px;
     margin-left: 10px;
+    cursor: pointer;
   }
 
   .sectionRegister {
@@ -126,10 +128,12 @@
     width: 46.67px;
     height: 44px;
     margin-left: 12px;
+    cursor: pointer;
   }
   .slimMon {
     display: flex;
     margin-left: -154px;
+    cursor: pointer;
   }
 
   .slim {
@@ -141,6 +145,7 @@
     width: 52.51px;
     margin-left: -16px;
     color: orange;
+    
   }
 
   .userInfo {
@@ -169,12 +174,14 @@
     height: 66px;
     margin-top: 70.25px;
     margin-left: 20px;
+    cursor: pointer;
   }
 
   .slimMon {
     display: flex;
     margin-top: 105px;
     margin-left: -10px;
+    cursor: pointer;
   }
 
   .mom {

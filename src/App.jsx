@@ -33,9 +33,7 @@ export const App = () => {
         />
         <Routes>
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
-          <Route
-            path="/registration"
-            element={<Registration handleLogin={handleLogin} />}
+          <Route path="/registration" element={<Registration handleLogin={handleLogin} />}
           />
         </Routes>
       </div>
