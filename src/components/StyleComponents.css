@@ -33,6 +33,7 @@ input {
 }
 
 button {
+  margin: 20px;
   width: 181px;
   height: 44px;
   margin: 20px 32px 20px 0px;

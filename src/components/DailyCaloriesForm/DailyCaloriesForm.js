@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './DailyCaloriesForm.module.css';
 import Button from '../Button/Button';
@@ -260,18 +260,20 @@ function DailyCaloriesForm() {
         }}
       </Formik>
 
+      
+
       {result && (
         <Modal isOpen={isOpen} closeModal={closeModal}>
           <h3 className={css.titlemodal}>
             Your recommended daily calorie intake is
           </h3>
-          <p>{result.dailyCalorieIntake}</p>
-          <h4>Foods you should not eat</h4>
+          <p className={css.numberCal}>{result.dailyCalorieIntake}</p>
+          <h4 className={css.foodNotEat}>Foods you should not eat</h4>
           <ul>
             {result.nonRecommendedFoods.map((food, index) => (
-              <li key={index}>
-                {food}
-              </li>
+
+              <li className={css.liFood}key={index}> {index + 1}. {food}</li>
+
             ))}
           </ul>
           
