@@ -1,0 +1,56 @@
+.menuCont {
+  margin-top: 160px;
+  display: flex;
+  margin-left: 20px;
+}
+
+.menuLogged {
+  display: flex;
+  color: #9b9faa;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17.01px;
+  letter-spacing: 0.04em;
+  text-align: right;
+  margin-left: 190px;
+  margin-top: -14px;
+}
+
+.btnsMen {
+  text-decoration: none;
+}
+
+.btnDia {
+  text-decoration: none;
+  color: #9b9faa;
+}
+
+.btnDia:hover {
+  color: #212121;
+}
+
+.btnCal {
+  text-decoration: none;
+  color: #9b9faa;
+  margin-left: 22px;
+}
+
+.btnCal:hover {
+  color: #212121;
+}
+
+@media (max-width: 768px) {
+  .menuNav {
+    border-bottom: 2px solid #e0e0e0;
+    width: 768px;
+  }
+  .menuCont {
+    margin-top: 6px;
+    margin-bottom: 8px;
+    margin-left: 40px;
+  }
+
+  .menuLogged {
+    display: none;
+  }
+}
