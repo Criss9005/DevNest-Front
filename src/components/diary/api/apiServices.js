@@ -41,7 +41,7 @@ const removeFoodRegister = async id => {
 
 const searchFood = async query => {
   const instance = axios.create({
-    baseURL: 'http://localhost:5000/api/products',
+    baseURL: 'https://devnest-back-1.onrender.com/api/products',
     headers: {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/Json',
