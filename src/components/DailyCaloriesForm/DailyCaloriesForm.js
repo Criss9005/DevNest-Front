@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './DailyCaloriesForm.module.css';
 import Button from '../Button/Button';
@@ -67,17 +67,7 @@ function DailyCaloriesForm() {
     }
   };
 
-  useEffect(() => { 
-    const no_user = JSON.parse(localStorage.getItem('CAL_NO_USER'));
-    
-    if (no_user) {
-      ag = no_user.age
-      
-      }
-      console.log(no_user)
-
-    
-  })
+  
 
   return (
     <>
