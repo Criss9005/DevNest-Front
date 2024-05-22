@@ -65,7 +65,7 @@ const Diary = () => {
   useEffect(() => {
     console.log('hola', date);
     getFoodList();
-  });
+  },[date] );
 
   return (
     <div className={styles.diaryContainer}>

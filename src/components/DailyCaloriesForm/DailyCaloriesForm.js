@@ -10,7 +10,15 @@ import css from '../Modal/modal.module.css';
 import { Link } from 'react-router-dom';
 
 
-function ButtonLink({ to, children }) {
+function ButtonLink({ children }) {
+  let to = ''
+  let isLogged = localStorage.getItem('USER')
+  if (isLogged) {
+    to = '/diary'
+  }
+  else { 
+    to = '/register'
+  }
   return <Link to={to}><button>{children}</button></Link>;
 }
 const validationSchema = yup.object().shape({
@@ -46,8 +54,9 @@ const validationSchema = yup.object().shape({
 function DailyCaloriesForm() {
   const [result, setResult] = useState(null);
   const [isOpen, openModal, closeModal] = useModal(false);
+   
 
-  const handleFormSubmit = async values => {
+    const handleFormSubmit = async values => {
     try {
       const response = await axios.get(
         'https://devnest-back-1.onrender.com/api/products/public/daily-intake',
@@ -253,12 +262,14 @@ function DailyCaloriesForm() {
           <ul>
             {result.nonRecommendedFoods.map((food, index) => (
               <li key={index}>
-                {index}
                 {food}
               </li>
             ))}
           </ul>
-          <ButtonLink className={css.startlose} to="/register">Start losing weight</ButtonLink>
+          
+         <ButtonLink className={css.startlose}>Start losing weight</ButtonLink>
+          
+          
           </Modal>
       )}
     </>
