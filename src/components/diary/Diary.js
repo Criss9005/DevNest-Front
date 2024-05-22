@@ -4,6 +4,7 @@ import DiaryFoodList from './DiaryFoodList';
 import DiarySummary from './DiarySummary';
 import styles from './Diary.module.css';
 import { getConsumedFoods, removeFoodRegister } from './api/apiServices';
+const userInfo = JSON.parse(localStorage.getItem('USER'));
 
 function getLocalDate() {
   const today = new Date();
@@ -12,26 +13,42 @@ function getLocalDate() {
     return num < 10 ? `0${num}` : num;
   }
 
-  const localTime = new Date(
-    today.getTime() - today.getTimezoneOffset() * 60000
-  );
-
-  const day = addZero(localTime.getDate());
-  const month = addZero(localTime.getMonth() + 1);
-  const year = localTime.getFullYear();
+  const day = addZero(today.getDate());
+  const month = addZero(today.getMonth() + 1);
+  const year = today.getFullYear();
 
   return `${day}-${month}-${year}`;
 }
+
+// function getLocalDate() {
+//   const today = new Date();
+
+//   function addZero(num) {
+//     return num < 10 ? `0${num}` : num;
+//   }
+
+//   const localTime = new Date(
+//     today.getTime() - today.getTimezoneOffset() * 60000
+//   );
+
+//   const day = addZero(localTime.getDate());
+//   const month = addZero(localTime.getMonth() + 1);
+//   const year = localTime.getFullYear();
+
+//   return `${day}-${month}-${year}`;
+// }
 
 const Diary = () => {
   const [consumedCalories, setConsumedCalories] = useState(0);
   const [foodList, setFoodList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [date, setDate] = useState(getLocalDate());
-  const idUser = '123456asd'; // Id usuario que inicia sesión.
+  const idUser = userInfo.user.id; // Id usuario que inicia sesión.
 
   const addFoodToList = food => {
-    setFoodList([...foodList, ...food]);
+    console.log(food);
+    if (Array.isArray(food)) setFoodList([...foodList, ...food]);
+    else setFoodList([...foodList, { ...food, name: food.productName }]);
     setConsumedCalories(consumedCalories + food.calories);
   };
 
@@ -50,22 +67,23 @@ const Diary = () => {
     }
   };
 
-  const getFoodList = async () => {
-    setIsLoading(true);
-    try {
-      const result = await getConsumedFoods(idUser, date);
-      addFoodToList(result);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   useEffect(() => {
-    console.log('hola', date);
-    getFoodList();
-  });
+    console.log(date);
+    // setDate(getLocalDate());
+    // const getFoodList = async () => {
+    //   setIsLoading(true);
+    //   try {
+    //     const result = await getConsumedFoods(idUser, date);
+    //     addFoodToList(result);
+    //   } catch (error) {
+    //     console.log(error);
+    //   } finally {
+    //     setIsLoading(false);
+    //   }
+    // };
+    // // console.log('hola', date);
+    // getFoodList();
+  }, [date]);
 
   return (
     <div className={styles.diaryContainer}>
@@ -80,6 +98,7 @@ const Diary = () => {
             foodList={foodList}
             addFoodToList={addFoodToList}
             removeFoodFromList={removeFoodFromList}
+            date={date}
           />
         )}
       </div>

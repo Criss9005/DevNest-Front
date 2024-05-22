@@ -1,7 +1,8 @@
 import axios from 'axios';
 import apiConfig from './apiConfig';
-const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NGFjNmYwMGE1NWM1NDU5ODg5ZmZiYiIsImlhdCI6MTcxNjE3NjYyNCwiZXhwIjoxNzE2MTgwMjI0fQ.mjYOn_yc-7KZblqgBc79sZNxVXzmAinGAf45EnrP6UA';
+const userInfo = JSON.parse(localStorage.getItem('USER'));
+console.log(userInfo);
+const token = userInfo.accesToken;
 
 axios.defaults.baseURL = apiConfig;
 axios.defaults.headers.common['Content-Type'] = 'application/json';
@@ -38,4 +39,18 @@ const removeFoodRegister = async id => {
   return result;
 };
 
-export { getConsumedFoods, addConsumedFood, removeFoodRegister };
+const searchFood = async query => {
+  const instance = axios.create({
+    baseURL: 'http://localhost:5000/api/products',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/Json',
+    },
+    timeout: 6000,
+  });
+  const result = instance.get(`/search?query=${query}`);
+  console.log(result);
+  return result;
+};
+
+export { getConsumedFoods, addConsumedFood, removeFoodRegister, searchFood };
