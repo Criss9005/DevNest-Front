@@ -84,7 +84,7 @@ function DailyCaloriesForm() {
       <Formik
         initialValues={{
         height: '',
-        age: ag.toString(),
+        age: '',
         currentWeight: '',
         desiredWeight: '',
         bloodType: '1',
