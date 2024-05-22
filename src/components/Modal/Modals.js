@@ -4,9 +4,12 @@ import { useModal } from './useModal';
 import css from './styles/modal.module.css';
 import { Link } from 'react-router-dom';
 
-
 function ButtonLink({ to, children }) {
-  return <Link to={to}><button>{children}</button></Link>;
+  return (
+    <Link to={to}>
+      <button>{children}</button>
+    </Link>
+  );
 }
 const Modals = ({ result }) => {
   const [isOpen, openModal, closeModal] = useModal(false);
@@ -31,9 +34,9 @@ const Modals = ({ result }) => {
             </ul>
           </>
         )}
-        <ButtonLink className={css.startlose} to="/register">Start losing weight</ButtonLink>
-        
-
+        <ButtonLink className={css.startlose} to="/register">
+          Start losing weight
+        </ButtonLink>
       </Modal>
     </div>
   );
