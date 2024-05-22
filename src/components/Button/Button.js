@@ -19,7 +19,7 @@ function Button({ id, title, type, disabled = false, className, onClose }) {
     return (
         <button id={styles[id]} disabled={disabled} type={type} className={styles[className]} onClick={() => { 
             const oli = onClose
-            handleValidate()
+            handleValidate(oli)
         }
              }>{title}</button>
     )

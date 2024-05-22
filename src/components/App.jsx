@@ -2,7 +2,6 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Suspense } from 'react';
 import MainPage from '../pages/MainPage/MainPage';
-import Header from '../components/Header/headerComponent.jsx';
 
 import LoginPage from '../pages/LoginPage/LoginPage';
 import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
