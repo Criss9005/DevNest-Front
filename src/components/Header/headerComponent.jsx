@@ -10,11 +10,16 @@ export default function Header({ handleLogout }) {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log('running');
     const user = JSON.parse(localStorage.getItem('user'));
+    console.log('user from localStorage:', user);
+
     if (user && user.token) {
+      console.log('is authenticated');
       setIsAuthenticated(true);
       setUsername(user.username);
     } else {
+      console.log('is not authenticated');
       setIsAuthenticated(false);
       setUsername('');
     }
@@ -32,9 +37,12 @@ export default function Header({ handleLogout }) {
     navigate('/register');
   };
 
-  const handleMenuClick = () => {
-    // Lógica para el menú
-  };
+  const handleMenuClick = () => {};
+
+  console.log('Rendering Header component with:', {
+    isAuthenticated,
+    username,
+  });
 
   return (
     <header className={css.headercontaineer}>
