@@ -6,7 +6,7 @@ import MainPage from '../pages/MainPage/MainPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
 import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
 import Calculator from 'pages/Calculator/Calculator';
-import Diary from '../components/diary/Diary';
+import Diary from './Calculate/DiaryAddCalculate';
 
 const App = () => {
   return (

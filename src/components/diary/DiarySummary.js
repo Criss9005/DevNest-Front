@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 
 const DiarySummary = () => {
   return (
@@ -10,3 +10,4 @@ const DiarySummary = () => {
 };
 
 export default DiarySummary;
+ */
