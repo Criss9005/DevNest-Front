@@ -26,7 +26,7 @@ export default function Header({ isAuthenticated, username, handleLogout }) {
       <section onClick={handleLogoClick}>
         <img className={css.logo} src={logo} alt="logo_empresa" />
       </section>
-      <section className={css.slimMon}>
+      <section className={css.slimMon} onClick={handleLogoClick}>
         <p className={css.slim}>Slim</p>
         <p className={css.mom}>Mom</p>
       </section>

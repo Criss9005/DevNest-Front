@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DiaryCalendar from './DiaryCalendar';
 import DiaryFoodList from './DiaryFoodList';
-import DiarySummary from './DiarySummary';
+/* import DiarySummary from './DiarySummary'; */
 import styles from './Diary.module.css';
 import { getConsumedFoods, removeFoodRegister } from './api/apiServices';
 
@@ -84,9 +84,9 @@ const Diary = () => {
           />
         )}
       </div>
-      <div className={styles.summarySection}>
+    {/*   <div className={styles.summarySection}>
         <DiarySummary consumedCalories={consumedCalories} />
-      </div>
+      </div> */}
     </div>
   );
 };
