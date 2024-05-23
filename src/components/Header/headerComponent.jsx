@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import css from './styles.module.css';
 import logo from '../../images/Logo.png';
 import menuIcon from '../../images/Menu.svg';
 
-export default function Header({ isAuthenticated, username, handleLogout }) {
+export default function Header({ handleLogout }) {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [username, setUsername] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log('running');
+    const user = JSON.parse(localStorage.getItem('user'));
+    console.log('user from localStorage:', user);
+
+    if (user && user.token) {
+      console.log('is authenticated');
+      setIsAuthenticated(true);
+      setUsername(user.username);
+    } else {
+      console.log('is not authenticated');
+      setIsAuthenticated(false);
+      setUsername('');
+    }
+  }, []);
 
   const handleLogoClick = () => {
     navigate('/');
@@ -21,6 +39,11 @@ export default function Header({ isAuthenticated, username, handleLogout }) {
 
   const handleMenuClick = () => {};
 
+  console.log('Rendering Header component with:', {
+    isAuthenticated,
+    username,
+  });
+
   return (
     <header className={css.headercontaineer}>
       <section onClick={handleLogoClick}>
@@ -33,23 +56,18 @@ export default function Header({ isAuthenticated, username, handleLogout }) {
       <section className={css.sectionRegister}>
         {!isAuthenticated ? (
           <>
-            <buttonLink
-              className={css.buttonLogin}
-              onClick={handleLoginClick}
-              to="/login"
-            >
+            <button className={css.buttonLogin} onClick={handleLoginClick}>
               LOGIN
-            </buttonLink>
-            <buttonLink
+            </button>
+            <button
               className={css.buttonLogin}
               onClick={handleRegistrationClick}
-              to="/register"
             >
               REGISTRATION
-            </buttonLink>
+            </button>
           </>
         ) : (
-          <>
+          <section>
             <div className={css.userInfo}>{username.slice(0, 3)}</div>
             <button className={css.buttonLogout} onClick={handleLogout}>
               Exit
@@ -57,7 +75,7 @@ export default function Header({ isAuthenticated, username, handleLogout }) {
             <button className={css.menuButton} onClick={handleMenuClick}>
               <img src={menuIcon} alt="menu icon" className={css.menuIcon} />
             </button>
-          </>
+          </section>
         )}
       </section>
     </header>
