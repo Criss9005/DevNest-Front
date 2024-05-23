@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import css from './styles.module.css';
 import logo from '../../images/Logo.png';
@@ -50,13 +50,15 @@ export default function Header({ isAuthenticated, username, handleLogout }) {
           </>
         ) : (
           <>
-            <div className={css.userInfo}>{username.slice(0, 3)}</div>
-            <button className={css.buttonLogout} onClick={handleLogout}>
-              Exit
-            </button>
-            <button className={css.menuButton} onClick={handleMenuClick}>
-              <img src={menuIcon} alt="menu icon" className={css.menuIcon} />
-            </button>
+            <section>
+              <div className={css.userInfo}>{username.slice(0, 3)}</div>
+              <button className={css.buttonLogout} onClick={handleLogout}>
+                Exit
+              </button>
+              <button className={css.menuButton} onClick={handleMenuClick}>
+                <img src={menuIcon} alt="menu icon" className={css.menuIcon} />
+              </button>
+            </section>
           </>
         )}
       </section>
