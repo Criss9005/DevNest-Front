@@ -1,7 +1,8 @@
 @import '../assets/styles/colors.css';
 
 .calculate__form {
-  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 768px) {
@@ -10,8 +11,6 @@
     flex-wrap: wrap;
     width: 640px;
     grid-column-gap: 30px;
-    margin-left: 25px;
-    margin-top: 180px;
   }
 }
 
@@ -59,11 +58,6 @@
   .calculate__radio-wrapper {
     width: 100%;
   }
-}
-
-.calculate__form-title {
-  font-weight: 700;
-  font-size: 34px;
 }
 
 #blood-group {
@@ -228,11 +222,13 @@
 /*Nuevo*/
 
 .calculate__form-title {
+  font-family: 'Verdana', sans-serif;
+  font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 26px;
   color: var(--text-second);
-  margin-top: -150px;
+  margin-top: 0;
   margin-bottom: 20px;
   width: 280px;
   padding-bottom: 20px;

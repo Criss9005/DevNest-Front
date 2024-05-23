@@ -1,24 +1,17 @@
+//import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
-import css from './styles.module.css';
+
+
 
 const MenuLogged = () => {
-  return (
-    <nav className={css.menuNav}>
-      <Link to="/">
-        <img className={css.menuCont} src={logo} alt="Logo" />
-      </Link>
-      <ul className={css.menuLogged}>
-        <li>
-          <Link className={css.btnDia} to="/diary">
-            DIARY
-          </Link>
-        </li>
-        <li>
-          <Link className={css.btnCal} to="/calculator">
-            CALCULATOR
-          </Link>
-        </li>
+
+   return (
+    <nav className="menu">
+      <Link to="/"><img src={logo} alt="Logo" /></Link>
+      <ul>
+        <li><Link to="/diary">DIARY</Link></li>
+        <li><Link to="/calculator">CALCULATOR</Link></li>
       </ul>
     </nav>
   );
