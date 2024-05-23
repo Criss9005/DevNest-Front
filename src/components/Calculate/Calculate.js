@@ -5,7 +5,7 @@ import axios from 'axios';
 const handleCalcuateDay = async values => {
     try {
       const response = await axios.get(
-        'https://devnest-back-1.onrender.com/api/todaySummary/{idUser}/{date}',
+        'https://devnest-back-1.onrender.com/api/products/private/saved-daily-intake',
         {
           params: values,
         }
