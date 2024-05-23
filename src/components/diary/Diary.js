@@ -1,9 +1,9 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import DiaryCalendar from './DiaryCalendar';
 import DiaryFoodList from './DiaryFoodList';
 /* import DiarySummary from './DiarySummary'; */
 import styles from './Diary.module.css';
-import { removeFoodRegister } from './api/apiServices';
+import { getConsumedFoods, removeFoodRegister } from './api/apiServices';
 
 function getLocalDate() {
   const today = new Date();
@@ -12,9 +12,13 @@ function getLocalDate() {
     return num < 10 ? `0${num}` : num;
   }
 
-  const day = addZero(today.getDate());
-  const month = addZero(today.getMonth() + 1);
-  const year = today.getFullYear();
+  const localTime = new Date(
+    today.getTime() - today.getTimezoneOffset() * 60000
+  );
+
+  const day = addZero(localTime.getDate());
+  const month = addZero(localTime.getMonth() + 1);
+  const year = localTime.getFullYear();
 
   return `${day}-${month}-${year}`;
 }
@@ -22,56 +26,65 @@ function getLocalDate() {
 const Diary = () => {
   const [consumedCalories, setConsumedCalories] = useState(0);
   const [foodList, setFoodList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [date, setDate] = useState(getLocalDate());
-  const addFoodToList = useCallback(food => {
-    if (Array.isArray(food))
-      if (!food.length) {
-        setFoodList([]);
-      } else {
-        setFoodList(prevFoodList => [...prevFoodList, ...food]);
-      }
-    else
-      setFoodList(prevFoodList => [
-        ...prevFoodList,
-        { ...food, name: food.productName },
-      ]);
-    setConsumedCalories(prevCalories => prevCalories + food.calories);
-  }, []);
+  const idUser = '123456asd'; // Id usuario que inicia sesión.
+
+  const addFoodToList = food => {
+    setFoodList([...foodList, ...food]);
+    setConsumedCalories(consumedCalories + food.calories);
+  };
 
   const removeFoodFromList = async foodToRemove => {
+    console.log(JSON.stringify(foodToRemove) + 'food to remove');
     try {
       const response = await removeFoodRegister(foodToRemove.id);
-      if (response.status === 200) {
-        const updatedFoodList = foodList.filter(
-          food => food.id !== foodToRemove.id
-        );
-        setFoodList(updatedFoodList);
-        setConsumedCalories(consumedCalories - foodToRemove.calories);
-      }
+      console.log(response);
+      const updatedFoodList = foodList.filter(
+        food => food.id !== foodToRemove.id
+      );
+      setFoodList(updatedFoodList);
+      setConsumedCalories(consumedCalories - foodToRemove.calories);
     } catch (error) {
       console.log(error);
     }
   };
 
-  // useEffect(() => {
-  //   console.log(date);
-  // }, [date]);
+  const getFoodList = async () => {
+    setIsLoading(true);
+    try {
+      const result = await getConsumedFoods(idUser, date);
+      addFoodToList(result);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
+  useEffect(() => {
+    console.log('hola', date);
+    getFoodList();
+  });
+  
+ 
   return (
     <div className={styles.diaryContainer}>
       <div className={styles.calendarSection}>
         <DiaryCalendar setDate={setDate} setFoodList={setFoodList} />
       </div>
       <div className={styles.foodListSection}>
-        <DiaryFoodList
-          foodList={foodList}
-          addFoodToList={addFoodToList}
-          setFoodList={setFoodList}
-          removeFoodFromList={removeFoodFromList}
-          date={date}
-        />
+        {isLoading ? (
+          <div>Loading... </div>
+        ) : (
+          <DiaryFoodList
+            foodList={foodList}
+            addFoodToList={addFoodToList}
+            removeFoodFromList={removeFoodFromList}
+          />
+        )}
       </div>
-      {/*   <div className={styles.summarySection}>
+    {/*   <div className={styles.summarySection}>
         <DiarySummary consumedCalories={consumedCalories} />
       </div> */}
     </div>
