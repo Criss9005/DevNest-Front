@@ -194,11 +194,12 @@
     margin-left: 10px;
   }
 
+  .userInfo {
+    background: #212121;
+  }
+
   .buttonLogin {
     background: none;
     border: none;
   }
 }
-
-/* 
-fill="#212121" */
