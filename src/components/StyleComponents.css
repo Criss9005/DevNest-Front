@@ -5,15 +5,15 @@
   }
 }
 .login-container {
-  max-width: 600px;
-  margin: 16px;
+  padding-left: 16px;
+  
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h1 {
   font-size: 14px;
   color: #fc842d;
-  margin: 150px 0px 55px;
+  margin: 0px 0px 55px;
 }
 
 label {
@@ -50,16 +50,9 @@ button:hover {
   box-shadow: 0px 4px 10px 0px hsla(25, 97%, 58%, 0.5);
 }
 
-/* TABLET */
-@media screen and (max-width: 768px) {
-  h1 {
-    font-size: 20px;
-    margin-top: 150px;
-  }
-}
 
 /* MOBILE */
-@media screen and (max-width: 400px) {
+@media screen and (min-width: 400px) {
   .container {
     margin: auto;
     width: 100vw;
@@ -68,6 +61,7 @@ button:hover {
   h1 {
     font-size: 20px;
     margin: 56px 0px 55px;
+    text-align: center;
   }
 
   label {
@@ -90,4 +84,14 @@ button:hover {
     flex-direction: column;
     align-items: center;
   }
+}
+
+@media screen and (min-width: 768px) {
+
+  h1 {
+    font-size: 20px;
+    margin: 150px 0px 55px;
+    text-align: left;
+  }
+
 }

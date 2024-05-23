@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import '../../components/StyleComponents.css';
+
 import BackgroundM from 'components/BackgroundM/BackgroundM';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import Notiflix from 'notiflix';
 import Header from '../../components/Header/headerComponent.jsx';
+import css from './LoginPage.module.css'
+
 
 function ButtonLink({ to, children }) {
   return (

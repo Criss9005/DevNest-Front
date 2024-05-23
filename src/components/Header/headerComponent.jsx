@@ -4,6 +4,8 @@ import css from './styles.module.css';
 import logo from '../../images/Logo.png';
 import menuIcon from '../../images/Menu.svg';
 
+
+
 export default function Header({ isAuthenticated, username, handleLogout }) {
   const navigate = useNavigate();
 
@@ -11,42 +13,37 @@ export default function Header({ isAuthenticated, username, handleLogout }) {
     navigate('/');
   };
 
-  const handleLoginClick = () => {
-    navigate('/login');
-  };
-
-  const handleRegistrationClick = () => {
-    navigate('/register');
-  };
-
   const handleMenuClick = () => {};
 
   return (
     <header className={css.headercontaineer}>
-      <section onClick={handleLogoClick}>
+      <section onClick={handleLogoClick} className={css.completeLogo }>
         <img className={css.logo} src={logo} alt="logo_empresa" />
+        <div className={css.slimMon} onClick={handleLogoClick}>
+            <p className={css.slim}>Slim</p>
+            <p className={css.mom}>Mom</p>
+      </div>
       </section>
-      <section className={css.slimMon} onClick={handleLogoClick}>
-        <p className={css.slim}>Slim</p>
-        <p className={css.mom}>Mom</p>
-      </section>
+      
       <section className={css.sectionRegister}>
         {!isAuthenticated ? (
           <>
-            <buttonLink
-              className={css.buttonLogin}
-              onClick={handleLoginClick}
+            <p
+              className={`${css.buttonLogin} ${css.borderLogin}`}
+              onClick={()=> navigate('/login')}
               to="/login"
             >
-              LOGIN
-            </buttonLink>
-            <buttonLink
+              LOG IN
+            </p>
+              
+            
+            <p
               className={css.buttonLogin}
-              onClick={handleRegistrationClick}
+              onClick={()=> navigate('/register')}
               to="/register"
             >
               REGISTRATION
-            </buttonLink>
+            </p>
           </>
         ) : (
           <>
