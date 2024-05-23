@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-
 import BackgroundM from 'components/BackgroundM/BackgroundM';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import Notiflix from 'notiflix';
 import Header from '../../components/Header/headerComponent.jsx';
-import css from './LoginPage.module.css'
-
+import css from './LoginPage.module.css';
 
 function ButtonLink({ to, children }) {
   return (
@@ -54,15 +52,16 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className={css.containerLogPage}>
       <Header />
       <BackgroundM />
-      <h1>LOG IN</h1>
-      <form onSubmit={handleSubmit}>
+      <h1 className={css.loginPage}>LOG IN</h1>
+      <form className={css.labelPage} onSubmit={handleSubmit}>
         <label>
           Email *
           <br />
           <input
+            className={css.form}
             type="email"
             value={email}
             onChange={handleEmailChange}
@@ -74,6 +73,7 @@ const LoginPage = () => {
           Password *
           <br />
           <input
+            className={css.form}
             type="password"
             value={password}
             onChange={handlePasswordChange}
@@ -81,9 +81,11 @@ const LoginPage = () => {
           />
         </label>
 
-        <div className="div_button">
-          <button type="submit">Log in</button>
-          <ButtonLink className="register-button" to="/register">
+        <div className={css.logButtons}>
+          <button className={css.buttonPage} type="submit">
+            Log in
+          </button>
+          <ButtonLink className={css.buttonPage} to="/register">
             Register
           </ButtonLink>
         </div>

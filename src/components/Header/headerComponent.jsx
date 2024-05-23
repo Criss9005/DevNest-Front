@@ -4,8 +4,6 @@ import css from './styles.module.css';
 import logo from '../../images/Logo.png';
 import menuIcon from '../../images/Menu.svg';
 
-
-
 export default function Header({ isAuthenticated, username, handleLogout }) {
   const navigate = useNavigate();
 
@@ -17,29 +15,26 @@ export default function Header({ isAuthenticated, username, handleLogout }) {
 
   return (
     <header className={css.headercontaineer}>
-      <section onClick={handleLogoClick} className={css.completeLogo }>
+      <section onClick={handleLogoClick} className={css.completeLogo}>
         <img className={css.logo} src={logo} alt="logo_empresa" />
         <div className={css.slimMon} onClick={handleLogoClick}>
-            <p className={css.slim}>Slim</p>
-            <p className={css.mom}>Mom</p>
-      </div>
+          <p className={css.slim}>Slim</p>
+          <p className={css.mom}>Mom</p>
+        </div>
       </section>
-      
       <section className={css.sectionRegister}>
         {!isAuthenticated ? (
           <>
             <p
               className={`${css.buttonLogin} ${css.borderLogin}`}
-              onClick={()=> navigate('/login')}
+              onClick={() => navigate('/login')}
               to="/login"
             >
               LOG IN
             </p>
-              
-            
             <p
               className={css.buttonLogin}
-              onClick={()=> navigate('/register')}
+              onClick={() => navigate('/register')}
               to="/register"
             >
               REGISTRATION

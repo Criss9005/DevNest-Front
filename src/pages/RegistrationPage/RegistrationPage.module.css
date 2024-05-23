@@ -1,8 +1,8 @@
-.containerLogPage {
+.containerRePage {
   padding: 20px;
 }
 
-.loginPage {
+.regiPage {
   color: #fc842d;
   font-size: 14px;
   margin: 0px 0px 55px;
@@ -47,22 +47,10 @@
 }
 
 @media screen and (min-width: 768px) {
-  .loginPage {
+  .regiPage {
     margin-top: 150px;
   }
 }
 
-@media screen and (max-width: 400px) {
-  .containerLogPage {
-    justify-content: center;
-  }
-
-  .loginPage {
-  }
-
-  .logButtons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+@media screen and (min-width: 400px) {
 }
