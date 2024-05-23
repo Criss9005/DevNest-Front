@@ -1,8 +1,16 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import css from './styles.module.css';
 import logo from '../../images/Logo.png';
 import menuIcon from '../../images/Menu.svg';
+import styled from "styled-components";
+const StyledLink = styled(NavLink)`
+  color: #9b9faa;
+
+  &.active {
+    color: black;
+  }
+`
 
 export default function Header({ isAuthenticated, username, handleLogout }) {
   const navigate = useNavigate();
@@ -25,20 +33,9 @@ export default function Header({ isAuthenticated, username, handleLogout }) {
       <section className={css.sectionRegister}>
         {!isAuthenticated ? (
           <>
-            <p
-              className={`${css.buttonLogin} ${css.borderLogin}`}
-              onClick={() => navigate('/login')}
-              to="/login"
-            >
-              LOG IN
-            </p>
-            <p
-              className={css.buttonLogin}
-              onClick={() => navigate('/register')}
-              to="/register"
-            >
-              REGISTRATION
-            </p>
+            <StyledLink  className={css.buttonLogin} to="/login">LOG IN</StyledLink >
+            <StyledLink  className={css.buttonLogin} to="/register">REGISTRATION</StyledLink >
+        
           </>
         ) : (
           <>

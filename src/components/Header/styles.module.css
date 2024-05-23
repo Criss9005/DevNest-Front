@@ -3,7 +3,7 @@
   top: 80px;
   display: flex;
   align-items: center;
-  padding-top: 20px;
+  
 }
 
 .mom {
@@ -23,12 +23,13 @@
 .buttonLogin {
   color: #9b9faa;
   font-family: Verdana;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   line-height: 17.01px;
   letter-spacing: 0.04em;
   text-align: right;
   display: flex;
+  text-decoration: none;
 
 }
 
@@ -72,10 +73,14 @@
       display: flex;
       margin-left: 40px;
       margin-right: 30px;
+      padding-bottom: 12px;
 }
 
 @media (min-width: 768px) {
 
+  .buttonLogin {
+    font-size: 14px;
+  }
   .slimMon {
       display: flex;
       cursor: pointer;

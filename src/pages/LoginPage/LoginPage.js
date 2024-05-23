@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
 import BackgroundM from 'components/BackgroundM/BackgroundM';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Notiflix from 'notiflix';
 import Header from '../../components/Header/headerComponent.jsx';
 import css from './LoginPage.module.css';
 
-function ButtonLink({ to, children }) {
-  return (
-    <Link to={to}>
-      <button>{children}</button>
-    </Link>
-  );
-}
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -85,9 +78,10 @@ const LoginPage = () => {
           <button className={css.buttonPage} type="submit">
             Log in
           </button>
-          <ButtonLink className={css.buttonPage} to="/register">
+          <button className={css.buttonPage} onClick={(e) => navigate("/register") }>
             Register
-          </ButtonLink>
+          </button>
+          
         </div>
       </form>
     </div>

@@ -2,10 +2,13 @@
   padding: 20px;
 }
 
+
 .loginPage {
   color: #fc842d;
   font-size: 14px;
   margin: 0px 0px 55px;
+  padding-top: 40px;
+  text-align: center;
 }
 
 .labelPage {
@@ -46,23 +49,29 @@
   box-shadow: 0px 4px 10px 0px hsla(25, 97%, 58%, 0.5);
 }
 
-@media screen and (min-width: 768px) {
-  .loginPage {
-    margin-top: 150px;
-  }
+.logButtons{
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
 }
 
-@media screen and (max-width: 400px) {
-  .containerLogPage {
-    justify-content: center;
-  }
-
-  .loginPage {
-  }
+@media (min-width: 768px) {
 
   .logButtons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .loginPage {
+      text-align: left;
+      padding-top: 180px;
+    }
+}
+
+@media (min-width: 1024px) {
+  .loginPage {
+      text-align: left;
+      padding-top: 60px;
+    }
 }
