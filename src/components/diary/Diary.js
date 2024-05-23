@@ -66,7 +66,8 @@ const Diary = () => {
     console.log('hola', date);
     getFoodList();
   });
-
+  
+ 
   return (
     <div className={styles.diaryContainer}>
       <div className={styles.calendarSection}>

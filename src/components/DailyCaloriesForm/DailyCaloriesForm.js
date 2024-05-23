@@ -1,4 +1,4 @@
-import React, { useState/* , useEffect  */} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './DailyCaloriesForm.module.css';
 import Button from '../Button/Button';
@@ -9,10 +9,11 @@ import { useModal } from '../Modal/useModal';
 import css from '../Modal/modal.module.css';
 import { Link } from 'react-router-dom';
 
-
 function ButtonLink({ to, children }) {
   return <Link to={to}><button>{children}</button></Link>;
 }
+
+
 const validationSchema = yup.object().shape({
   height: yup
     .number()
@@ -46,9 +47,12 @@ const validationSchema = yup.object().shape({
 function DailyCaloriesForm() {
   const [result, setResult] = useState(null);
   const [isOpen, openModal, closeModal] = useModal(false);
+  
+    const handleFormSubmit = async values => {
+      try {
 
-  const handleFormSubmit = async values => {
-    try {
+      localStorage.setItem('CAL_NO_USER', JSON.stringify(values));
+      
       const response = await axios.get(
         'https://devnest-back-1.onrender.com/api/products/public/daily-intake',
         {
@@ -63,16 +67,18 @@ function DailyCaloriesForm() {
     }
   };
 
+  
+
   return (
     <>
       <Formik
         initialValues={{
-          height: '',
-          age: '',
-          currentWeight: '',
-          desiredWeight: '',
-          bloodType: '1',
-        }}
+        height: '',
+        age: '',
+        currentWeight: '',
+        desiredWeight: '',
+        bloodType: '1',
+      }}
         validationSchema={validationSchema}
         onSubmit={handleFormSubmit}
       >
@@ -226,7 +232,7 @@ function DailyCaloriesForm() {
                 </div>
               </div>
               </div>
-
+                    
               <Button
                 id={'button-form'}
                 type="submit"
@@ -237,6 +243,7 @@ function DailyCaloriesForm() {
                     : ''
                 }
                 title={'Start losing weight'}
+                
               />
             </Form>
           );
@@ -254,10 +261,15 @@ function DailyCaloriesForm() {
           <h4 className={css.foodNotEat}>Foods you should not eat</h4>
           <ul>
             {result.nonRecommendedFoods.map((food, index) => (
+
               <li className={css.liFood}key={index}> {index + 1}. {food}</li>
+
             ))}
           </ul>
-          <ButtonLink className={css.startlose} to="/register">Start losing weight</ButtonLink>
+          
+         <ButtonLink className={css.startlose} to={'/register'}>Start losing weight</ButtonLink>
+          
+          
           </Modal>
       )}
     </>
