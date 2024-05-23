@@ -1,7 +1,6 @@
 @import '../assets/styles/colors.css';
 
 .calculate__form {
-  margin-top: 140px;
   margin-left: 40px;
 }
 
@@ -65,9 +64,6 @@
 .calculate__form-title {
   font-weight: 700;
   font-size: 34px;
-  line-height: 41px;
-  width: 640px;
-  padding-bottom: 45px;
 }
 
 #blood-group {
@@ -232,13 +228,11 @@
 /*Nuevo*/
 
 .calculate__form-title {
-  font-family: 'Verdana', sans-serif;
-  font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 26px;
   color: var(--text-second);
-  margin-top: 0;
+  margin-top: -150px;
   margin-bottom: 20px;
   width: 280px;
   padding-bottom: 20px;
