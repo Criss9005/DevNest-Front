@@ -8,6 +8,14 @@
   max-height: 820px;
   margin: 0;
 }
+    height: calc(100vh - 90px);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    max-height: 820px;
+    margin: 0;
+  }
+
 
 .main__content {
   display: flex;
@@ -55,3 +63,47 @@
     padding: 0 15px 110px;
   }
 }
+
+
+  }
+  
+  @media screen and (min-width: 1280px) {
+    .main {
+      overflow: hidden;
+    }
+  }
+  
+  .main__content {
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 30px;
+    position: relative;
+    padding: 0 20px 100px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .main__content {
+      position: fixed;
+      width: 590px;
+      padding: 0 30px 100px;
+      z-index: 999;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .main__content {
+      width: 640px;
+      padding: 0 15px 110px;
+    }
+  }
+  
+ 
+
+}
+  
+  
+
+
+
+  
+ 
