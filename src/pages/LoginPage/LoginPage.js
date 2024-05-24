@@ -29,7 +29,7 @@ const LoginPage = () => {
       })
       .then(response => {
         const data = response.data.result;
-        console.log(data);
+        
 
         if (data) {
           const stringData = JSON.stringify(data);

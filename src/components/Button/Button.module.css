@@ -64,6 +64,7 @@
     cursor: not-allowed;
     background: var(--accent-main);
     opacity: 0.6;
+    padding: 10px 20px;
   }
     #button-form:hover:enabled {
       box-sizing: border-box;
