@@ -1,5 +1,9 @@
+<<<<<<< Nicolas
 import styles from '../Calculate/calculato.module.css';
 // import axios from 'axios';
+=======
+import styles from '../Calculate/calculato.module.css'
+>>>>>>> Dev
 
 // const handleCalcuateDay = async values => {
 //     try {
@@ -14,6 +18,7 @@ import styles from '../Calculate/calculato.module.css';
 //       //console.log(setResult(response.data));
 //      //console.log(setResult);
 
+<<<<<<< Nicolas
 //     } catch (error) {
 //       console.error('Error fetching daily intake data', error);
 //     }
@@ -30,6 +35,32 @@ export default function CalculatorDailyCalories(props) {
             <span>Left </span>
             <span>{'000 '}Kcal </span>
           </li>
+=======
+/* 
+const handleCalcuateDay = async values => {
+    try {
+      const response = await axios.get(
+        'https://devnest-back-1.onrender.com/api/products/private/saved-daily-intake',
+        {
+          params: values,
+        }
+      );
+      console.log('API Response:-----------', response.data);
+      /* setResult(response.data); */
+      //console.log(setResult(response.data));
+     //console.log(setResult); 
+      
+//     } catch (error) {
+//       console.error('Error fetching daily intake data', error);
+//     }
+// }; 
+// */
+
+
+export default function CalculatorDailyCalories(props){
+    return(
+        <div className={styles['calculate__field']}>
+>>>>>>> Dev
 
           <li>
             <span>Consumed </span>

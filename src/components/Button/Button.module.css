@@ -64,14 +64,14 @@
     cursor: not-allowed;
     background: var(--accent-main);
     opacity: 0.6;
+    padding: 10px 20px;
   }
-  
-  #button-form:hover:enabled {
-    box-sizing: border-box;
-    color: var(--accent-main);
-    background: var(--background);
-    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  }
+    #button-form:hover:enabled {
+      box-sizing: border-box;
+      color: var(--accent-main);
+      background: var(--background);
+      box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    }
   
 
    /* segundo estilo botón */
@@ -81,9 +81,9 @@
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   }
   
-  .btn-second:hover {
-    color: #ffffff;
-    background: var(--accent-main);
-    border: 1px solid var(--accent-main);
-    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  }
+    .btn-second:hover {
+      color: #ffffff;
+      background: var(--accent-main);
+      border: 1px solid var(--accent-main);
+      box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    }

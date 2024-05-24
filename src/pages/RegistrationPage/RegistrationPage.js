@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
-
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import BackgroundM from 'components/BackgroundM/BackgroundM';
 import Header from '../../components/Header/headerComponent.jsx';
+import css from './RegistrationPage.module.css';
 
-function ButtonLink({ to, children }) {
-  return (
-    <Link to={to}>
-      <button>{children}</button>
-    </Link>
-  );
-}
 
 const RegistrationPage = () => {
   const [name, setName] = useState('');
@@ -52,15 +45,16 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className={css.containerRePage}>
       <BackgroundM />
       <Header />
-      <h1>REGISTER</h1>
-      <form onSubmit={handleSubmit}>
+      <h1 className={css.regiPage}>REGISTER</h1>
+      <form className={css.labelPage} onSubmit={handleSubmit}>
         <label>
           Name *
           <br />
           <input
+            className={css.form}
             type="text"
             value={name}
             onChange={handleNameChange}
@@ -72,6 +66,7 @@ const RegistrationPage = () => {
           Email *
           <br />
           <input
+            className={css.form}
             type="email"
             value={email}
             onChange={handleEmailChange}
@@ -83,6 +78,7 @@ const RegistrationPage = () => {
           Password *
           <br />
           <input
+            className={css.form}
             type="password"
             value={password}
             onChange={handlePasswordChange}
@@ -91,11 +87,13 @@ const RegistrationPage = () => {
         </label>
 
         <div className="div_button">
-          <button type="submit">Register</button>
+          <button className={css.buttonPage} type="submit">
+            Register
+          </button>
 
-          <ButtonLink className="login-button" to="/login">
+          <button className={css.buttonPage} onClick={(e)=> navigate("/login")}>
             Log in
-          </ButtonLink>
+          </button>
         </div>
       </form>
     </div>
