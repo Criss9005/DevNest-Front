@@ -35,7 +35,7 @@ const LoginPage = () => {
         password: password,
       })
       .then(response => {
-        const data = response.data.result;
+        const data = response.data;
         console.log(data);
 
         if (data) {

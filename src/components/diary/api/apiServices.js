@@ -27,7 +27,7 @@ const getConsumedFoods = async (idUser, date) => {
 };
 
 const addConsumedFood = async data => {
-  console.log(data);
+  console.log(JSON.stringify(data) + 'dataaaaaaaaaaa');
   const result = await axios.post('/addSummary', data);
   return result;
 };

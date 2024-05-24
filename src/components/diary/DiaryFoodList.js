@@ -33,7 +33,7 @@ const DiaryFoodList = ({
       console.log(cals);
       const food = {
         productName: selectedFood,
-        grams,
+        grams: parseFloat(grams),
         idUser,
         calories: grams * cals,
       };
