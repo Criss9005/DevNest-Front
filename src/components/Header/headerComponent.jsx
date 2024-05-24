@@ -1,81 +1,72 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import css from './styles.module.css';
 import logo from '../../images/Logo.png';
-import menuIcon from '../../images/Menu.svg';
+import styled from "styled-components";
+const StyledLink = styled(NavLink)`
+  color: #9b9faa;
 
-export default function Header({ handleLogout }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [username, setUsername] = useState('');
+  &.active {
+    color: black;
+  }
+`
+
+export default function Header({username }) {
+  const [user, setUser] = useState(null)
+  const [isLogged, setIsLogged] = useState(false)
   const navigate = useNavigate();
-
-  useEffect(() => {
-    console.log('running');
-    const user = JSON.parse(localStorage.getItem('user'));
-    console.log('user from localStorage:', user);
-
-    if (user && user.token) {
-      console.log('is authenticated');
-      setIsAuthenticated(true);
-      setUsername(user.username);
-    } else {
-      console.log('is not authenticated');
-      setIsAuthenticated(false);
-      setUsername('');
-    }
-  }, []);
 
   const handleLogoClick = () => {
     navigate('/');
   };
 
-  const handleLoginClick = () => {
-    navigate('/login');
-  };
+  const handleLogout = () => { };
+  
+  useEffect(() => { 
+    const usuario = JSON.parse(localStorage.getItem('USER'))
+    if (usuario) { 
+      setUser(usuario)
+      setIsLogged(true)
+    }
+    console.log(usuario)
+    
+    },[])
 
-  const handleRegistrationClick = () => {
-    navigate('/register');
-  };
-
-  const handleMenuClick = () => {};
-
-  console.log('Rendering Header component with:', {
-    isAuthenticated,
-    username,
-  });
 
   return (
     <header className={css.headercontaineer}>
-      <section onClick={handleLogoClick}>
+      <section onClick={handleLogoClick} className={css.completeLogo}>
         <img className={css.logo} src={logo} alt="logo_empresa" />
-      </section>
-      <section className={css.slimMon} onClick={handleLogoClick}>
-        <p className={css.slim}>Slim</p>
-        <p className={css.mom}>Mom</p>
+        <div className={css.slimMon} onClick={handleLogoClick}>
+          <p className={css.slim}>Slim</p>
+          <p className={css.mom}>Mom</p>
+        </div>
       </section>
       <section className={css.sectionRegister}>
-        {!isAuthenticated ? (
-          <>
-            <button className={css.buttonLogin} onClick={handleLoginClick}>
-              LOGIN
-            </button>
-            <button
-              className={css.buttonLogin}
-              onClick={handleRegistrationClick}
-            >
-              REGISTRATION
-            </button>
+        {!isLogged ? (
+          <> 
+            <StyledLink  className={css.buttonLogin} to="/login">LOG IN</StyledLink >
+            <StyledLink  className={css.buttonLogin} to="/register">REGISTRATION</StyledLink >
+        
           </>
         ) : (
-          <section>
-            <div className={css.userInfo}>{username.slice(0, 3)}</div>
-            <button className={css.buttonLogout} onClick={handleLogout}>
-              Exit
-            </button>
-            <button className={css.menuButton} onClick={handleMenuClick}>
-              <img src={menuIcon} alt="menu icon" className={css.menuIcon} />
-            </button>
-          </section>
+            <div>
+              <ul>
+                <li>
+                      <StyledLink  className={css.buttonLogin} to="/diary">DIARY</StyledLink >
+                      <StyledLink className={css.buttonLogin} to="/calculator">CALCULATOR</StyledLink > 
+                </li>
+                <li>
+                  <p>{ `${user.user.username}`}</p>
+                  <p></p>
+                </li>
+              </ul>
+
+              
+              </div>
+              
+            
+          
         )}
       </section>
     </header>

@@ -1,32 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { FaTimes, FaChevronLeft } from 'react-icons/fa';
 import styles from './DiaryFoodList.module.css';
-import Input from '../AutoCompleteInput/AutoCompleteInput';
-import {
-  addConsumedFood,
-  searchFood,
-  getConsumedFoods,
-} from './api/apiServices';
-const userInfo = JSON.parse(localStorage.getItem('USER'));
-// let id = null;
+import { addConsumedFood } from './api/apiServices';
 
-const DiaryFoodList = ({
-  foodList,
-  addFoodToList,
-  setFoodList,
-  removeFoodFromList,
-  date,
-}) => {
+const DiaryFoodList = ({ foodList, addFoodToList, removeFoodFromList }) => {
   const [selectedFood, setSelectedFood] = useState('');
   const [grams, setGrams] = useState('');
   const [showAddFood, setShowAddFood] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [foodSearch, setFoodsearch] = useState([]);
   const [isTabletOrDesktop, setIsTabletOrDesktop] = useState(
     window.innerWidth >= 768
   );
-  // const [newDate, setNewdate] = useState(date);
-  const idUser = userInfo.user.id; // id de usuario que esta logueado
+  const idUser = '123456asd'; // id de usuario que esta logueado
 
   const handleAddFood = async () => {
     if (selectedFood && grams) {
@@ -34,54 +18,32 @@ const DiaryFoodList = ({
         productName: selectedFood,
         grams: parseInt(grams),
         idUser,
-        calories: parseInt(grams), // Valor de ejemplo
+        // Aquí deberías obtener las calorías reales del backend
+        // calories: 100, // Valor de ejemplo
       };
       try {
         const res = await addConsumedFood(food);
-        if (res.status === 201) {
-          addFoodToList(food);
-          setSelectedFood('');
-          setGrams('');
-        }
+        console.log(res);
+        addFoodToList(food);
+        setSelectedFood('');
+        setGrams('');
       } catch (error) {
         console.error(error);
       }
     }
   };
-  const allProducts = async () => {
-    try {
-      const result = await searchFood('');
-      setFoodsearch(result.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   useEffect(() => {
-    const getFoods = async () => {
-      try {
-        setIsLoading(true);
-        const result = await getConsumedFoods(idUser, date);
-        addFoodToList([]);
-        addFoodToList(result);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
     const handleResize = () => {
       setIsTabletOrDesktop(window.innerWidth >= 768);
     };
 
     window.addEventListener('resize', handleResize);
-    getFoods();
-    allProducts();
 
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [date, idUser, addFoodToList]);
+  }, []);
 
   return (
     <div>
@@ -99,10 +61,11 @@ const DiaryFoodList = ({
               />
             </div>
           )}
-          <Input
-            list={foodSearch}
-            setSelectedFood={setSelectedFood}
-            setFoodsearch={setFoodsearch}
+          <input
+            type="text"
+            value={selectedFood}
+            onChange={e => setSelectedFood(e.target.value)}
+            placeholder="Enter product name"
           />
           <input
             type="text"
@@ -124,11 +87,7 @@ const DiaryFoodList = ({
           </tr>
         </thead>
         <tbody>
-          {isLoading ? (
-            <tr>
-              <td colSpan="4">Loading...</td>
-            </tr>
-          ) : foodList.length ? (
+          {foodList.length ? (
             foodList.map((food, index) => (
               <tr key={index}>
                 <td>{food.name}</td>
@@ -144,6 +103,11 @@ const DiaryFoodList = ({
               <td colSpan="4">No data to show</td>
             </tr>
           )}
+          {/* {!showAddFood && (
+            <tr>
+              <td colSpan="4">No data to show</td>
+            </tr>
+          )} */}
         </tbody>
       </table>
       {!isTabletOrDesktop && !showAddFood && (
