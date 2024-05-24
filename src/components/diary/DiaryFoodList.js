@@ -8,7 +8,6 @@ import {
   getConsumedFoods,
 } from './api/apiServices';
 const userInfo = JSON.parse(localStorage.getItem('USER'));
-// let id = null;
 
 const DiaryFoodList = ({
   foodList,
@@ -25,16 +24,18 @@ const DiaryFoodList = ({
   const [isTabletOrDesktop, setIsTabletOrDesktop] = useState(
     window.innerWidth >= 768
   );
-  // const [newDate, setNewdate] = useState(date);
-  const idUser = userInfo.user.id; // id de usuario que esta logueado
+
+  const idUser = userInfo.user.id;
 
   const handleAddFood = async () => {
     if (selectedFood && grams) {
+      const { calories: cals } = foodSearch.find(e => e.title === selectedFood);
+      console.log(cals);
       const food = {
         productName: selectedFood,
-        grams: parseInt(grams),
+        grams,
         idUser,
-        calories: parseInt(grams), // Valor de ejemplo
+        calories: grams * cals,
       };
       try {
         const res = await addConsumedFood(food);
@@ -136,7 +137,7 @@ const DiaryFoodList = ({
               <tr key={index}>
                 <td>{food.name}</td>
                 <td>{food.grams}</td>
-                <td>{(food.calories * food.grams) / 100}</td>
+                <td>{food.calories}</td>
                 <td>
                   <FaTimes onClick={() => removeFoodFromList(food)} />
                 </td>
