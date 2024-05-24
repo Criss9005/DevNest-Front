@@ -48,24 +48,15 @@ function DailyCaloriesForm() {
     try {
       localStorage.setItem('CAL_NO_USER', JSON.stringify(values));
 
-      const token = localStorage.getItem('accessToken');
-      console.log(`Access token: ${token}`);
-      const apiUrl = token
-        ? 'https://devnest-back-1.onrender.com/api/products/private/daily-intake'
-        : 'https://devnest-back-1.onrender.com/api/products/public/daily-intake';
+      const response = await axios.get(
+        'https://devnest-back-1.onrender.com/api/products/public/daily-intake',
+        {
+          params: values,
+        }
+      );
 
-      const response = await axios.get(apiUrl, {
-        params: values,
-        headers: token ? { Authorization: `Bearer ${token}` } : {},
-      });
-
-      console.log('API Response:', response.data);
       setResult(response.data);
       openModal();
-
-      if (token) {
-        navigate('/diary');
-      }
     } catch (error) {
       console.error('Error fetching daily intake data', error);
     }
@@ -282,9 +273,7 @@ function DailyCaloriesForm() {
 
           <button
             className={css.startlose}
-            onClick={() => {
-              navigate('/register');
-            }}
+            onClick={e => navigate('/register')}
           >
             Start losing weight
           </button>

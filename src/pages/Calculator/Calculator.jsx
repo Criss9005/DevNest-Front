@@ -1,18 +1,15 @@
-import React from 'react';
-import CalculatorM from '../../components/Calculate/Calculate';
-import MenuLogged from 'components/Menu/MenuLogged';
-import DailyCaloriesForm from '../../components/DailyCaloriesForm/DailyCaloriesForm';
+import React from 'react'
+import Calculate from 'components/Calculate/DailyAddCalculate'
+import Header from 'components/Header/headerComponent'
+
 
 export default function Calculator() {
   return (
     <div>
-      <div>
-        <MenuLogged />
-        <DailyCaloriesForm />
-      </div>
-      <div>
-        <CalculatorM />
-      </div>
+      <Header/>
+      <Calculate/>
     </div>
-  );
+  )
 }
+
+

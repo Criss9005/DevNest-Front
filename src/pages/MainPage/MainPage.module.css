@@ -8,11 +8,26 @@
     max-height: 820px;
     margin: 0;
   }
+
+
+.main__content {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 30px;
+  position: relative;
+  padding: 0 20px 100px;
+  margin-top: 20px;
+  margin-left: 5px;
   
-  @media screen and (min-width: 768px) {
-    .main {
-      height: 100%;
-    }
+}
+
+@media screen and (min-width: 768px) {
+  .main__content {
+    position: fixed;
+    width: 590px;
+    padding: 0 20px 100px;
+    z-index: 999;
+
   }
   
   @media screen and (min-width: 1280px) {
@@ -47,7 +62,7 @@
   
  
 
-  
+}
   
   
 
