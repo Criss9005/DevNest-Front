@@ -54,28 +54,31 @@ const DiaryFoodList = ({
       setFoodsearch(result.data);
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    const getFoods = async () => {
-      try {
-        setIsLoading(true);
-        const result = await getConsumedFoods(idUser, date);
-        addFoodToList([]);
-        addFoodToList(result);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+    if (userInfo) {
+      const getFoods = async () => {
+        try {
+          setIsLoading(true);
+          const result = await getConsumedFoods(idUser, date);
+          addFoodToList([]);
+          addFoodToList(result);
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+      getFoods();
+    }
     const handleResize = () => {
       setIsTabletOrDesktop(window.innerWidth >= 768);
     };
 
     window.addEventListener('resize', handleResize);
-    getFoods();
     allProducts();
 
     return () => {

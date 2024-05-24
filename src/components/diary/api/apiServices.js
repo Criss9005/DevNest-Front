@@ -1,11 +1,14 @@
 import axios from 'axios';
 import apiConfig from './apiConfig';
-const userInfo = JSON.parse(localStorage.getItem('USER'));
-const token = userInfo.accesToken;
+const userInfo = JSON.parse(localStorage.getItem('USER')) || null;
+let token;
+if (userInfo) {
+  token = userInfo.accesToken;
 
-axios.defaults.baseURL = apiConfig;
-axios.defaults.headers.common['Content-Type'] = 'application/json';
-axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  axios.defaults.baseURL = apiConfig;
+  axios.defaults.headers.common['Content-Type'] = 'application/json';
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+}
 
 const getConsumedFoods = async (idUser, date) => {
   const result = await axios.get(`/${idUser}/${date}`);
