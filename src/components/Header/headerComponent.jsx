@@ -60,10 +60,10 @@ export default function Header() {
   return (
     <header className={css.headercontaineer}>
       <section onClick={handleLogoClick} className={css.completeLogo}>
-        <img className={css.logo} src={logo} alt="logo_empresa" />
+        <img className={css.logo} src={logo} alt="logo_empresa"/>
         <div className={css.slimMon} onClick={handleLogoClick}>
           <p className={css.slim}>Slim</p>
-          <p className={css.mom}>Mom</p>
+          <b className={css.mom}>Mom</b>
         </div>
       </section>
       <section className={css.sectionRegister}>
