@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import css from './styles.module.css';
 import logo from '../../images/Logo.png';
 import menuIcon from '../../images/Menu.svg';
@@ -19,10 +19,8 @@ export default function Header({ isAuthenticated, username, handleLogout }) {
     navigate('/register');
   };
 
-  const handleMenuClick = () => {};
-
   return (
-    <header className={css.headercontaineer}>
+    <header className={css.headerContainer}>
       <section onClick={handleLogoClick}>
         <img className={css.logo} src={logo} alt="logo_empresa" />
       </section>
@@ -33,20 +31,20 @@ export default function Header({ isAuthenticated, username, handleLogout }) {
       <section className={css.sectionRegister}>
         {!isAuthenticated ? (
           <>
-            <buttonLink
+            <Link
               className={css.buttonLogin}
               onClick={handleLoginClick}
               to="/login"
             >
               LOGIN
-            </buttonLink>
-            <buttonLink
+            </Link>
+            <Link
               className={css.buttonLogin}
               onClick={handleRegistrationClick}
               to="/register"
             >
               REGISTRATION
-            </buttonLink>
+            </Link>
           </>
         ) : (
           <>
@@ -54,7 +52,7 @@ export default function Header({ isAuthenticated, username, handleLogout }) {
             <button className={css.buttonLogout} onClick={handleLogout}>
               Exit
             </button>
-            <button className={css.menuButton} onClick={handleMenuClick}>
+            <button className={css.menuButton}>
               <img src={menuIcon} alt="menu icon" className={css.menuIcon} />
             </button>
           </>
