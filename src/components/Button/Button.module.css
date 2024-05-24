@@ -19,6 +19,7 @@
     cursor: pointer;
     background: var(--accent-main);
     opacity: 1;
+    
   }
   
 
@@ -45,6 +46,7 @@
     cursor: pointer;
     background: var(--accent-main);
     opacity: 1;
+    padding: 10px 20px;
   }
   
   @media screen and (min-width: 768px) {
@@ -71,6 +73,7 @@
       color: var(--accent-main);
       background: var(--background);
       box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+      padding: 10px 20px;
     }
   
 

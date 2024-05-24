@@ -6,6 +6,37 @@
   
 }
 
+.exitComp{
+  display: flex;
+}
+
+.logout{
+  color: #9b9faa;
+    font-family: Verdana;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 17.01px;
+    letter-spacing: 0.04em;
+    text-align: right;
+    display: flex;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0;
+}
+
+.username{
+  color: #212121;
+    font-family: Verdana;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 17.01px;
+    letter-spacing: 0.04em;
+    text-align: right;
+    display: flex;
+    text-decoration: none;
+    margin: 0;
+}
+
 .mom {
   width: 52.51px;
   height: 15.41px;
@@ -18,6 +49,7 @@
 
 .slimMon {
   display: none;
+
 }
 
 .buttonLogin {
