@@ -1,27 +1,5 @@
 import styles from '../Calculate/calculato.module.css'
 
-
-/* 
-const handleCalcuateDay = async values => {
-    try {
-      const response = await axios.get(
-        'https://devnest-back-1.onrender.com/api/products/private/saved-daily-intake',
-        {
-          params: values,
-        }
-      );
-      console.log('API Response:-----------', response.data);
-      /* setResult(response.data); */
-      //console.log(setResult(response.data));
-     //console.log(setResult); 
-      
-//     } catch (error) {
-//       console.error('Error fetching daily intake data', error);
-//     }
-// }; 
-// */
-
-
 export default function CalculatorDailyCalories(props){
     return(
         <div className={styles['calculate__field']}>
