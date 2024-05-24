@@ -1,32 +1,48 @@
-/* import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaTimes, FaChevronLeft } from 'react-icons/fa';
 import styles from './DiaryFoodList.module.css';
-import { addConsumedFood } from './api/apiServices';
+import Input from '../../AutoCompleteInput/AutoCompleteInput';
+import {
+  addConsumedFood,
+  searchFood,
+  getConsumedFoods,
+} from './api/apiServices';
+const userInfo = JSON.parse(localStorage.getItem('USER'));
 
-const DiaryFoodList = ({ foodList, addFoodToList, removeFoodFromList }) => {
+const DiaryFoodList = ({
+  foodList,
+  addFoodToList,
+  setFoodList,
+  removeFoodFromList,
+  date,
+}) => {
   const [selectedFood, setSelectedFood] = useState('');
   const [grams, setGrams] = useState('');
   const [showAddFood, setShowAddFood] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [foodSearch, setFoodsearch] = useState([]);
   const [isTabletOrDesktop, setIsTabletOrDesktop] = useState(
     window.innerWidth >= 768
   );
-  const idUser = '123456asd'; // id de usuario que esta logueado
+
+  const idUser = userInfo.user.id;
 
   const handleAddFood = async () => {
     if (selectedFood && grams) {
+      const { calories: cals } = foodSearch.find(e => e.title === selectedFood);
       const food = {
         productName: selectedFood,
-        grams: parseInt(grams),
+        grams: parseFloat(grams),
         idUser,
-        // Aquí deberías obtener las calorías reales del backend
-        // calories: 100, // Valor de ejemplo
+        calories: grams * cals,
       };
       try {
         const res = await addConsumedFood(food);
-        console.log(res);
-        addFoodToList(food);
-        setSelectedFood('');
-        setGrams('');
+        if (res.status === 201) {
+          addFoodToList(food);
+          setSelectedFood('');
+          setGrams('');
+        }
       } catch (error) {
         console.error(error);
       }
@@ -68,7 +84,7 @@ const DiaryFoodList = ({ foodList, addFoodToList, removeFoodFromList }) => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [date, idUser, addFoodToList]);
 
   return (
     <div>
@@ -86,11 +102,10 @@ const DiaryFoodList = ({ foodList, addFoodToList, removeFoodFromList }) => {
               />
             </div>
           )}
-          <input
-            type="text"
-            value={selectedFood}
-            onChange={e => setSelectedFood(e.target.value)}
-            placeholder="Enter product name"
+          <Input
+            list={foodSearch}
+            setSelectedFood={setSelectedFood}
+            setFoodsearch={setFoodsearch}
           />
           <input
             type="text"
@@ -112,12 +127,16 @@ const DiaryFoodList = ({ foodList, addFoodToList, removeFoodFromList }) => {
           </tr>
         </thead>
         <tbody>
-          {foodList.length ? (
+          {isLoading ? (
+            <tr>
+              <td colSpan="4">Loading...</td>
+            </tr>
+          ) : foodList.length ? (
             foodList.map((food, index) => (
               <tr key={index}>
                 <td>{food.name}</td>
                 <td>{food.grams}</td>
-                <td>{(food.calories * food.grams) / 100}</td>
+                <td>{food.calories}</td>
                 <td>
                   <FaTimes onClick={() => removeFoodFromList(food)} />
                 </td>
@@ -128,12 +147,7 @@ const DiaryFoodList = ({ foodList, addFoodToList, removeFoodFromList }) => {
               <td colSpan="4">No data to show</td>
             </tr>
           )}
-          {/* {!showAddFood && (
-            <tr>
-              <td colSpan="4">No data to show</td>
-            </tr>
-          )} */
-/*         </tbody>
+        </tbody>
       </table>
       {!isTabletOrDesktop && !showAddFood && (
         <div className={styles.addButtonContainer}>
@@ -150,4 +164,3 @@ const DiaryFoodList = ({ foodList, addFoodToList, removeFoodFromList }) => {
 };
 
 export default DiaryFoodList;
- */ 
