@@ -1,7 +1,7 @@
 import styles from '../Calculate/calculato.module.css'
-import axios from 'axios';
 
 
+/* 
 const handleCalcuateDay = async values => {
     try {
       const response = await axios.get(
@@ -15,12 +15,13 @@ const handleCalcuateDay = async values => {
       //console.log(setResult(response.data));
      //console.log(setResult); 
       
-    } catch (error) {
-      console.error('Error fetching daily intake data', error);
-    }
-};
+//     } catch (error) {
+//       console.error('Error fetching daily intake data', error);
+//     }
+// }; 
+// */
 
-console.log(handleCalcuateDay());
+
 export default function CalculatorDailyCalories(props){
     return(
         <div className={styles['calculate__field']}>
