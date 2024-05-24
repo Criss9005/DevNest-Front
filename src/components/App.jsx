@@ -5,8 +5,8 @@ import MainPage from '../pages/MainPage/MainPage';
 
 import LoginPage from '../pages/LoginPage/LoginPage';
 import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
-import Calculator from 'pages/Calculator/Calculator';
-import Diary from './Calculate/DiaryAddCalculate';
+import CalculatorPage from 'pages/CalculatorPage/CalculatorPage';
+import Diary from '../pages/DiaryPage/DiaryPage';
 
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegistrationPage />} />
           <Route path="/diary" element={<Diary />} />
-          <Route path="/calculator" element={<Calculator />} />
+          <Route path="/calculator" element={<CalculatorPage />} />
         </Routes>
       </div>
     </Suspense>
