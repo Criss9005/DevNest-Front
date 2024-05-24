@@ -23,7 +23,7 @@ export default function Header({username }) {
   };
 
   const handleLogout = () => {
-    const token = user.accesToken
+    const token = user.accessToken
     axios.post(`https://devnest-back-1.onrender.com/api/auth/logout`, {
         sid: user.sid
       }, {
@@ -39,7 +39,7 @@ export default function Header({username }) {
       .catch(e => {
         //implementar alertas cuando no inicia
         Notiflix.Notify.failure(e.response.data.message);
-        console.log(e);
+        
       });
    };
   

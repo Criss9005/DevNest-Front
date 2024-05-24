@@ -23,14 +23,15 @@ const LoginPage = () => {
 
   const handleSubmit = async event => {
     event.preventDefault();
+    
     axios
       .post(`https://devnest-back-1.onrender.com/api/auth/login`, {
         email: email,
         password: password,
       })
       .then(response => {
-        const data = response.data.result;
-        
+        const data = response.data;
+       
 
         if (data) {
           const stringData = JSON.stringify(data);
@@ -50,7 +51,7 @@ const LoginPage = () => {
       <Header />
       <BackgroundM />
       <h1 className={css.loginPage}>LOG IN</h1>
-      <form className={css.labelPage} onSubmit={handleSubmit}>
+      <form className={css.labelPage} onSubmit={(event) => handleSubmit(event)}>
         <label>
           Email *
           <br />
