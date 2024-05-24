@@ -1,0 +1,58 @@
+
+.backgroundCalculate__container {
+    display: none;
+    overflow: hidden;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .backgroundCalculate__container {
+      display: block;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .backgroungCalculate__leaves{
+        display: none;
+    }
+    }
+
+  @media screen and (min-width: 1024px) {
+    .backgroungCalculate__leavesTablet{
+      display: none;
+    }
+
+    .backgroungCalculate__leaves{
+      display: block;
+  }
+  }
+
+  
+
+@media screen and (min-width: 768px) {
+    .backgroung__leavesTablet {
+        position: absolute;
+        width: 531px;
+        height: auto;
+        top: 410px; 
+        right: 150px;
+    }
+}
+      
+ @media screen and (min-width: 1024px) {
+    .backgroung__leaves {
+        position: absolute;
+        width: 531px;
+        top: 320px;
+        right: 250px;
+        bottom: 0;
+          }
+ }
+
+
+
+  
+ 

@@ -1,6 +1,7 @@
 
 .main__container{
     width: 100%;
+    z-index: 1;
 }
 .calculate__field {
     height: auto;
@@ -22,10 +23,10 @@
     .calculate__container {
       font-size: 34px;
       line-height: 41px;
-      width: 640px;
+      width: auto;
       padding-bottom: 45px;
       height: 100%;
-      
+      position: fixed;
     }
     .main__container{
        display: block; 
@@ -99,11 +100,16 @@
         width: 100%;
         position: fixed;
         
+        
     }
     .calculate__field{
         display: flex;
         flex-direction: column;
         gap: 0;
+        padding: 0;
+        position: fixed;
+        right: 0;
+        
 
     }
 
