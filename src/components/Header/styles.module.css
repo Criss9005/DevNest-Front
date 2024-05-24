@@ -171,7 +171,6 @@
     height: 66px;
     margin-top: 70.25px;
     margin-left: 20px;
-    cursor: pointer;
   }
 
   .slimMon {
@@ -194,12 +193,11 @@
     margin-left: 10px;
   }
 
-  .userInfo {
-    background: #212121;
-  }
-
   .buttonLogin {
     background: none;
     border: none;
   }
 }
+
+/* 
+fill="#212121" */
