@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/DevNest-Front/static/css/main.5e855816.css",
-    "main.js": "/DevNest-Front/static/js/main.a3b5c99e.js",
+    "main.css": "/DevNest-Front/static/css/main.ba5cf3d7.css",
+    "main.js": "/DevNest-Front/static/js/main.35ac12ec.js",
     "static/media/strawberry.png": "/DevNest-Front/static/media/strawberry.710d7026c4b284b6be95.png",
     "static/media/banana.png": "/DevNest-Front/static/media/banana.2da01581a1ed4f4189b1.png",
     "static/media/leaves_desktop.png": "/DevNest-Front/static/media/leaves_desktop.6594c140e7b671a5a24c.png",
@@ -11,11 +11,11 @@
     "static/media/leavesCalculate-tablet.png": "/DevNest-Front/static/media/leavesCalculate-tablet.3cf507fc5063b80c0790.png",
     "index.html": "/DevNest-Front/index.html",
     "static/media/main_vector.svg": "/DevNest-Front/static/media/main_vector.c655d736b7c28331ec143c1de45f86c8.svg",
-    "main.5e855816.css.map": "/DevNest-Front/static/css/main.5e855816.css.map",
-    "main.a3b5c99e.js.map": "/DevNest-Front/static/js/main.a3b5c99e.js.map"
+    "main.ba5cf3d7.css.map": "/DevNest-Front/static/css/main.ba5cf3d7.css.map",
+    "main.35ac12ec.js.map": "/DevNest-Front/static/js/main.35ac12ec.js.map"
   },
   "entrypoints": [
-    "static/css/main.5e855816.css",
-    "static/js/main.a3b5c99e.js"
+    "static/css/main.ba5cf3d7.css",
+    "static/js/main.35ac12ec.js"
   ]
 }
