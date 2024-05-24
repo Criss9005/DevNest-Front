@@ -28,13 +28,13 @@ const getConsumedFoods = async (idUser, date) => {
 
 const addConsumedFood = async data => {
   const result = await axios.post('/addSummary', data);
-  console.log(result);
+  //console.log(result);
   return result;
 };
 
 const removeFoodRegister = async id => {
   const result = await axios.delete(`/addSummary/${id}`);
-  console.log(result);
+  //console.log(result);
   return result;
 };
 
