@@ -32,13 +32,46 @@ const DiaryFoodList = ({ foodList, addFoodToList, removeFoodFromList }) => {
       }
     }
   };
+<<<<<<< Nicolas
+  const allProducts = async () => {
+    try {
+      const result = await searchFood('');
+      setFoodsearch(result.data);
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
+    if (userInfo) {
+      const getFoods = async () => {
+        try {
+          setIsLoading(true);
+          const result = await getConsumedFoods(idUser, date);
+          addFoodToList([]);
+          addFoodToList(result);
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+      getFoods();
+    }
+=======
+
+  useEffect(() => {
+>>>>>>> Dev
     const handleResize = () => {
       setIsTabletOrDesktop(window.innerWidth >= 768);
     };
 
     window.addEventListener('resize', handleResize);
+<<<<<<< Nicolas
+    allProducts();
+=======
+>>>>>>> Dev
 
     return () => {
       window.removeEventListener('resize', handleResize);
