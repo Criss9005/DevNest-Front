@@ -1,0 +1,173 @@
+.headercontaineer {
+  border-bottom: 2px solid #e0e0e0;
+  top: 80px;
+  display: flex;
+  align-items: center;
+
+}
+
+.exitComp {
+  display: flex;
+}
+
+.logout {
+  color: #9b9faa;
+  font-family: Verdana;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 17.01px;
+  letter-spacing: 0.04em;
+  text-align: right;
+  display: flex;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+.username {
+  color: #212121;
+  font-family: Verdana;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 17.01px;
+  letter-spacing: 0.04em;
+  text-align: right;
+  display: flex;
+  text-decoration: none;
+  margin: 0;
+}
+
+.mom {
+  width: 52.51px;
+  height: 15.41px;
+  top: 33.06px;
+  left: 141.79px;
+  gap: 0px;
+  opacity: 0px;
+  color: #fc842d;
+}
+
+.slimMon {
+  display: none;
+
+}
+
+.buttonLogin {
+  color: #9b9faa;
+  font-family: Verdana;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 17.01px;
+  letter-spacing: 0.04em;
+  text-align: right;
+  display: flex;
+  text-decoration: none;
+
+}
+
+.buttonLogin:hover {
+  color: #212121;
+  cursor: pointer;
+}
+
+.userInfo {
+  font-weight: 700;
+  line-height: 17.01px;
+}
+
+.buttonLogout {
+  font-weight: 700;
+  line-height: 17.01px;
+  background: none;
+  border: none;
+  margin-top: -3px;
+  color: #9b9faa;
+}
+
+.buttonLogout:hover {
+  color: #212121;
+  cursor: pointer;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+}
+
+.logo {
+  width: 46px;
+  height: 44px;
+  cursor: pointer;
+}
+
+
+.sectionRegister {
+  gap: 50px;
+  display: flex;
+  margin-left: 40px;
+  margin-right: 30px;
+  padding-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+
+  .buttonLogin {
+    font-size: 14px;
+  }
+
+  .slimMon {
+    display: flex;
+    cursor: pointer;
+  }
+}
+
+.completeLogo {
+  display: flex;
+  gap: 8px;
+}
+
+.headercontaineer {
+  justify-content: space-between;
+}
+
+@media (min-width: 1024px) {
+
+  .headercontaineer {
+    border-bottom: none;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding-bottom: 100px;
+  }
+
+  .completeLogo {
+
+    gap: 0;
+    padding-right: 10px;
+  }
+
+  .logo {
+    width: 70.25px;
+    height: 66px;
+  }
+
+  .slimMon {
+    font-size: 25px;
+    position: relative;
+    top: 15px;
+    right: 10px;
+
+  }
+
+  .borderLogin {
+    border-left: 2px solid #e0e0e0;
+    padding-left: 20px;
+  }
+
+  .sectionRegister {
+    margin-left: 10px;
+    margin-top: 110px;
+  }
+
+  ;
+
+}

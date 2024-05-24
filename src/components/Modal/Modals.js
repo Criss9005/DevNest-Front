@@ -2,7 +2,15 @@ import React from 'react';
 import Modal from './Modal';
 import { useModal } from './useModal';
 import css from './styles/modal.module.css';
+import { Link } from 'react-router-dom';
 
+function ButtonLink({ to, children }) {
+  return (
+    <Link to={to}>
+      <button>{children}</button>
+    </Link>
+  );
+}
 const Modals = ({ result }) => {
   const [isOpen, openModal, closeModal] = useModal(false);
 
@@ -26,9 +34,9 @@ const Modals = ({ result }) => {
             </ul>
           </>
         )}
-        <button className={css.startlose} onClick={closeModal}>
-          Close
-        </button>
+        <ButtonLink className={css.startlose} to="/register">
+          Start losing weight
+        </ButtonLink>
       </Modal>
     </div>
   );

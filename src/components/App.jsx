@@ -1,24 +1,34 @@
 import React from 'react';
+<<<<<<< HEAD
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginPage from './LoginPage/LoginPage.js';
 import RegistrationPage from './RegistrationPage/RegistrationPage.js';
 import Menu from './Menu/Menu.jsx';
 import BackgroundM from './BackgroundM/BackgroundM';
+=======
+import { Routes, Route } from 'react-router-dom';
+import { Suspense } from 'react';
+>>>>>>> Dev
 import MainPage from '../pages/MainPage/MainPage';
 
-export const App = () => {
+import LoginPage from '../pages/LoginPage/LoginPage';
+import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
+import CalculatorPage from 'pages/CalculatorPage/CalculatorPage';
+import Diary from '../pages/DiaryPage/DiaryPage';
+
+const App = () => {
   return (
-    <Router>
+    <Suspense fallback={<div>Loading...</div>}>
       <div className="container">
-        <BackgroundM />
-        <Menu />
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegistrationPage />} />
+          <Route path="/diary" element={<Diary />} />
+          <Route path="/calculator" element={<CalculatorPage />} />
         </Routes>
       </div>
-    </Router>
+    </Suspense>
   );
 };
 
