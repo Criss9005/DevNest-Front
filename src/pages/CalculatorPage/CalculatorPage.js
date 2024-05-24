@@ -3,17 +3,26 @@ import Calculator from "components/Calculate/Calculate";
 import style from 'components/Calculate/calculato.module.css';
 import BackgroundCalculate from "components/BackgroundCalculate/BackgroundCalculate";
 import Header from "components/Header/headerComponent";
+//import { useEffect, useState } from "react";
 
 
 
 export default function DailyAddCalculator() {
   
+  /* const [data, setData] = useState
+
+  useEffect(() => { 
+    const newData = localStorage.getItem('CAL_NO_USER');
+    if (newData) { 
+      setData(JSON.parse(newData))
+    }
+  },[]) */
   
   return (
     <div className={style['main__container']}>
                 <div className={style['main__content']}>
                 <Header />
-                <DailyCaloriesForm />
+        <DailyCaloriesForm  />
                 </div>
                 <div className={style['calculate__container']}>
                     <Calculator />

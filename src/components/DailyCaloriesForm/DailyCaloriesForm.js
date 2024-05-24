@@ -59,9 +59,9 @@ function DailyCaloriesForm() {
 
     const handleFormSubmit = async values => {
       try {
-        console.log(dataUser)
-      localStorage.setItem('CAL_NO_USER', JSON.stringify(values));
       
+      localStorage.setItem('CAL_NO_USER', JSON.stringify(values));
+      console.log(dataUser)
       const response = await axios.get(
         'https://devnest-back-1.onrender.com/api/products/public/daily-intake',
         {
