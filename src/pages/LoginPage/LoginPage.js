@@ -1,24 +1,18 @@
 import React, { useState } from 'react';
-import '../../components/StyleComponents.css';
 import BackgroundM from 'components/BackgroundM/BackgroundM';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Notiflix from 'notiflix';
 import Header from '../../components/Header/headerComponent.jsx';
+import css from './LoginPage.module.css';
 
-function ButtonLink({ to, children }) {
-  return (
-    <Link to={to}>
-      <button>{children}</button>
-    </Link>
-  );
-}
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-
+  
+ 
   const handleEmailChange = event => {
     setEmail(event.target.value);
   };
@@ -29,14 +23,15 @@ const LoginPage = () => {
 
   const handleSubmit = async event => {
     event.preventDefault();
+    
     axios
       .post(`https://devnest-back-1.onrender.com/api/auth/login`, {
         email: email,
         password: password,
       })
       .then(response => {
-        const data = response.data.result;
-        console.log(data);
+        const data = response.data;
+       
 
         if (data) {
           const stringData = JSON.stringify(data);
@@ -52,15 +47,16 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className={css.containerLogPage}>
       <Header />
       <BackgroundM />
-      <h1>LOG IN</h1>
-      <form onSubmit={handleSubmit}>
+      <h1 className={css.loginPage}>LOG IN</h1>
+      <form className={css.labelPage} onSubmit={(event) => handleSubmit(event)}>
         <label>
           Email *
           <br />
           <input
+            className={css.form}
             type="email"
             value={email}
             onChange={handleEmailChange}
@@ -72,6 +68,7 @@ const LoginPage = () => {
           Password *
           <br />
           <input
+            className={css.form}
             type="password"
             value={password}
             onChange={handlePasswordChange}
@@ -79,11 +76,14 @@ const LoginPage = () => {
           />
         </label>
 
-        <div className="div_button">
-          <button type="submit">Log in</button>
-          <ButtonLink className="register-button" to="/register">
+        <div className={css.logButtons}>
+          <button className={css.buttonPage} type="submit">
+            Log in
+          </button>
+          <button className={css.buttonPage} onClick={(e) => navigate("/register") }>
             Register
-          </ButtonLink>
+          </button>
+          
         </div>
       </form>
     </div>

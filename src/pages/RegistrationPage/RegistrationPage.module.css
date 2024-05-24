@@ -1,0 +1,77 @@
+.containerRePage {
+  padding: 20px;
+}
+
+
+.regiPage {
+  color: #fc842d;
+  font-size: 14px;
+  margin: 0px 0px 55px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.labelPage {
+  color: #9b9faa;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17.01px;
+  letter-spacing: 0.04em;
+  text-align: left;
+  border: none;
+}
+
+.form {
+  width: 240px;
+  padding: 0px;
+  margin-bottom: 40px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 0;
+  outline: none;
+}
+
+.buttonPage {
+  margin: 20px;
+  width: 181px;
+  height: 44px;
+  margin: 20px 32px 20px 0px;
+  border: 2px solid #fc842d;
+  border-radius: 30px;
+  background-color: #ffffff;
+  color: #fc842d;
+  cursor: pointer;
+}
+
+.buttonPage:hover {
+  background-color: #fc842d;
+  color: #ffffff;
+  box-shadow: 0px 4px 10px 0px hsla(25, 97%, 58%, 0.5);
+}
+
+.logButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+
+  .logButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .regiPage {
+    text-align: left;
+    padding-top: 180px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .regiPage {
+    text-align: left;
+    padding-top: 60px;
+  }
+}

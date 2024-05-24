@@ -31,6 +31,7 @@ export default function CalculatorDailyCalories(props) {
             <span>{'000 '}Kcal </span>
           </li>
 
+
           <li>
             <span>Consumed </span>
             <span>{'000 '}Kcal </span>

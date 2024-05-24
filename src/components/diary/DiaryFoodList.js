@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+/* import React, { useState, useEffect } from 'react';
 import { FaTimes, FaChevronLeft } from 'react-icons/fa';
 import styles from './DiaryFoodList.module.css';
+
 import Input from '../AutoCompleteInput/AutoCompleteInput';
 import {
   addConsumedFood,
@@ -9,23 +10,18 @@ import {
 } from './api/apiServices';
 const userInfo = JSON.parse(localStorage.getItem('USER'));
 
-const DiaryFoodList = ({
-  foodList,
-  addFoodToList,
-  setFoodList,
-  removeFoodFromList,
-  date,
-}) => {
+
+const DiaryFoodList = ({ foodList, addFoodToList, removeFoodFromList }) => {
   const [selectedFood, setSelectedFood] = useState('');
   const [grams, setGrams] = useState('');
   const [showAddFood, setShowAddFood] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [foodSearch, setFoodsearch] = useState([]);
   const [isTabletOrDesktop, setIsTabletOrDesktop] = useState(
     window.innerWidth >= 768
   );
 
+
   const idUser = userInfo.user.id;
+
 
   const handleAddFood = async () => {
     if (selectedFood && grams) {
@@ -35,15 +31,16 @@ const DiaryFoodList = ({
         productName: selectedFood,
         grams,
         idUser,
+
         calories: grams * cals,
+
       };
       try {
         const res = await addConsumedFood(food);
-        if (res.status === 201) {
-          addFoodToList(food);
-          setSelectedFood('');
-          setGrams('');
-        }
+        console.log(res);
+        addFoodToList(food);
+        setSelectedFood('');
+        setGrams('');
       } catch (error) {
         console.error(error);
       }
@@ -85,7 +82,7 @@ const DiaryFoodList = ({
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [date, idUser, addFoodToList]);
+  }, []);
 
   return (
     <div>
@@ -103,10 +100,11 @@ const DiaryFoodList = ({
               />
             </div>
           )}
-          <Input
-            list={foodSearch}
-            setSelectedFood={setSelectedFood}
-            setFoodsearch={setFoodsearch}
+          <input
+            type="text"
+            value={selectedFood}
+            onChange={e => setSelectedFood(e.target.value)}
+            placeholder="Enter product name"
           />
           <input
             type="text"
@@ -128,11 +126,7 @@ const DiaryFoodList = ({
           </tr>
         </thead>
         <tbody>
-          {isLoading ? (
-            <tr>
-              <td colSpan="4">Loading...</td>
-            </tr>
-          ) : foodList.length ? (
+          {foodList.length ? (
             foodList.map((food, index) => (
               <tr key={index}>
                 <td>{food.name}</td>
@@ -148,7 +142,12 @@ const DiaryFoodList = ({
               <td colSpan="4">No data to show</td>
             </tr>
           )}
-        </tbody>
+          {/* {!showAddFood && (
+            <tr>
+              <td colSpan="4">No data to show</td>
+            </tr>
+          )} */
+/*         </tbody>
       </table>
       {!isTabletOrDesktop && !showAddFood && (
         <div className={styles.addButtonContainer}>
@@ -165,3 +164,4 @@ const DiaryFoodList = ({
 };
 
 export default DiaryFoodList;
+ */ 

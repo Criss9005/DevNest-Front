@@ -17,21 +17,22 @@
     border-bottom: 1px solid var(--form-input);
     background-color: #F0F1F3;
     /* text-align: center; */
-    width: auto;
+    
 }
 
 @media screen and (min-width: 768px) {
     .calculate__container {
       font-size: 34px;
       line-height: 41px;
-      width: auto;
       padding-bottom: 45px;
       height: 100%;
       position: fixed;
-      
+    z-index: -500;
+     
     }
     .main__container{
        display: block; 
+     
     }
 
     
@@ -70,6 +71,7 @@
       width:100%;
       height: 100%;
       padding: 0;
+    z-index: -500;
      
     }
     .calculate__field{
@@ -128,6 +130,7 @@
     }
     .calculate__container{
         margin-bottom: -300px;
+        z-index: -500;
     }
     @import "../assets/styles/colors.css";
     .calculate__field__summary_food,
