@@ -63,12 +63,12 @@ export default function Header() {
         <img className={css.logo} src={logo} alt="logo_empresa" />
         <div className={css.slimMon} onClick={handleLogoClick}>
           <p className={css.slim}>Slim</p>
-          <p className={css.mom}>Mom</p>
+          <b className={css.mom}>Mom</b>
         </div>
       </section>
       <section className={css.sectionRegister}>
         {!isLogged ? (
-          <> 
+          <>
             <StyledLink  className={css.buttonLogin} to="/login">LOG IN</StyledLink >
             <StyledLink  className={css.buttonLogin} to="/register">REGISTRATION</StyledLink >
         
