@@ -13,14 +13,18 @@ const StyledLink = styled(NavLink)`
   }
 `
 
-export default function Header({username }) {
+export default function Header() {
+  
   const [user, setUser] = useState(null)
   const [isLogged, setIsLogged] = useState(false)
   const navigate = useNavigate();
 
   const handleLogoClick = () => {
+    localStorage.clear()
     navigate('/');
   };
+  
+  
 
   const handleLogout = () => {
     const token = user.accessToken
@@ -31,7 +35,6 @@ export default function Header({username }) {
       }
     })
       .then(response => {
-        localStorage.clear()
         Notiflix.Notify.success("Logout complete");
         handleLogoClick()
       
