@@ -49,7 +49,7 @@ function DailyCaloriesForm() {
   
   useEffect(() => { 
     const data = localStorage.getItem('CAL_NO_USER')
-    console.log(JSON.parse(data))
+    
     if (data) { 
       setDataUser(data) 
     }

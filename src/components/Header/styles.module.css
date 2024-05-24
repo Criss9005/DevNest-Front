@@ -40,11 +40,9 @@
 .mom {
   width: 52.51px;
   height: 15.41px;
-  top: 33.06px;
-  left: 141.79px;
-  gap: 0px;
-  opacity: 0px;
   color: #fc842d;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .slimMon {
