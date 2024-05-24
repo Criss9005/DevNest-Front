@@ -136,7 +136,7 @@
     border-bottom: none;
     align-items: flex-end;
     justify-content: flex-start;
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; Se quite porque afecta el boton pagina MainPage*/
   }
 
   .completeLogo {
