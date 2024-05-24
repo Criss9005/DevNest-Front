@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+/* import React, { useState, useEffect } from 'react';
 import { FaTimes, FaChevronLeft } from 'react-icons/fa';
 import styles from './DiaryFoodList.module.css';
 import { addConsumedFood } from './api/apiServices';
@@ -32,13 +32,38 @@ const DiaryFoodList = ({ foodList, addFoodToList, removeFoodFromList }) => {
       }
     }
   };
+  const allProducts = async () => {
+    try {
+      const result = await searchFood('');
+      setFoodsearch(result.data);
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
+    if (userInfo) {
+      const getFoods = async () => {
+        try {
+          setIsLoading(true);
+          const result = await getConsumedFoods(idUser, date);
+          addFoodToList([]);
+          addFoodToList(result);
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+      getFoods();
+    }
     const handleResize = () => {
       setIsTabletOrDesktop(window.innerWidth >= 768);
     };
 
     window.addEventListener('resize', handleResize);
+    allProducts();
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -107,8 +132,8 @@ const DiaryFoodList = ({ foodList, addFoodToList, removeFoodFromList }) => {
             <tr>
               <td colSpan="4">No data to show</td>
             </tr>
-          )} */}
-        </tbody>
+          )} */
+/*         </tbody>
       </table>
       {!isTabletOrDesktop && !showAddFood && (
         <div className={styles.addButtonContainer}>
@@ -125,3 +150,4 @@ const DiaryFoodList = ({ foodList, addFoodToList, removeFoodFromList }) => {
 };
 
 export default DiaryFoodList;
+ */ 
