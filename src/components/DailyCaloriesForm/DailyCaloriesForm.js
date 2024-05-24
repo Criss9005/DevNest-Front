@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './DailyCaloriesForm.module.css';
 import Button from '../Button/Button';
@@ -45,10 +45,21 @@ function DailyCaloriesForm() {
   const [result, setResult] = useState(null);
   const [isOpen, openModal, closeModal] = useModal(false);
   const navigate = useNavigate();
+  const [dataUser, setDataUser] = useState(null)
+  
+  useEffect(() => { 
+    const data = localStorage.getItem('CAL_NO_USER')
+    console.log(JSON.parse(data))
+    if (data) { 
+      setDataUser(data) 
+    }
+
+  }, [])
+
 
     const handleFormSubmit = async values => {
       try {
-
+        console.log(dataUser)
       localStorage.setItem('CAL_NO_USER', JSON.stringify(values));
       
       const response = await axios.get(
