@@ -3,6 +3,8 @@ import { useNavigate, NavLink } from 'react-router-dom';
 import css from './styles.module.css';
 import logo from '../../images/Logo.png';
 import styled from "styled-components";
+import axios from 'axios';
+import Notiflix from 'notiflix';
 const StyledLink = styled(NavLink)`
   color: #9b9faa;
 
@@ -20,7 +22,26 @@ export default function Header({username }) {
     navigate('/');
   };
 
-  const handleLogout = () => { };
+  const handleLogout = () => {
+    const token = user.accessToken
+    axios.post(`https://devnest-back-1.onrender.com/api/auth/logout`, {
+        sid: user.sid
+      }, {
+      headers: { 'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(response => {
+        localStorage.clear()
+        Notiflix.Notify.success("Logout complete");
+        handleLogoClick()
+      
+      })
+      .catch(e => {
+        //implementar alertas cuando no inicia
+        Notiflix.Notify.failure(e.response.data.message);
+        
+      });
+   };
   
   useEffect(() => { 
     const usuario = JSON.parse(localStorage.getItem('USER'))
@@ -28,7 +49,7 @@ export default function Header({username }) {
       setUser(usuario)
       setIsLogged(true)
     }
-    console.log(usuario)
+    
     
     },[])
 
@@ -50,20 +71,14 @@ export default function Header({username }) {
         
           </>
         ) : (
-            <div>
-              <ul>
-                <li>
-                      <StyledLink  className={css.buttonLogin} to="/diary">DIARY</StyledLink >
-                      <StyledLink className={css.buttonLogin} to="/calculator">CALCULATOR</StyledLink > 
-                </li>
-                <li>
-                  <p>{ `${user.user.username}`}</p>
-                  <p></p>
-                </li>
-              </ul>
-
+            <>
+              <StyledLink className={css.buttonLogin} to="/diary">DIARY</StyledLink >
+              <StyledLink className={css.buttonLogin} to="/calculator">CALCULATOR</StyledLink > 
               
-              </div>
+                  <p className={css.username }>{ `${user.user.username}`}</p>
+                  <p className={css.logout } onClick={(e)=> handleLogout()}> Exit</p>
+                
+            </>
               
             
           

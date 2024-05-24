@@ -1,11 +1,14 @@
 import axios from 'axios';
 import apiConfig from './apiConfig';
-const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NGFjNmYwMGE1NWM1NDU5ODg5ZmZiYiIsImlhdCI6MTcxNjE3NjYyNCwiZXhwIjoxNzE2MTgwMjI0fQ.mjYOn_yc-7KZblqgBc79sZNxVXzmAinGAf45EnrP6UA';
 
-axios.defaults.baseURL = apiConfig;
-axios.defaults.headers.common['Content-Type'] = 'application/json';
-axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+const userInfo = JSON.parse(localStorage.getItem('USER')) || null;
+let token;
+if (userInfo) {
+  token = userInfo.accesToken;
+  axios.defaults.baseURL = apiConfig;
+  axios.defaults.headers.common['Content-Type'] = 'application/json';
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+}
 
 const getConsumedFoods = async (idUser, date) => {
   const result = await axios.get(`/${idUser}/${date}`);
@@ -27,14 +30,15 @@ const getConsumedFoods = async (idUser, date) => {
 };
 
 const addConsumedFood = async data => {
+  console.log(data);
   const result = await axios.post('/addSummary', data);
-  console.log(result);
+  //console.log(result);
   return result;
 };
 
 const removeFoodRegister = async id => {
   const result = await axios.delete(`/addSummary/${id}`);
-  console.log(result);
+  //console.log(result);
   return result;
 };
 

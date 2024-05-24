@@ -6,7 +6,6 @@ import Header from 'components/Header/headerComponent'
 export default function Calculator() {
   return (
     <div>
-     
       <Header/>
       <Calculate/>
     </div>

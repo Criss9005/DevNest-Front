@@ -7,11 +7,8 @@ import * as yup from 'yup';
 import Modal from '../Modal/Modal';
 import { useModal } from '../Modal/useModal';
 import css from '../Modal/modal.module.css';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function ButtonLink({ to, children }) {
-  return <Link to={to}><button>{children}</button></Link>;
-}
 
 
 const validationSchema = yup.object().shape({
@@ -47,7 +44,8 @@ const validationSchema = yup.object().shape({
 function DailyCaloriesForm() {
   const [result, setResult] = useState(null);
   const [isOpen, openModal, closeModal] = useModal(false);
-  
+  const navigate = useNavigate();
+
     const handleFormSubmit = async values => {
       try {
 
@@ -59,7 +57,7 @@ function DailyCaloriesForm() {
           params: values,
         }
       );
-      console.log('API Response:', response.data);
+      
       setResult(response.data);
       openModal();
     } catch (error) {
@@ -267,7 +265,7 @@ function DailyCaloriesForm() {
             ))}
           </ul>
           
-         <ButtonLink className={css.startlose} to={'/register'}>Start losing weight</ButtonLink>
+         <button className={css.startlose} onClick={(e)=> navigate('/register')}>Start losing weight</button>
           
           
           </Modal>
