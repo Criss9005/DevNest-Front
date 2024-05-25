@@ -3,7 +3,6 @@
   top: 80px;
   display: flex;
   align-items: center;
-
 }
 
 .exitComp {
@@ -40,16 +39,13 @@
 .mom {
   width: 52.51px;
   height: 15.41px;
-  top: 33.06px;
-  left: 141.79px;
-  gap: 0px;
-  opacity: 0px;
   color: #fc842d;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .slimMon {
   display: none;
-
 }
 
 .buttonLogin {
@@ -62,7 +58,6 @@
   text-align: right;
   display: flex;
   text-decoration: none;
-
 }
 
 .buttonLogin:hover {
@@ -100,7 +95,6 @@
   cursor: pointer;
 }
 
-
 .sectionRegister {
   gap: 50px;
   display: flex;
@@ -110,7 +104,6 @@
 }
 
 @media (min-width: 768px) {
-
   .buttonLogin {
     font-size: 14px;
   }
@@ -131,16 +124,14 @@
 }
 
 @media (min-width: 1024px) {
-
   .headercontaineer {
     border-bottom: none;
     align-items: flex-end;
     justify-content: flex-start;
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; Se quite porque afecta el boton pagina MainPage*/
   }
 
   .completeLogo {
-
     gap: 0;
     padding-right: 10px;
   }
@@ -155,7 +146,6 @@
     position: relative;
     top: 15px;
     right: 10px;
-
   }
 
   .borderLogin {
@@ -167,7 +157,4 @@
     margin-left: 10px;
     margin-top: 110px;
   }
-
-  ;
-
 }
