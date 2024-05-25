@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import BackgroundM from 'components/BackgroundM/BackgroundM';
-import Header from '../../components/Header/headerComponent.jsx';
+import Header from '../../components/Header/Header';
 import css from './RegistrationPage.module.css';
 
 
@@ -13,18 +13,7 @@ const RegistrationPage = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleNameChange = event => {
-    setName(event.target.value);
-  };
-
-  const handleEmailChange = event => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = event => {
-    setPassword(event.target.value);
-  };
-
+ 
   const handleSubmit = event => {
     event.preventDefault();
     axios
@@ -46,8 +35,8 @@ const RegistrationPage = () => {
 
   return (
     <div className={css.containerRePage}>
-      <BackgroundM />
       <Header />
+      <BackgroundM />
       <h1 className={css.regiPage}>REGISTER</h1>
       <form className={css.labelPage} onSubmit={handleSubmit}>
         <label>
@@ -57,7 +46,7 @@ const RegistrationPage = () => {
             className={css.form}
             type="text"
             value={name}
-            onChange={handleNameChange}
+            onChange={(e)=> setName(e.target.value)}
             required
           />
         </label>
@@ -69,7 +58,7 @@ const RegistrationPage = () => {
             className={css.form}
             type="email"
             value={email}
-            onChange={handleEmailChange}
+            onChange={(e)=>setEmail(e.target.value)}
             required
           />
         </label>
@@ -81,17 +70,17 @@ const RegistrationPage = () => {
             className={css.form}
             type="password"
             value={password}
-            onChange={handlePasswordChange}
+            onChange={(e)=> setPassword(e.target.value)}
             required
           />
         </label>
 
-        <div className="div_button">
+        <div className={css.logButtons}>
           <button className={css.buttonPage} type="submit">
             Register
           </button>
 
-          <button className={css.buttonPage} onClick={(e)=> navigate("/login")}>
+          <button className={css.buttonPage} type='button' onClick={(e)=> navigate("/login")}>
             Log in
           </button>
         </div>

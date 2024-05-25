@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
-import css from './styles.module.css';
+import css from './Header.module.css';
 import logo from '../../images/Logo.png';
 import styled from 'styled-components';
-import axios from 'axios';
-import Notiflix from 'notiflix';
 import MenuMobile from '../MenuMobile/MenuMobile';
 
 const StyledLink = styled(NavLink)`
@@ -25,26 +23,7 @@ export default function Header() {
     navigate('/');
   };
 
-  const handleLogout = () => {
-    const token = user.accessToken;
-    axios
-      .post(
-        `https://devnest-back-1.onrender.com/api/auth/logout`,
-        {
-          sid: user.sid,
-        },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
-      .then(response => {
-        Notiflix.Notify.success('Logout complete');
-        handleLogoClick();
-      })
-      .catch(e => {
-        Notiflix.Notify.failure(e.response.data.message);
-      });
-  };
+  
 
   useEffect(() => {
     const usuario = JSON.parse(localStorage.getItem('USER'));
@@ -70,25 +49,24 @@ export default function Header() {
               LOG IN
             </StyledLink>
             <StyledLink className={css.buttonLogin} to="/register">
-              REGISTRATION
+              REGISTER
             </StyledLink>
           </>
-        ) : (
-          <>
+        ) : 
+          <> 
+            <div className={css.menuMobile}>
             <StyledLink className={css.buttonLogin} to="/diary">
               DIARY
             </StyledLink>
             <StyledLink className={css.buttonLogin} to="/calculator">
               CALCULATOR
             </StyledLink>
-            <p className={css.username}>{`${user.user.username}`}</p>
-            <p className={css.logout} onClick={handleLogout}>
-              Exit
-            </p>
+            </div>
+            <MenuMobile user={ user.user.username } />
           </>
-        )}
+        }
       </section>
-      <MenuMobile />
+      
     </header>
   );
 }

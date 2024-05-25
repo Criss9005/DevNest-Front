@@ -1,40 +1,30 @@
 .headercontaineer {
-  border-bottom: 2px solid #e0e0e0;
   top: 80px;
   display: flex;
   align-items: center;
+}
+
+.menuMobile{
+  display: none;
+}
+.headercontaineer::after{
+  
+    content: "";
+    width: 100vh;
+    height: 2px;
+    background-color: #e0e0e0;
+    display: block;
+    position: absolute;
+    top: 55px;
+    left: 0;
+    border-radius: 2px;
 }
 
 .exitComp {
   display: flex;
 }
 
-.logout {
-  color: #9b9faa;
-  font-family: Verdana;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 17.01px;
-  letter-spacing: 0.04em;
-  text-align: right;
-  display: flex;
-  text-decoration: none;
-  cursor: pointer;
-  margin: 0;
-}
 
-.username {
-  color: #212121;
-  font-family: Verdana;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 17.01px;
-  letter-spacing: 0.04em;
-  text-align: right;
-  display: flex;
-  text-decoration: none;
-  margin: 0;
-}
 
 .mom {
   width: 52.51px;
@@ -108,10 +98,17 @@
     font-size: 14px;
   }
 
+  .menuMobile {
+      display: flex;
+  }
+
   .slimMon {
     display: flex;
     cursor: pointer;
   }
+    .mom {
+      margin-top: 16px;
+    }
 }
 
 .completeLogo {
@@ -128,7 +125,8 @@
     border-bottom: none;
     align-items: flex-end;
     justify-content: flex-start;
-    /* padding-bottom: 100px; Se quite porque afecta el boton pagina MainPage*/
+    gap: 30px;
+
   }
 
   .completeLogo {
@@ -147,14 +145,20 @@
     top: 15px;
     right: 10px;
   }
+    .mom {
+      margin-top: 25px;
+    }
 
-  .borderLogin {
-    border-left: 2px solid #e0e0e0;
-    padding-left: 20px;
-  }
+  
 
   .sectionRegister {
     margin-left: 10px;
     margin-top: 110px;
   }
+
+    .headercontaineer::after {
+  
+      display: none;
+      
+    }
 }
