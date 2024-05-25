@@ -32,6 +32,7 @@
     padding: 15px;
     background-color: #EFF1F3;
     justify-content: flex-end;
+    
 }
 
 .username::after{
@@ -46,3 +47,21 @@
     border-radius: 2px;
 }
 
+@media (min-width: 768px) {
+.menuContainer {
+        background-color: white;
+        
+    }   
+        .username::after {
+            top: 18px;
+            right: 124px;
+        }
+  
+}
+
+@media (min-width: 1024px) {
+    .menuContainer {
+        display: none;
+
+    }
+}

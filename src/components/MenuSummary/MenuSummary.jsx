@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import Notiflix from 'notiflix';
-import css from './MenuLogged.module.css'
+import css from './MenuSummary.module.css'
 
 
 export default function MenuLogged() {
