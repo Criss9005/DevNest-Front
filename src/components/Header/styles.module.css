@@ -3,7 +3,6 @@
   top: 80px;
   display: flex;
   align-items: center;
-
 }
 
 .exitComp {
@@ -47,7 +46,6 @@
 
 .slimMon {
   display: none;
-
 }
 
 .buttonLogin {
@@ -60,7 +58,6 @@
   text-align: right;
   display: flex;
   text-decoration: none;
-
 }
 
 .buttonLogin:hover {
@@ -98,7 +95,6 @@
   cursor: pointer;
 }
 
-
 .sectionRegister {
   gap: 50px;
   display: flex;
@@ -108,7 +104,6 @@
 }
 
 @media (min-width: 768px) {
-
   .buttonLogin {
     font-size: 14px;
   }
@@ -129,7 +124,6 @@
 }
 
 @media (min-width: 1024px) {
-
   .headercontaineer {
     border-bottom: none;
     align-items: flex-end;
@@ -138,7 +132,6 @@
   }
 
   .completeLogo {
-
     gap: 0;
     padding-right: 10px;
   }
@@ -153,7 +146,6 @@
     position: relative;
     top: 15px;
     right: 10px;
-
   }
 
   .borderLogin {
@@ -165,7 +157,4 @@
     margin-left: 10px;
     margin-top: 110px;
   }
-
-  ;
-
 }
