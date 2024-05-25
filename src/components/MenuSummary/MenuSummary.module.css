@@ -1,0 +1,60 @@
+ .menuContainer {
+     display: none;
+
+ }
+
+@media (min-width: 1024px) {
+
+    .username {
+            color: #212121;
+            font-family: Verdana;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 17.01px;
+            letter-spacing: 0.04em;
+            text-align: right;
+            display: flex;
+            text-decoration: none;
+            margin: 0;
+            padding-right: 32px;
+        }
+    
+        .logout {
+            color: #9b9faa;
+            font-family: Verdana;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 17.01px;
+            letter-spacing: 0.04em;
+            text-align: right;
+            display: flex;
+            text-decoration: none;
+            cursor: pointer;
+            margin: 0;
+        }
+    
+        .menuContainer {
+            width: 420px;
+            display: flex;
+            padding: 15px;
+            background-color: #EFF1F3;
+            
+    
+        }
+    
+        .username::after {
+            content: "";
+            width: 2px;
+            height: 30px;
+            background-color: #e0e0e0;
+            display: block;
+            position: absolute;
+            top: 64px;
+            right: 60px;
+            border-radius: 2px;
+        }
+    
+
+
+}
+

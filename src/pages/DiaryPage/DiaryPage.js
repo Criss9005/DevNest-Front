@@ -3,7 +3,7 @@ import Calculator from "components/Calculate/Calculate";
 import style from 'components/Calculate/calculato.module.css';
 import Diary from '../../components/diary/diary/Diary';
 import BackgroundCalculate from "components/BackgroundCalculate/BackgroundCalculate";
-import Header from "components/Header/headerComponent";
+import Header from "components/Header/Header";
 
 export default function DiaryAddCalculator(){
 

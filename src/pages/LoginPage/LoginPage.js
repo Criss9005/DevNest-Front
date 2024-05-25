@@ -3,7 +3,7 @@ import BackgroundM from 'components/BackgroundM/BackgroundM';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Notiflix from 'notiflix';
-import Header from '../../components/Header/headerComponent.jsx';
+import Header from '../../components/Header/Header';
 import css from './LoginPage.module.css';
 
 
@@ -12,15 +12,6 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   
- 
-  const handleEmailChange = event => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = event => {
-    setPassword(event.target.value);
-  };
-
   const handleSubmit = async event => {
     event.preventDefault();
     
@@ -59,7 +50,7 @@ const LoginPage = () => {
             className={css.form}
             type="email"
             value={email}
-            onChange={handleEmailChange}
+            onChange={(e)=>setEmail(e.target.value)}
             required
           />
         </label>
@@ -71,7 +62,7 @@ const LoginPage = () => {
             className={css.form}
             type="password"
             value={password}
-            onChange={handlePasswordChange}
+            onChange={(e)=> setPassword(e.target.value)}
             required
           />
         </label>
@@ -80,7 +71,7 @@ const LoginPage = () => {
           <button className={css.buttonPage} type="submit">
             Log in
           </button>
-          <button className={css.buttonPage} onClick={(e) => navigate("/register") }>
+          <button className={css.buttonPage} type='button' onClick={(e) => navigate("/register") }>
             Register
           </button>
           

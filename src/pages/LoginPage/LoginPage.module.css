@@ -1,5 +1,11 @@
 .containerLogPage {
-  padding: 20px;
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 30px;
+    position: relative;
+    padding: 0 20px;
+    margin-top: 20px;
+    margin-left: 5px;
 }
 
 
@@ -65,13 +71,22 @@
 
     .loginPage {
       text-align: left;
-      padding-top: 180px;
+      padding-top: 50px;
     }
+
+    .containerLogPage {
+    padding: 0 30px;
+   
+}
+    
 }
 
 @media (min-width: 1024px) {
   .loginPage {
       text-align: left;
       padding-top: 60px;
+    }
+    .containerLogPage {
+      padding: 0 15px;
     }
 }

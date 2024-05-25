@@ -1,7 +1,7 @@
 import styles from './MainPage.module.css';
 import BackgroundM from 'components/BackgroundM/BackgroundM';
 import DailyCaloriesForm from '../../components/DailyCaloriesForm';
-import Header from '../../components/Header/headerComponent.jsx';
+import Header from '../../components/Header/Header';
 import { useEffect, useState } from "react";
 
 function MainPage() {

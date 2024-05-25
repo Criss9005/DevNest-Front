@@ -1,6 +1,13 @@
 .containerRePage {
-  padding: 20px;
+  display: flex;
+    flex-direction: column;
+    grid-row-gap: 30px;
+    position: relative;
+    padding: 0 20px;
+    margin-top: 20px;
+    margin-left: 5px;
 }
+
 
 
 .regiPage {
@@ -65,7 +72,11 @@
 
   .regiPage {
     text-align: left;
-    padding-top: 180px;
+    padding-top: 50px;
+  }
+
+  .containerRePage {
+    padding: 0 30px;
   }
 }
 
@@ -74,4 +85,8 @@
     text-align: left;
     padding-top: 60px;
   }
+
+    .containerRePage {
+      padding: 0 15px;
+    }
 }
