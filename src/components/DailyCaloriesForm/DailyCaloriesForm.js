@@ -48,15 +48,23 @@ function DailyCaloriesForm() {
     try {
       localStorage.setItem('CAL_NO_USER', JSON.stringify(values));
 
-      const response = await axios.get(
-        'https://devnest-back-1.onrender.com/api/products/public/daily-intake',
-        {
-          params: values,
-        }
-      );
+      const token = localStorage.getItem('accessToken');
+      const apiUrl = token
+        ? 'https://devnest-back-1.onrender.com/api/products/private/daily-intake'
+        : 'https://devnest-back-1.onrender.com/api/products/public/daily-intake';
+
+      const response = await axios.get(apiUrl, {
+        params: values,
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+      });
 
       setResult(response.data);
       openModal();
+
+      if (token) {
+        localStorage.setItem('dailyIntake', JSON.stringify(response.data));
+        navigate('/diary');
+      }
     } catch (error) {
       console.error('Error fetching daily intake data', error);
     }

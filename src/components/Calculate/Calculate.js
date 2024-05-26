@@ -1,26 +1,21 @@
+import React, { useEffect, useState } from 'react';
 import styles from '../Calculate/calculato.module.css';
-// import axios from 'axios';
 
-// const handleCalcuateDay = async values => {
-//     try {
-//       const response = await axios.get(
-//         'https://devnest-back-1.onrender.com/api/products/private/saved-daily-intake',
-//         {
-//           params: values,
-//         }
-//       );
-//       console.log('API Response:-----------', response.data);
-//       /* setResult(response.data); */
-//       //console.log(setResult(response.data));
-//      //console.log(setResult);
-
-//     } catch (error) {
-//       console.error('Error fetching daily intake data', error);
-//     }
-// };
-
-// console.log(handleCalcuateDay());
 export default function CalculatorDailyCalories(props) {
+  const [dailyCalorieIntake, setDailyCalorieIntake] = useState(0);
+  const [nonRecommendedFoods, setNonRecommendedFoods] = useState([]);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      setDailyCalorieIntake(user.dailyIntake.dailyCalorieIntake);
+      setNonRecommendedFoods(user.dailyIntake.nonRecommendedFoods);
+    } else {
+      setDailyCalorieIntake(0);
+      setNonRecommendedFoods([]);
+    }
+  }, []);
+
   return (
     <div className={styles['calculate__field']}>
       <div className={styles['calculate__field__summary']}>
@@ -38,7 +33,7 @@ export default function CalculatorDailyCalories(props) {
 
           <li>
             <span>Daily rate </span>
-            <span>{'000 '}Kcal </span>
+            <span>{dailyCalorieIntake} Kcal </span>
           </li>
 
           <li>
@@ -50,7 +45,13 @@ export default function CalculatorDailyCalories(props) {
       <div className={styles['calculate__field__summary_food']}>
         <h4 className={styles['titles']}>Food not recommended</h4>
         <ul className={styles['food']}>
-          <li>Your diet will be displayed here</li>
+          {nonRecommendedFoods.length > 0 ? (
+            nonRecommendedFoods.map((food, index) => (
+              <li key={index}>{food}</li>
+            ))
+          ) : (
+            <li>Your diet will be displayed here</li>
+          )}
         </ul>
       </div>
     </div>
