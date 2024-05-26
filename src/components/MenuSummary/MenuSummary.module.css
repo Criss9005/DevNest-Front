@@ -38,21 +38,11 @@
             display: flex;
             padding: 15px;
             background-color: #EFF1F3;
-            
+            justify-content: center;
     
         }
     
-        .username::after {
-            content: "";
-            width: 2px;
-            height: 30px;
-            background-color: #e0e0e0;
-            display: block;
-            position: absolute;
-            top: 64px;
-            right: 60px;
-            border-radius: 2px;
-        }
+        
     
 
 
