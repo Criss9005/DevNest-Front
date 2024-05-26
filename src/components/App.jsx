@@ -9,6 +9,7 @@ import CalculatorPage from 'pages/CalculatorPage/CalculatorPage';
 import Diary from '../pages/DiaryPage/DiaryPage';
 
 const App = () => {
+  localStorage.removeItem('USER');
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className="container">
