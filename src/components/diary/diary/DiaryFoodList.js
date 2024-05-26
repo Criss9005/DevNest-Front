@@ -48,10 +48,6 @@ const DiaryFoodList = ({
       }
     }
   };
-<<<<<<< HEAD:src/components/diary/DiaryFoodList.js
-<<<<<<< Nicolas
-=======
->>>>>>> main:src/components/diary/diary/DiaryFoodList.js
   const allProducts = async () => {
     try {
       const result = await searchFood('');
@@ -78,26 +74,12 @@ const DiaryFoodList = ({
       };
       getFoods();
     }
-<<<<<<< HEAD:src/components/diary/DiaryFoodList.js
-=======
-
-  useEffect(() => {
->>>>>>> Dev
-=======
->>>>>>> main:src/components/diary/diary/DiaryFoodList.js
     const handleResize = () => {
       setIsTabletOrDesktop(window.innerWidth >= 768);
     };
 
     window.addEventListener('resize', handleResize);
-<<<<<<< HEAD:src/components/diary/DiaryFoodList.js
-<<<<<<< Nicolas
     allProducts();
-=======
->>>>>>> Dev
-=======
-    allProducts();
->>>>>>> main:src/components/diary/diary/DiaryFoodList.js
 
     return () => {
       window.removeEventListener('resize', handleResize);
