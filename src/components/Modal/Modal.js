@@ -28,6 +28,7 @@ const Modal = ({ isOpen, closeModal, children }) => {
       className={`${css.modal} ${isOpen ? css.isopen : ''}`}
       onClick={closeModal}
     >
+      <div className={css.divMobile}>cierre modal</div>
       <div className={css.modcontainer} onClick={e => e.stopPropagation()}>
         <button onClick={closeModal} className={css.modalclose}>
           X
@@ -41,13 +42,3 @@ const Modal = ({ isOpen, closeModal, children }) => {
 
 export default Modal;
 
-
-/* useEffect(() => {
-    const close = (e) => {
-      if(e.keyCode === 27){
-        props.onCloseModal()
-      }
-    }
-    window.addEventListener('keydown', close)
-  return () => window.removeEventListener('keydown', close)
-},[]) */

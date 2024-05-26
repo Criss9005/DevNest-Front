@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './DailyCaloriesForm.module.css';
 import Button from '../Button/Button';
@@ -7,11 +7,8 @@ import * as yup from 'yup';
 import Modal from '../Modal/Modal';
 import { useModal } from '../Modal/useModal';
 import css from '../Modal/modal.module.css';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function ButtonLink({ to, children }) {
-  return <Link to={to}><button>{children}</button></Link>;
-}
 
 
 const validationSchema = yup.object().shape({
@@ -47,19 +44,31 @@ const validationSchema = yup.object().shape({
 function DailyCaloriesForm() {
   const [result, setResult] = useState(null);
   const [isOpen, openModal, closeModal] = useModal(false);
+  const navigate = useNavigate();
+  const [dataUser, setDataUser] = useState(null)
   
+  useEffect(() => { 
+    const data = localStorage.getItem('CAL_NO_USER')
+    
+    if (data) { 
+      setDataUser(data) 
+    }
+
+  }, [])
+
+
     const handleFormSubmit = async values => {
       try {
-
-      localStorage.setItem('CAL_NO_USER', JSON.stringify(values));
       
+      localStorage.setItem('CAL_NO_USER', JSON.stringify(values));
+      console.log(dataUser)
       const response = await axios.get(
         'https://devnest-back-1.onrender.com/api/products/public/daily-intake',
         {
           params: values,
         }
       );
-      console.log('API Response:', response.data);
+      
       setResult(response.data);
       openModal();
     } catch (error) {
@@ -267,7 +276,7 @@ function DailyCaloriesForm() {
             ))}
           </ul>
           
-         <ButtonLink className={css.startlose} to={'/register'}>Start losing weight</ButtonLink>
+         <button className={css.startlose} onClick={(e)=> navigate('/register')}>Start losing weight</button>
           
           
           </Modal>

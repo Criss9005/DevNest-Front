@@ -6,12 +6,19 @@
   @media screen and (min-width: 768px) {
     .backgroundCalculate__container {
       display: block;
-      position: fixed;
+
+    }
+    .backgroungCalculate__leavesTablet {
+      position: absolute;
+      height: auto;
+      top: 479px; 
       z-index: 1000;
       right: 0;
       bottom: 0;
-
     }
+    .backgroung__leavesTablet {
+      
+  }
   }
   
   @media screen and (min-width: 768px) {
@@ -30,19 +37,16 @@
   }
   }
 
-  
-
-@media screen and (min-width: 768px) {
-    .backgroung__leavesTablet {
-        position: absolute;
-        width: 531px;
-        height: auto;
-        top: 410px; 
-        right: 150px;
-    }
-}
       
  @media screen and (min-width: 1024px) {
+  .backgroundCalculate__container {
+    display: block;
+    position: fixed;
+    z-index: 2;
+    right: 0;
+    bottom: 0;
+
+  }
     .backgroung__leaves {
         position: absolute;
         width: 531px;

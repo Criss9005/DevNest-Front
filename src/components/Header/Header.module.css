@@ -1,0 +1,176 @@
+.headercontaineer {
+  top: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.menuMobile{
+gap: 25px;
+}
+
+.menuMobile{
+  display: none;
+}
+.headercontaineer::after{
+  
+    content: "";
+    width: 100vh;
+    height: 2px;
+    background-color: #e0e0e0;
+    display: block;
+    position: absolute;
+    top: 55px;
+    left: 0;
+    border-radius: 2px;
+}
+
+.exitComp {
+  display: flex;
+}
+
+
+
+.mom {
+  width: 52.51px;
+  height: 15.41px;
+  color: #fc842d;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.slimMon {
+  display: none;
+}
+
+.buttonLogin {
+  color: #9b9faa;
+  font-family: Verdana;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 17.01px;
+  letter-spacing: 0.04em;
+  text-align: right;
+  display: flex;
+  text-decoration: none;
+}
+
+.buttonLogin:hover {
+  color: #212121;
+  cursor: pointer;
+}
+
+.userInfo {
+  font-weight: 700;
+  line-height: 17.01px;
+}
+
+.buttonLogout {
+  font-weight: 700;
+  line-height: 17.01px;
+  background: none;
+  border: none;
+  margin-top: -3px;
+  color: #9b9faa;
+}
+
+.buttonLogout:hover {
+  color: #212121;
+  cursor: pointer;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+}
+
+.logo {
+  width: 46px;
+  height: 44px;
+  cursor: pointer;
+}
+
+.sectionRegister {
+  gap: 50px;
+  display: flex;
+  margin-left: 40px;
+  margin-right: 30px;
+  padding-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  .buttonLogin {
+    font-size: 14px;
+  }
+
+  .menuMobile {
+      display: flex;
+  }
+
+  .slimMon {
+    display: flex;
+    cursor: pointer;
+  }
+    .mom {
+      margin-top: 16px;
+    }
+
+  .menuMobile {
+    display: none;
+  }
+
+  
+
+}
+
+.completeLogo {
+  display: flex;
+  gap: 8px;
+}
+
+.headercontaineer {
+  justify-content: space-between;
+}
+
+@media (min-width: 1024px) {
+  .headercontaineer {
+    border-bottom: none;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 30px;
+
+  }
+
+  .completeLogo {
+    gap: 0;
+    padding-right: 10px;
+  }
+
+  .logo {
+    width: 70.25px;
+    height: 66px;
+  }
+
+  .slimMon {
+    font-size: 25px;
+    position: relative;
+    top: 15px;
+    right: 10px;
+  }
+    .mom {
+      margin-top: 25px;
+    }
+
+    .menuMobile {
+      display: flex;
+    }
+
+  .sectionRegister {
+    margin-left: 10px;
+    margin-top: 110px;
+  }
+
+    .headercontaineer::after {
+  
+      display: none;
+    }
+}

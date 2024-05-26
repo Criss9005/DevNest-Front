@@ -6,15 +6,15 @@ li {
   list-style: none;
 }
 
-.liFood{
+.liFood {
   text-align: left;
   font-size: 14px;
   color: rgba(155, 159, 170, 1);
   font-weight: 400;
-  line-height:28px;
+  line-height: 28px;
 }
 
-.foodNotEat{
+.foodNotEat {
   text-align: left;
   margin-bottom: 10px;
   font-size: 14px;
@@ -23,7 +23,7 @@ li {
   border-top: gray 3px;
 }
 
-.numberCal{
+.numberCal {
   margin: 10px;
   font-size: 48px;
   font-weight: 700;
@@ -37,7 +37,7 @@ li {
   left: 0;
   width: 100%;
   min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.5);
   display: none;
   justify-content: center;
   align-items: center;
@@ -54,7 +54,7 @@ li {
   max-height: 100vh;
   overflow-y: auto;
   box-shadow: 0px 22px 40px 0px rgba(0, 0, 0, 0.1);
-  padding: 5%; 
+  padding: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,6 +70,13 @@ li {
   top: 1rem;
   right: 1rem;
   cursor: pointer;
+  background-color: transparent;
+}
+.modalclose:hover {
+  background-color: rgba(252, 132, 45, 1);
+  color: white;
+  border-radius: 50%;
+  border: 1px solid #fc842d;
 }
 
 .startlose {
@@ -83,18 +90,26 @@ li {
   color: white;
   border: none;
   font-weight: 700;
-  opacity: 1; 
+  opacity: 1;
+  cursor: pointer;
+}
+
+.startlose:hover {
+  box-sizing: border-box;
+  color: var(--accent-main);
+  background: var(--background);
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  padding: 10px 20px;
 }
 
 .titlemodal {
   width: 100%;
   max-width: 508px;
-  height: auto; 
-  font-size: 24px; 
+  height: auto;
+  font-size: 24px;
   font-weight: 700;
   text-align: center;
 }
-
 
 @media (max-width: 768px) {
   .modcontainer {
@@ -108,9 +123,29 @@ li {
 }
 
 @media (max-width: 480px) {
+  .divMobile {
+    width: 100vh;
+    height: 40px;
+
+  }
+
+
+  .modal {
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0);
+    justify-content: center;
+    align-items: center;
+  }
+
+
   .modcontainer {
-    max-width: 95%;
-    padding: 3%;
+    top: 77px;
+    width: 100%;
+    padding: 5%;
+    height: 100vh;
   }
 
   .titlemodal {

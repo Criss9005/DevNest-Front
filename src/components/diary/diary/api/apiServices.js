@@ -1,11 +1,9 @@
 import axios from 'axios';
 import apiConfig from './apiConfig';
-
 const userInfo = JSON.parse(localStorage.getItem('USER')) || null;
 let token;
 if (userInfo) {
   token = userInfo.accesToken;
-
 
   axios.defaults.baseURL = apiConfig;
   axios.defaults.headers.common['Content-Type'] = 'application/json';
@@ -14,7 +12,6 @@ if (userInfo) {
 
 const getConsumedFoods = async (idUser, date) => {
   const result = await axios.get(`/${idUser}/${date}`);
-  // console.log(JSON.stringify(result) + 'dataaaa');
   const { data } = result;
   const foods = [];
   data.forEach(e => {
@@ -22,25 +19,34 @@ const getConsumedFoods = async (idUser, date) => {
       id: e._id,
       name: e.productName,
       grams: e.grams,
-      calories: 100,
+      calories: e.calories,
     };
-    // console.log(e._id);
     foods.push(food);
   });
-  // console.log(foods + 'foods');
   return foods;
 };
 
 const addConsumedFood = async data => {
   const result = await axios.post('/addSummary', data);
-  console.log(result);
   return result;
 };
 
 const removeFoodRegister = async id => {
   const result = await axios.delete(`/addSummary/${id}`);
-  console.log(result);
   return result;
 };
 
-export { getConsumedFoods, addConsumedFood, removeFoodRegister };
+const searchFood = async query => {
+  const instance = axios.create({
+    baseURL: 'https://devnest-back-1.onrender.com/api/products',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/Json',
+    },
+    timeout: 6000,
+  });
+  const result = await instance.get(`/search?query=${query}`);
+  return result;
+};
+
+export { getConsumedFoods, addConsumedFood, removeFoodRegister, searchFood };
