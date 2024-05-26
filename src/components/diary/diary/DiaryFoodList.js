@@ -106,14 +106,17 @@ const DiaryFoodList = ({
             list={foodSearch}
             setSelectedFood={setSelectedFood}
             setFoodsearch={setFoodsearch}
+            inputClassName={styles.inputHolder} // Clase personalizada para Input
+            listboxClassName={styles.listboxHolder} // Clase personalizada para Listbox
           />
-          <input
+          <input className={styles.inputHolder}
             type="text"
             value={grams}
             onChange={e => setGrams(e.target.value)}
             placeholder="Grams"
           />
-          <button onClick={handleAddFood}>Add</button>
+          <button className={styles.addButton} onClick={handleAddFood}>
+            <span>Add</span></button>
         </div>
       )}
 
@@ -152,7 +155,7 @@ const DiaryFoodList = ({
       {!isTabletOrDesktop && !showAddFood && (
         <div className={styles.addButtonContainer}>
           <button
-            className={styles.addButton}
+            className={styles.addPlusButton}
             onClick={() => setShowAddFood(true)}
           >
             +

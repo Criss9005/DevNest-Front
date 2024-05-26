@@ -17,7 +17,7 @@
 
 .foodListSection {
   background-color: #fff;
-  padding: 15px;
+  /* padding: 15px; */
   border-radius: 8px;
   overflow-y: auto;
   height: 100vh;
@@ -36,11 +36,24 @@
 
 @media screen and (min-width: 768px) {
   .diaryContainer {
-    padding-top: 0%;
+    padding-top: 40px;
     min-height: 93vh;
-
+  }
+  .foodListSection {
+    padding-left: 15px;
   }
 }
 .foodListSection {
   height: 69vh;
+}
+
+@media (min-width: 1024px) {
+  .foodListSection {
+    padding-left: 15px;
+    padding-right: 40px
+  }
+  .diaryContainer {
+    padding-top: 50px;
+    
+  }
 }

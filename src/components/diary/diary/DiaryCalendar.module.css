@@ -4,7 +4,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 25px 0 0 30px;
+    padding: 25px 0 0 15px;
   }
   .dateText {
     margin-right: 20px;
