@@ -1,7 +1,7 @@
 import DailyCaloriesForm from "components/DailyCaloriesForm/DailyCaloriesForm";
 import Calculator from "components/Calculate/Calculate";
 import style from 'components/Calculate/calculato.module.css';
-import BackgroundCalculate from "components/BackgroundCalculate/BackgroundCalculate";
+// import BackgroundCalculate from "components/BackgroundCalculate/BackgroundCalculate";
 import Header from "components/Header/Header";
 import MenuLogged from "components/MenuLogged/MenuLogged";
 import css from './CalculatorPage.module.css'
@@ -26,13 +26,13 @@ export default function DailyAddCalculator() {
       <div className={style['main__content']}>
         <div className={css.headerContainer }>
         <Header />
-          <MenuLogged />
+        <MenuLogged />
         </div>
         <DailyCaloriesForm />
         </div>
             <div className={style['calculate__container']}>
                     <Calculator />
-                    <BackgroundCalculate/>
+                    {/* <BackgroundCalculate/> */}
                 </div>
             </div> 
   );
