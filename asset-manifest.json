@@ -1,21 +1,23 @@
 {
   "files": {
-    "main.css": "/DevNest-Front/static/css/main.4c1209c1.css",
-    "main.js": "/DevNest-Front/static/js/main.ebceaa7b.js",
+    "main.css": "/DevNest-Front/static/css/main.58fc534f.css",
+    "main.js": "/DevNest-Front/static/js/main.48d9ed0e.js",
     "static/media/strawberry.png": "/DevNest-Front/static/media/strawberry.710d7026c4b284b6be95.png",
     "static/media/banana.png": "/DevNest-Front/static/media/banana.2da01581a1ed4f4189b1.png",
     "static/media/leaves_desktop.png": "/DevNest-Front/static/media/leaves_desktop.6594c140e7b671a5a24c.png",
     "static/media/Logo.png": "/DevNest-Front/static/media/Logo.e428b9eb62a6df71e149.png",
     "static/media/leaves_tablet.png": "/DevNest-Front/static/media/leaves_tablet.d487383fc8f64fe776c2.png",
+    "static/media/background-calculator-desktop.png": "/DevNest-Front/static/media/background-calculator-desktop.92bd82b1efb2efcd7df5.png",
     "static/media/leavesCalculate-desktop.png": "/DevNest-Front/static/media/leavesCalculate-desktop.07ec7143c40752d1b8ad.png",
+    "static/media/background-calculate-tablet.png": "/DevNest-Front/static/media/background-calculate-tablet.b49c121fd1ab51e5b063.png",
     "static/media/leavesCalculate-tablet.png": "/DevNest-Front/static/media/leavesCalculate-tablet.3cf507fc5063b80c0790.png",
     "index.html": "/DevNest-Front/index.html",
     "static/media/main_vector.svg": "/DevNest-Front/static/media/main_vector.c655d736b7c28331ec143c1de45f86c8.svg",
-    "main.4c1209c1.css.map": "/DevNest-Front/static/css/main.4c1209c1.css.map",
-    "main.ebceaa7b.js.map": "/DevNest-Front/static/js/main.ebceaa7b.js.map"
+    "main.58fc534f.css.map": "/DevNest-Front/static/css/main.58fc534f.css.map",
+    "main.48d9ed0e.js.map": "/DevNest-Front/static/js/main.48d9ed0e.js.map"
   },
   "entrypoints": [
-    "static/css/main.4c1209c1.css",
-    "static/js/main.ebceaa7b.js"
+    "static/css/main.58fc534f.css",
+    "static/js/main.48d9ed0e.js"
   ]
 }
