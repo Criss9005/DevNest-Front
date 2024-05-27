@@ -1,16 +1,7 @@
 import React from 'react';
-<<<<<<< HEAD
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LoginPage from './LoginPage/LoginPage.js';
-import RegistrationPage from './RegistrationPage/RegistrationPage.js';
-import Menu from './Menu/Menu.jsx';
-import BackgroundM from './BackgroundM/BackgroundM';
-=======
 import { Routes, Route } from 'react-router-dom';
 import { Suspense } from 'react';
->>>>>>> Dev
 import MainPage from '../pages/MainPage/MainPage';
-
 import LoginPage from '../pages/LoginPage/LoginPage';
 import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
 import CalculatorPage from 'pages/CalculatorPage/CalculatorPage';
