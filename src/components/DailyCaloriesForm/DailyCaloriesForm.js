@@ -85,11 +85,9 @@ function DailyCaloriesForm() {
       setResult(response.data);
 
       if (token) {
-        console.log('With Token');
         localStorage.setItem('dailyIntake', JSON.stringify(response.data));
         navigate('/diary');
       } else {
-        console.log('Without Token');
         openModal();
       }
     } catch (error) {

@@ -6,10 +6,11 @@ export default function CalculatorDailyCalories(props) {
   const [nonRecommendedFoods, setNonRecommendedFoods] = useState([]);
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user) {
-      setDailyCalorieIntake(user.dailyIntake.dailyCalorieIntake);
-      setNonRecommendedFoods(user.dailyIntake.nonRecommendedFoods);
+    const userData = JSON.parse(localStorage.getItem('USER'));
+    console.log(userData);
+    if (userData) {
+      setDailyCalorieIntake(userData.user.dailyIntake.dailyCalorieIntake);
+      setNonRecommendedFoods(userData.user.dailyIntake.nonRecommendedFoods);
     } else {
       setDailyCalorieIntake(0);
       setNonRecommendedFoods([]);
