@@ -86,6 +86,15 @@ function DailyCaloriesForm() {
 
       if (token) {
         localStorage.setItem('dailyIntake', JSON.stringify(response.data));
+        const updatedUserData = {
+          ...userData,
+          user: {
+            ...userData.user,
+            dailyIntake: response.data,
+          },
+        };
+        localStorage.setItem('USER', JSON.stringify(updatedUserData));
+        window.dispatchEvent(new Event('storageUpdate'));
         navigate('/diary');
       } else {
         openModal();

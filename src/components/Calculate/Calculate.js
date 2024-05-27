@@ -5,16 +5,29 @@ export default function CalculatorDailyCalories(props) {
   const [dailyCalorieIntake, setDailyCalorieIntake] = useState(0);
   const [nonRecommendedFoods, setNonRecommendedFoods] = useState([]);
 
-  useEffect(() => {
+  const updateUserData = () => {
     const userData = JSON.parse(localStorage.getItem('USER'));
-    console.log(userData);
-    if (userData) {
+    if (userData && userData.user && userData.user.dailyIntake) {
       setDailyCalorieIntake(userData.user.dailyIntake.dailyCalorieIntake);
       setNonRecommendedFoods(userData.user.dailyIntake.nonRecommendedFoods);
     } else {
       setDailyCalorieIntake(0);
       setNonRecommendedFoods([]);
     }
+  };
+
+  useEffect(() => {
+    updateUserData();
+
+    const handleStorageUpdate = () => {
+      updateUserData();
+    };
+
+    window.addEventListener('storageUpdate', handleStorageUpdate);
+
+    return () => {
+      window.removeEventListener('storageUpdate', handleStorageUpdate);
+    };
   }, []);
 
   return (
