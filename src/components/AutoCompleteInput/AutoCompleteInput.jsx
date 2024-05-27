@@ -34,6 +34,8 @@ export default function UseAutocomplete({
   list,
   setSelectedFood,
   setFoodsearch,
+  inputClassName,
+  listboxClassName,
 }) {
   const {
     getRootProps,
@@ -59,10 +61,10 @@ export default function UseAutocomplete({
   return (
     <div>
       <div {...getRootProps()}>
-        <Input {...getInputProps()} />
+        <Input {...getInputProps()} className={inputClassName} placeholder="Enter product name"/>
       </div>
       {groupedOptions.length > 0 ? (
-        <Listbox {...getListboxProps()}>
+        <Listbox {...getListboxProps()} className={listboxClassName}>
           {groupedOptions.map((option, index) => {
             const { key, ...optionProps } = getOptionProps({ option, index });
             return (
