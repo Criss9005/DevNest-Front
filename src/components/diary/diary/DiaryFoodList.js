@@ -1,22 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { FaTimes, FaChevronLeft } from 'react-icons/fa';
 import styles from './DiaryFoodList.module.css';
-<<<<<<< HEAD:src/components/diary/DiaryFoodList.js
-
-import Input from '../AutoCompleteInput/AutoCompleteInput';
-=======
 import Input from '../../AutoCompleteInput/AutoCompleteInput';
->>>>>>> 08dfb2b11bae47d941d1f928d684e7bbdaa509c9:src/components/diary/diary/DiaryFoodList.js
 import {
   addConsumedFood,
   searchFood,
   getConsumedFoods,
 } from './api/apiServices';
 const userInfo = JSON.parse(localStorage.getItem('USER'));
-<<<<<<< HEAD:src/components/diary/DiaryFoodList.js
-
-=======
->>>>>>> 08dfb2b11bae47d941d1f928d684e7bbdaa509c9:src/components/diary/diary/DiaryFoodList.js
 
 const DiaryFoodList = ({
   foodList,
@@ -34,33 +25,16 @@ const DiaryFoodList = ({
     window.innerWidth >= 768
   );
 
-<<<<<<< HEAD:src/components/diary/DiaryFoodList.js
-
   const idUser = userInfo.user.id;
-
-=======
-  const idUser = userInfo.user.id;
->>>>>>> 08dfb2b11bae47d941d1f928d684e7bbdaa509c9:src/components/diary/diary/DiaryFoodList.js
 
   const handleAddFood = async () => {
     if (selectedFood && grams) {
       const { calories: cals } = foodSearch.find(e => e.title === selectedFood);
-<<<<<<< HEAD:src/components/diary/DiaryFoodList.js
-      console.log(cals);
-      const food = {
-        productName: selectedFood,
-        grams,
-        idUser,
-
-        calories: grams * cals,
-
-=======
       const food = {
         productName: selectedFood,
         grams: parseFloat(grams),
         idUser,
         calories: grams * cals,
->>>>>>> 08dfb2b11bae47d941d1f928d684e7bbdaa509c9:src/components/diary/diary/DiaryFoodList.js
       };
       try {
         const res = await addConsumedFood(food);
