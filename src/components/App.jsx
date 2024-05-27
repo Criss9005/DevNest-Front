@@ -9,7 +9,7 @@ import CalculatorPage from 'pages/CalculatorPage/CalculatorPage';
 import Diary from '../pages/DiaryPage/DiaryPage';
 
 const App = () => {
-
+  document.body.classList.remove('menu-open')
   
 
   return (

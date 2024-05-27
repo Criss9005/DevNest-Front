@@ -29,12 +29,18 @@
   color: #ffffff;
 }
 
-.menu.open {
+.open {
   display: flex;
   margin-top: 33px;
   background-color: #264061;
   text-align: center;
+  position: fixed;
+  top: 15px;
+  overflow-y: hidden;
 }
+
+/* overflow-y: hidden; */
+
 
 .menu ul {
   list-style: none;

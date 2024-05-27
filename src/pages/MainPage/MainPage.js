@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styles from './MainPage.module.css';
 import BackgroundM from 'components/BackgroundM/BackgroundM';
-import DailyCaloriesForm from '../../components/DailyCaloriesForm';
+import DailyCaloriesForm from '../../components/DailyCaloriesForm/DailyCaloriesForm';
 import Header from '../../components/Header/Header';
 
 function MainPage() {
+  document.body.classList.remove('menu-open')
   const [isLogged, setIsLogged] = useState(false);
 
   useEffect(() => {
