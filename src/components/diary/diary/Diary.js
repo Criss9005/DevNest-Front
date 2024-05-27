@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import DiaryCalendar from './DiaryCalendar';
 import DiaryFoodList from './DiaryFoodList';
-/* import DiarySummary from './DiarySummary'; */
+
 import styles from './Diary.module.css';
 import { removeFoodRegister } from './api/apiServices';
 
