@@ -3,7 +3,7 @@
 .calculate__form {
     display: flex;
     flex-direction: column;
-    
+    padding-top: 25px;
     padding-left: 15px;
     margin-bottom: 30px;
     
@@ -250,7 +250,7 @@
       font-size: 34px;
       line-height: 41px;
       width: 640px;
-      padding-bottom: 45px;
+      padding-top: 45px;
       
     }
   }

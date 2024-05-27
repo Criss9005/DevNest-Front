@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './DailyCaloriesForm.module.css';
@@ -43,20 +43,26 @@ function DailyCaloriesForm() {
   const [result, setResult] = useState(null);
   const [isOpen, openModal, closeModal] = useModal(false);
   const navigate = useNavigate();
+  const [dataUser, setDataUser] = useState(null);
+
+  useEffect(() => {
+    const data = localStorage.getItem('CAL_NO_USER');
+
+    if (data) {
+      setDataUser(data);
+    }
+  }, []);
 
   const handleFormSubmit = async values => {
     try {
       localStorage.setItem('CAL_NO_USER', JSON.stringify(values));
-
-      const token = localStorage.getItem('accessToken');
-      const apiUrl = token
-        ? 'https://devnest-back-1.onrender.com/api/products/private/daily-intake'
-        : 'https://devnest-back-1.onrender.com/api/products/public/daily-intake';
-
-      const response = await axios.get(apiUrl, {
-        params: values,
-        headers: token ? { Authorization: `Bearer ${token}` } : {},
-      });
+      console.log(dataUser);
+      const response = await axios.get(
+        'https://devnest-back-1.onrender.com/api/products/public/daily-intake',
+        {
+          params: values,
+        }
+      );
 
       setResult(response.data);
       openModal();

@@ -1,0 +1,12 @@
+
+@media (min-width: 768px) {
+
+.headerContainer{
+    display: flex;
+    padding-right: 67px;
+    justify-content: space-between;
+    padding-left: 15px;
+   
+}
+
+}
