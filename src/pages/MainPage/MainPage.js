@@ -1,13 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './MainPage.module.css';
 import BackgroundM from 'components/BackgroundM/BackgroundM';
 import DailyCaloriesForm from '../../components/DailyCaloriesForm';
 import Header from '../../components/Header/Header';
-import { useEffect, useState } from 'react';
 
 function MainPage() {
+  const [isLogged, setIsLogged] = useState(false);
+
   useEffect(() => {
-    localStorage.clear();
+    const user = localStorage.getItem('USER');
+    if (user) {
+      setIsLogged(true);
+    }
   }, []);
 
   return (
