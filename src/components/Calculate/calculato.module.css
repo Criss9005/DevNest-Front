@@ -1,94 +1,145 @@
-.main__container{
-display: flex;
-flex-direction: column;
+
+.main__container {
+  width: 100%;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
 }
-
-
-.calulateContainer{
-    background-color: #F0F1F3;
-    height: 100vh;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 40px;
-    height: 244px;
-}
-
 .calculate__field {
-    display: flex;
-    flex-direction: column;
+  height: auto;
+  padding: 8px 0;
+  font-family: 'Verdana', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.21em;
+  letter-spacing: 0.04em;
+  /* color: var(--text); */
+  border: none;
+  border-bottom: 1px solid var(--form-input);
+  background-color: #f0f1f3;
+  /* text-align: center; */
+  position: static;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.titles{
-    font-family: Verdana;
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 17.01px;
-        letter-spacing: 0.04em;
-        text-align: left;
-        color:#212121 ;
+@media screen and (min-width: 768px) {
+  .calculate__container {
+    font-size: 34px;
+    line-height: 41px;
+    padding-top: 45px;
+    height: 100%;
+    position: static;
+    z-index: -500;
+  }
+  .main__container {
+    display: block;
+  }
+}
+.titles {
+  padding-left: 25px;
 }
 
-.summary__ul li{
-    display: flex;
-    justify-content: space-between;
-    width: 280px;
-    color: #9B9FAA;
+.titles,
+ul {
+  list-style-type: none;
+  width: 280px;
+  padding-left: 25px;
+  line-height: 41px;
 }
 
-.summary__ul {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
+.summary__ul li {
+  display: flex;
+  justify-content: space-between;
+  width: 280px;
+  color: var(--text);
+}
+
+.food {
+  color: var(--text);
+}
+
+/* -- table  */
+
+@media screen and (min-width: 768px) {
+  /* tablet */
+  .calculate__container {
+    width: 100%;
+    height: 100%;
     padding: 0;
-    gap: 10px;
-}
-.food{
-    font-family: Verdana;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 17.01px;
-        letter-spacing: 0.04em;
-        text-align: left;
-        color: #9B9FAA;
-        margin: 0;
-        padding: 0;
+    z-index: -500;
+  }
+  .calculate__field {
+    display: flex;
+    gap: 30px;
+    position: static;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
 }
 
-@media (min-width: 768px) {
-   
-.calculate__field {
-        flex-direction: row;
-        gap: 79px;
-    }
-
-        .calulateContainer {
-            background-image: url(../../images/Background/background-calculate-tablet.png);
-            background-repeat: no-repeat;
-            background-position: 100% 100%;
-            
-        }
-
+@media screen and (min-width: 1024px) {
+  .calculate__field {
+    left: auto;
+  }
 }
 
+@media screen and (min-width: 1024px) {
+  /* 1024 */
 
+  .main__container div {
+    /* display: flex; */
+    /* height: 850px; */
+    height: 100%;
+  }
+  .main__container {
+    display: flex;
+    width: 100%;
+    position: fixed;
+  }
+  .calculate__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    position: fixed;
+    right: 0;
+  }
 
-@media (min-width: 1024px) {
-
-    .main__container {
-            
-    flex-direction: row;
-    }
-
-    .calculate__field {
-        flex-direction: column;
-        gap: 79px;
-    }
-        .calulateContainer {
-            background-color: #F0F1F3;
-            height: 100vh;
-            width: 400px;
-            padding: 131px 94px;
-            background-image: url(../../images/Background/background-calculator-desktop.png);
-            background-position: 100%;
-        }
+  .calculate__field div {
+    display: flex;
+    flex-direction: column;
+    /*  w idth: 517px; */
+    height: 100%;
+    align-items: center;
+  }
+  .calculate__field {
+    height: 650px;
+    display: flex;
+  }
+  .calculate__container {
+    margin-bottom: -300px;
+    z-index: -500;
+  }
+  @import '../assets/styles/colors.css';
+  .calculate__field__summary_food,
+  .calculate__field__summary {
+    background-color: #f0f1f3;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+  }
+  .calculate__field {
+    background-color: white;
+    display: flex;
+    align-items: flex-end;
+    border-block-color: white;
+  }
+  .calculate__field__summary_food {
+    padding-bottom: 70%;
+  }
 }
+
