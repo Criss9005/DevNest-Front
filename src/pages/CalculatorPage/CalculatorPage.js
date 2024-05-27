@@ -22,7 +22,7 @@ export default function DailyAddCalculator() {
   },[]) */
   
   return (
-    <div className={style['main__container']}>
+    <div className={style['main__container'] }>
       <div className={style['main__content']}>
         <div className={css.headerContainer }>
         <Header />
