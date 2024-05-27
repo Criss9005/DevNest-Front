@@ -24,6 +24,10 @@ function DailyCaloriesForm() {
     const userData = JSON.parse(localStorage.getItem('USER'));
     const token = userData?.accessToken || null;
     setIsLoggedIn(!!token);
+    const newData = JSON.parse(localStorage.getItem('CAL_NO_USER'))
+    if (newData) { 
+      setFormData(newData)
+    }
   }, []);
 
   const validate = () => {
@@ -257,7 +261,7 @@ function DailyCaloriesForm() {
 
           <button
             type="button"
-            className={css.startlose}
+            className={css.startlosebtn}
             onClick={handleFormSubmit}
             disabled={
               !formData.height ||

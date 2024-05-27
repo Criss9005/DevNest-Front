@@ -10,9 +10,7 @@ import Diary from '../pages/DiaryPage/DiaryPage';
 
 const App = () => {
 
-  // mientras hago pruebas para que no setear
-  localStorage.removeItem('USER')
-  localStorage.removeItem('CAL_NO_USER')
+  
 
   return (
     <Suspense fallback={<div>Loading...</div>}>

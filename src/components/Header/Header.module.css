@@ -11,10 +11,11 @@ gap: 25px;
 .menuMobile{
   display: none;
 }
+
 .headercontaineer::after{
   
     content: "";
-    width: 100vh;
+    width: 100vw;
     height: 2px;
     background-color: #e0e0e0;
     display: block;
