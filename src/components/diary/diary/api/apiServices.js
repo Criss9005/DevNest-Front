@@ -11,7 +11,7 @@ if (userInfo) {
 }
 
 const getConsumedFoods = async (idUser, date) => {
-  const result = await axios.get(`/${idUser}/${date}`);
+  const result = await axios.get(`todaySummary/${idUser}/${date}`);
   const { data } = result;
   const foods = [];
   data.forEach(e => {
@@ -27,25 +27,25 @@ const getConsumedFoods = async (idUser, date) => {
 };
 
 const addConsumedFood = async data => {
-  const result = await axios.post('/addSummary', data);
+  const result = await axios.post('todaySummary/addSummary', data);
   return result;
 };
 
 const removeFoodRegister = async id => {
-  const result = await axios.delete(`/addSummary/${id}`);
+  const result = await axios.delete(`todaySummary/addSummary/${id}`);
   return result;
 };
 
 const searchFood = async query => {
-  const instance = axios.create({
-    baseURL: 'https://devnest-back-1.onrender.com/api/products',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/Json',
-    },
-    timeout: 6000,
-  });
-  const result = await instance.get(`/search?query=${query}`);
+  // const instance = axios.create({
+  //   baseURL: 'https://devnest-back-1.onrender.com/api/products',
+  //   headers: {
+  //     Authorization: `Bearer ${token}`,
+  //     'Content-Type': 'application/Json',
+  //   },
+  //   timeout: 6000,
+  // });
+  const result = await axios.get(`products/search?query=${query}`);
   return result;
 };
 
