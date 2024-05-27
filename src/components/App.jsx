@@ -9,7 +9,11 @@ import CalculatorPage from 'pages/CalculatorPage/CalculatorPage';
 import Diary from '../pages/DiaryPage/DiaryPage';
 
 const App = () => {
-  localStorage.removeItem('USER');
+
+  // mientras hago pruebas para que no setear
+  //localStorage.removeItem('USER')
+  //localStorage.removeItem('CAL_NO_USER')
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className="container">

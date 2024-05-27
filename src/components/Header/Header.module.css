@@ -5,6 +5,10 @@
 }
 
 .menuMobile{
+gap: 25px;
+}
+
+.menuMobile{
   display: none;
 }
 .headercontaineer::after{
@@ -109,6 +113,13 @@
     .mom {
       margin-top: 16px;
     }
+
+  .menuMobile {
+    display: none;
+  }
+
+  
+
 }
 
 .completeLogo {
@@ -149,7 +160,9 @@
       margin-top: 25px;
     }
 
-  
+    .menuMobile {
+      display: flex;
+    }
 
   .sectionRegister {
     margin-left: 10px;
@@ -159,6 +172,5 @@
     .headercontaineer::after {
   
       display: none;
-      
     }
 }

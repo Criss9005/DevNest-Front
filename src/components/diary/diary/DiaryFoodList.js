@@ -8,6 +8,7 @@ import {
   getConsumedFoods,
 } from './api/apiServices';
 const userInfo = JSON.parse(localStorage.getItem('USER'));
+// let idUser = null;
 
 const DiaryFoodList = ({
   foodList,
@@ -21,11 +22,10 @@ const DiaryFoodList = ({
   const [showAddFood, setShowAddFood] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [foodSearch, setFoodsearch] = useState([]);
+  const [idUser, setIdUser] = useState(null);
   const [isTabletOrDesktop, setIsTabletOrDesktop] = useState(
     window.innerWidth >= 768
   );
-
-  const idUser = userInfo.user.id;
 
   const handleAddFood = async () => {
     if (selectedFood && grams) {
@@ -34,7 +34,7 @@ const DiaryFoodList = ({
         productName: selectedFood,
         grams: parseFloat(grams),
         idUser,
-        calories: grams * cals,
+        calories: parseFloat(((grams * (cals / 100)) / 1000).toFixed(2)),
       };
       try {
         const res = await addConsumedFood(food);
@@ -60,16 +60,19 @@ const DiaryFoodList = ({
 
   useEffect(() => {
     if (userInfo) {
+      setIdUser(userInfo.user.id);
       const getFoods = async () => {
-        try {
-          setIsLoading(true);
-          const result = await getConsumedFoods(idUser, date);
-          addFoodToList([]);
-          addFoodToList(result);
-        } catch (error) {
-          console.log(error);
-        } finally {
-          setIsLoading(false);
+        if (idUser) {
+          try {
+            setIsLoading(true);
+            const result = await getConsumedFoods(idUser, date);
+            addFoodToList([]);
+            addFoodToList(result);
+          } catch (error) {
+            console.log(error);
+          } finally {
+            setIsLoading(false);
+          }
         }
       };
       getFoods();
@@ -84,7 +87,7 @@ const DiaryFoodList = ({
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [date, idUser, addFoodToList]);
+  }, [date, addFoodToList, idUser]);
 
   return (
     <div>
@@ -106,14 +109,17 @@ const DiaryFoodList = ({
             list={foodSearch}
             setSelectedFood={setSelectedFood}
             setFoodsearch={setFoodsearch}
+            inputClassName={styles.inputHolder} // Clase personalizada para Input
+            listboxClassName={styles.listboxHolder} // Clase personalizada para Listbox
           />
-          <input
+          <input className={styles.inputHolder}
             type="text"
             value={grams}
             onChange={e => setGrams(e.target.value)}
             placeholder="Grams"
           />
-          <button onClick={handleAddFood}>Add</button>
+          <button className={styles.addButton} onClick={handleAddFood}>
+            <span>Add</span></button>
         </div>
       )}
 
@@ -152,7 +158,7 @@ const DiaryFoodList = ({
       {!isTabletOrDesktop && !showAddFood && (
         <div className={styles.addButtonContainer}>
           <button
-            className={styles.addButton}
+            className={styles.addPlusButton}
             onClick={() => setShowAddFood(true)}
           >
             +
