@@ -94,12 +94,17 @@ li {
   cursor: pointer;
 }
 
-.startlose:hover {
+.startlose:enabled:hover {
   box-sizing: border-box;
   color: var(--accent-main);
   background: var(--background);
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   padding: 10px 20px;
+}
+
+.startlose:disabled {
+  background: #D99655; 
+  
 }
 
 .titlemodal {

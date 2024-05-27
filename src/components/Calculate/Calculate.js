@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../Calculate/calculato.module.css';
+import MenuSummary from "../MenuSummary/MenuSummary"
 
 export default function CalculatorDailyCalories(props) {
   const [dailyCalorieIntake, setDailyCalorieIntake] = useState(0);
@@ -31,6 +32,10 @@ export default function CalculatorDailyCalories(props) {
   }, []);
 
   return (
+    <div className={styles.calulateContainer }>
+        <MenuSummary/>
+
+   
     <div className={styles['calculate__field']}>
       <div className={styles['calculate__field__summary']}>
         <h4 className={styles['titles']}>Summary for {' 13.08.2023'}</h4>
@@ -68,6 +73,7 @@ export default function CalculatorDailyCalories(props) {
           )}
         </ul>
       </div>
-    </div>
+      </div>
+       </div>
   );
 }

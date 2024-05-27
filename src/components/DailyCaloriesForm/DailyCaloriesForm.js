@@ -257,7 +257,7 @@ function DailyCaloriesForm() {
 
           <button
             type="button"
-            className={styles['btn']}
+            className={css.startlose}
             onClick={handleFormSubmit}
             disabled={
               !formData.height ||
