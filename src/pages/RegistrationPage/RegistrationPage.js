@@ -24,7 +24,6 @@ const RegistrationPage = () => {
       })
       .then(response => {
         const data = response.data;
-        console.log(data);
         navigate('/login');
         Notiflix.Notify.success('Successful Registration');
       })
