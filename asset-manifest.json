@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/DevNest-Front/static/css/main.9d5b7315.css",
+    "main.css": "/DevNest-Front/static/css/main.711bc774.css",
     "main.js": "/DevNest-Front/static/js/main.fa30e716.js",
     "static/media/strawberry.png": "/DevNest-Front/static/media/strawberry.710d7026c4b284b6be95.png",
     "static/media/banana.png": "/DevNest-Front/static/media/banana.2da01581a1ed4f4189b1.png",
@@ -13,11 +13,11 @@
     "static/media/leavesCalculate-tablet.png": "/DevNest-Front/static/media/leavesCalculate-tablet.3cf507fc5063b80c0790.png",
     "index.html": "/DevNest-Front/index.html",
     "static/media/main_vector.svg": "/DevNest-Front/static/media/main_vector.c655d736b7c28331ec143c1de45f86c8.svg",
-    "main.9d5b7315.css.map": "/DevNest-Front/static/css/main.9d5b7315.css.map",
+    "main.711bc774.css.map": "/DevNest-Front/static/css/main.711bc774.css.map",
     "main.fa30e716.js.map": "/DevNest-Front/static/js/main.fa30e716.js.map"
   },
   "entrypoints": [
-    "static/css/main.9d5b7315.css",
+    "static/css/main.711bc774.css",
     "static/js/main.fa30e716.js"
   ]
 }
