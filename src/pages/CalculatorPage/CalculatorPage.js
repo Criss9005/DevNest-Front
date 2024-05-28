@@ -43,7 +43,7 @@ export default function DailyAddCalculator() {
         try {
           const result = await getConsumedFoods(idUser, date);
           // console.log(result);
-          // setFoodList([]);
+          setFoodList([]);
           setFoodList(result);
         } catch (error) {
           console.log(error);
