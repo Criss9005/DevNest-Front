@@ -10,9 +10,7 @@ if (userInfo) {
 }
 
 const getConsumedFoods = async (idUser, date) => {
-  console.log(
-    idUser + '.....iduser.................' + date + 'date............'
-  );
+  //console.log(  idUser + '.....iduser.................' + date + 'date............');
   const result = await axios.get(`todaySummary/${idUser}/${date}`);
   const { data } = result;
   const foods = [];
@@ -30,7 +28,7 @@ const getConsumedFoods = async (idUser, date) => {
   //   foods,
   // };
   // localStorage.setItem('SUMMARY', JSON.stringify(summaryLocal));
-  console.log(foods);
+  //console.log(foods);
   return foods;
 };
 

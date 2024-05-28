@@ -9,15 +9,11 @@ import {
   searchFood,
   getConsumedFoods,
 } from './api/apiServices';
-// const idUser = JSON.parse(localStorage.getItem('USER'));
-// let idUser = null;
+
 
 const DiaryFoodList = ({
-  // foodList,
   addFoodToList,
-  // setFoodList,
   removeFoodFromList,
-  // date,
 }) => {
   const { foodList, date, idUser } = useContext(SummaryContext);
 
@@ -26,7 +22,7 @@ const DiaryFoodList = ({
   const [showAddFood, setShowAddFood] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [foodSearch, setFoodsearch] = useState([]);
-  // const [idUser, setIdUser] = useState(null);
+  
   const [isTabletOrDesktop, setIsTabletOrDesktop] = useState(
     window.innerWidth >= 768
   );

@@ -6,26 +6,12 @@ import { SummaryContext } from './summaryContext';
 import styles from './Diary.module.css';
 import { removeFoodRegister } from './api/apiServices';
 
-// function getLocalDate() {
-//   const today = new Date();
-
-//   function addZero(num) {
-//     return num < 10 ? `0${num}` : num;
-//   }
-
-//   const day = addZero(today.getDate());
-//   const month = addZero(today.getMonth() + 1);
-//   const year = today.getFullYear();
-
-//   return `${day}-${month}-${year}`;
-// }
 
 const Diary = () => {
   const { foodList, setFoodList, date, setDate } = useContext(SummaryContext);
 
   const [consumedCalories, setConsumedCalories] = useState(0);
-  // const [foodList, setFoodList] = useState([]);
-  // const [date, setDate] = useState(getLocalDate());
+
   const addFoodToList = useCallback(
     food => {
       if (Array.isArray(food))
@@ -60,10 +46,7 @@ const Diary = () => {
     }
   };
 
-  // useEffect(() => {
-  //   console.log(date);
-  // }, [date]);
-
+  
   return (
     <div className={styles.diaryContainer}>
       <div className={styles.calendarSection}>
@@ -78,9 +61,7 @@ const Diary = () => {
           date={date}
         />
       </div>
-      {/*   <div className={styles.summarySection}>
-        <DiarySummary consumedCalories={consumedCalories} />
-      </div> */}
+      
     </div>
   );
 };
