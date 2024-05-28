@@ -24,7 +24,7 @@ function DailyCaloriesForm() {
     const userData = JSON.parse(localStorage.getItem('USER'));
     const token = userData?.accessToken || null;
     setIsLoggedIn(!!token);
-    iconst newData = JSON.parse(localStorage.getItem('CAL_NO_USER'))
+    const newData = JSON.parse(localStorage.getItem('CAL_NO_USER'))
     if (newData) { 
       setFormData(newData)
     }
