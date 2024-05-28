@@ -30,7 +30,7 @@ const getConsumedFoods = async (idUser, date) => {
 };
 
 const addConsumedFood = async data => {
-  console.log(data);
+  
   const result = await axios.post('/addSummary', data);
   //console.log(result);
   return result;
