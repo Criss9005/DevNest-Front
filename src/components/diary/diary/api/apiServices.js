@@ -2,11 +2,10 @@ import axios from 'axios';
 import apiConfig from './apiConfig';
 const userInfo = JSON.parse(localStorage.getItem('USER')) || null;
 let token;
+axios.defaults.headers.common['Content-Type'] = 'application/json';
+axios.defaults.baseURL = apiConfig;
 if (userInfo) {
   token = userInfo.accesToken;
-
-  axios.defaults.baseURL = apiConfig;
-  axios.defaults.headers.common['Content-Type'] = 'application/json';
   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 }
 
@@ -54,7 +53,7 @@ const searchFood = async query => {
   //   },
   //   timeout: 6000,
   // });
-  console.log(axios.baseURL);
+  // console.log(axios.baseURL);
   const result = await axios.get(`products/search?query=${query}`);
   return result;
 };

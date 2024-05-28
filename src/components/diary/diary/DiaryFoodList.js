@@ -19,7 +19,7 @@ const DiaryFoodList = ({
   removeFoodFromList,
   // date,
 }) => {
-  const { foodList, date, idUser, setIdUser } = useContext(SummaryContext);
+  const { foodList, date, idUser } = useContext(SummaryContext);
 
   const [selectedFood, setSelectedFood] = useState('');
   const [grams, setGrams] = useState('');
@@ -65,6 +65,7 @@ const DiaryFoodList = ({
   useEffect(() => {
     // setIdUser(userInfo.user.id);
     const getFoods = async () => {
+      console.log(idUser);
       if (idUser) {
         try {
           setIsLoading(true);
@@ -89,7 +90,7 @@ const DiaryFoodList = ({
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [date, addFoodToList, idUser, setIdUser]);
+  }, [date, addFoodToList, idUser]);
 
   return (
     <div>
