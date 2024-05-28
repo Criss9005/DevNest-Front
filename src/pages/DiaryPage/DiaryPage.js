@@ -1,5 +1,4 @@
-
-import Calculator from "components/Calculate/Calculate";
+import Calculator from 'components/Calculate/Calculate';
 import style from 'components/Calculate/calculato.module.css';
 import Diary from '../../components/diary/diary/Diary';
 import BackgroundCalculate from "components/BackgroundCalculate/BackgroundCalculate";
@@ -26,4 +25,5 @@ export default function DiaryAddCalculator(){
                 </div>
             </div>        
     );
+
 }

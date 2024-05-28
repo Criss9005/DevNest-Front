@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { FaTimes, FaChevronLeft } from 'react-icons/fa';
 import styles from './DiaryFoodList.module.css';
 import Input from '../../AutoCompleteInput/AutoCompleteInput';
+import { SummaryContext } from './summaryContext';
+
 import {
   addConsumedFood,
   searchFood,
@@ -11,18 +13,20 @@ const userInfo = JSON.parse(localStorage.getItem('USER'));
 // let idUser = null;
 
 const DiaryFoodList = ({
-  foodList,
+  // foodList,
   addFoodToList,
-  setFoodList,
+  // setFoodList,
   removeFoodFromList,
-  date,
+  // date,
 }) => {
+  const { foodList, date, idUser, setIdUser } = useContext(SummaryContext);
+
   const [selectedFood, setSelectedFood] = useState('');
   const [grams, setGrams] = useState('');
   const [showAddFood, setShowAddFood] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [foodSearch, setFoodsearch] = useState([]);
-  const [idUser, setIdUser] = useState(null);
+  // const [idUser, setIdUser] = useState(null);
   const [isTabletOrDesktop, setIsTabletOrDesktop] = useState(
     window.innerWidth >= 768
   );
@@ -34,7 +38,7 @@ const DiaryFoodList = ({
         productName: selectedFood,
         grams: parseFloat(grams),
         idUser,
-        calories: parseFloat(((grams * (cals / 100)) / 1000).toFixed(2)),
+        calories: parseFloat((grams * cals) / 100),
       };
       try {
         const res = await addConsumedFood(food);
@@ -87,7 +91,7 @@ const DiaryFoodList = ({
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [date, addFoodToList, idUser]);
+  }, [date, addFoodToList, idUser, setIdUser]);
 
   return (
     <div>
@@ -112,14 +116,16 @@ const DiaryFoodList = ({
             inputClassName={styles.inputHolder} // Clase personalizada para Input
             listboxClassName={styles.listboxHolder} // Clase personalizada para Listbox
           />
-          <input className={styles.inputHolder}
+          <input
+            className={styles.inputHolder}
             type="text"
             value={grams}
             onChange={e => setGrams(e.target.value)}
             placeholder="Grams"
           />
           <button className={styles.addButton} onClick={handleAddFood}>
-            <span>Add</span></button>
+            <span>Add</span>
+          </button>
         </div>
       )}
 
