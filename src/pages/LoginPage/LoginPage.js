@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import BackgroundM from 'components/BackgroundM/BackgroundM';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +11,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { idUser, setIdUser } = useContext(SummaryContext);
+  //const { idUser, setIdUser } = useContext(SummaryContext);
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -27,14 +27,13 @@ const LoginPage = () => {
         if (data) {
           const stringData = JSON.stringify(data);
           localStorage.setItem('USER', stringData);
-          setIdUser(data.user.id);
+          //setIdUser(data.user.id);
           navigate('/calculator');
         }
       })
       .catch(e => {
         //implementar alertas cuando no inicia
         Notiflix.Notify.failure(e.response.data.message);
-        console.log(IdUser)
         // console.log(e);
       });
   };
