@@ -23,6 +23,11 @@ const getConsumedFoods = async (idUser, date) => {
     };
     foods.push(food);
   });
+  // const summaryLocal = {
+  //   date,
+  //   foods,
+  // };
+  // localStorage.setItem('SUMMARY', JSON.stringify(summaryLocal));
   return foods;
 };
 

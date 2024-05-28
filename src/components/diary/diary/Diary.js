@@ -1,42 +1,49 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 import DiaryCalendar from './DiaryCalendar';
 import DiaryFoodList from './DiaryFoodList';
+import { SummaryContext } from './summaryContext';
 
 import styles from './Diary.module.css';
 import { removeFoodRegister } from './api/apiServices';
 
-function getLocalDate() {
-  const today = new Date();
+// function getLocalDate() {
+//   const today = new Date();
 
-  function addZero(num) {
-    return num < 10 ? `0${num}` : num;
-  }
+//   function addZero(num) {
+//     return num < 10 ? `0${num}` : num;
+//   }
 
-  const day = addZero(today.getDate());
-  const month = addZero(today.getMonth() + 1);
-  const year = today.getFullYear();
+//   const day = addZero(today.getDate());
+//   const month = addZero(today.getMonth() + 1);
+//   const year = today.getFullYear();
 
-  return `${day}-${month}-${year}`;
-}
+//   return `${day}-${month}-${year}`;
+// }
 
 const Diary = () => {
+  const { foodList, setFoodList, date, setDate } = useContext(SummaryContext);
+
   const [consumedCalories, setConsumedCalories] = useState(0);
-  const [foodList, setFoodList] = useState([]);
-  const [date, setDate] = useState(getLocalDate());
-  const addFoodToList = useCallback(food => {
-    if (Array.isArray(food))
-      if (!food.length) {
-        setFoodList([]);
-      } else {
-        setFoodList(prevFoodList => [...prevFoodList, ...food]);
-      }
-    else
-      setFoodList(prevFoodList => [
-        ...prevFoodList,
-        { ...food, name: food.productName },
-      ]);
-    setConsumedCalories(prevCalories => prevCalories + food.calories);
-  }, []);
+  // const [foodList, setFoodList] = useState([]);
+  // const [date, setDate] = useState(getLocalDate());
+  const addFoodToList = useCallback(
+    food => {
+      if (Array.isArray(food))
+        if (!food.length) {
+          setFoodList([]);
+          console.log('clean');
+        } else {
+          setFoodList(prevFoodList => [...prevFoodList, ...food]);
+        }
+      else
+        setFoodList(prevFoodList => [
+          ...prevFoodList,
+          { ...food, name: food.productName },
+        ]);
+      setConsumedCalories(prevCalories => prevCalories + food.calories);
+    },
+    [setFoodList]
+  );
 
   const removeFoodFromList = async foodToRemove => {
     try {
