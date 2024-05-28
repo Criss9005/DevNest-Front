@@ -27,7 +27,7 @@ const LoginPage = () => {
         if (data) {
           const stringData = JSON.stringify(data);
           localStorage.setItem('USER', stringData);
-          console.log(stringData);
+          //console.log(stringData);
           navigate('/calculator');
         }
       })
