@@ -23,10 +23,17 @@ function DailyCaloriesForm() {
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem('USER'));
     const token = userData?.accessToken || null;
+    const wg = userData.user.userData.weight
     setIsLoggedIn(!!token);
-    const newData = JSON.parse(localStorage.getItem('CAL_NO_USER'))
-    if (newData) { 
-      setFormData(newData)
+    if (wg > 0) {
+      const { height, age, weight, desiredWeight, bloodType} = userData.user.userData
+      setFormData({height,  age, currentWeight: weight, desiredWeight, bloodType: bloodType.toString()})
+      
+    } else { 
+      const newData = JSON.parse(localStorage.getItem('CAL_NO_USER'))
+      if (newData) { 
+        setFormData(newData)
+      }
     }
   }, []);
 
