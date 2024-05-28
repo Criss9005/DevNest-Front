@@ -24,7 +24,7 @@ export default function CalculatorDailyCalories(props) {
 
   useEffect(() => {
     updateUserData();
-    console.log(foodList);
+    //console.log(foodList);
     setConsumedCalories(
       foodList
         ? foodList.reduce((a, c) => {
