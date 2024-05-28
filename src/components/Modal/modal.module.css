@@ -143,6 +143,9 @@ li {
     background-color: rgb(239, 241, 243, 1);
     margin: 0;
   }
+    .modalclose {
+      display: none;
+    }
     
   .modal {
     top: 75px;
@@ -158,6 +161,9 @@ li {
 
   .flechamenu {
     margin: 16px;
+    position: fixed;
+      top: 84px;
+      left: 18px;
   }
 
   .modcontainer {
