@@ -23,7 +23,7 @@ const RegistrationPage = () => {
         username: name,
       })
       .then(response => {
-        const data = response.data;
+        //const data = response.data;
         navigate('/login');
         Notiflix.Notify.success('Successful Registration');
       })
