@@ -57,24 +57,32 @@ export default function CalculatorDailyCalories(props) {
             <li>
               <span>Left </span>
               <span>
-                {(dailyCalorieIntake - consumedCalories).toFixed(2)}Kcal{' '}
+                {dailyCalorieIntake
+                  ? (dailyCalorieIntake - consumedCalories).toFixed(2)
+                  : '000 '}{' '}
+                Kcal
               </span>
             </li>
 
             <li>
               <span>Consumed </span>
-              <span>{consumedCalories.toFixed(2) ?? '000'}Kcal </span>
+              <span>{consumedCalories.toFixed(2) ?? '000'} Kcal </span>
             </li>
 
             <li>
               <span>Daily rate </span>
-              <span>{dailyCalorieIntake} Kcal </span>
+              <span>
+                {dailyCalorieIntake ? dailyCalorieIntake : '000'} Kcal{' '}
+              </span>
             </li>
 
             <li>
               <span>n% of normal </span>
               <span>
-                {((consumedCalories * 100) / dailyCalorieIntake).toFixed(2)}%{' '}
+                {dailyCalorieIntake
+                  ? ((consumedCalories * 100) / dailyCalorieIntake).toFixed(2)
+                  : '0'}
+                %{' '}
               </span>
             </li>
           </ul>

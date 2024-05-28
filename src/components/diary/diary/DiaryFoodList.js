@@ -9,7 +9,7 @@ import {
   searchFood,
   getConsumedFoods,
 } from './api/apiServices';
-const userInfo = JSON.parse(localStorage.getItem('USER'));
+// const idUser = JSON.parse(localStorage.getItem('USER'));
 // let idUser = null;
 
 const DiaryFoodList = ({
@@ -63,24 +63,22 @@ const DiaryFoodList = ({
   };
 
   useEffect(() => {
-    if (userInfo) {
-      setIdUser(userInfo.user.id);
-      const getFoods = async () => {
-        if (idUser) {
-          try {
-            setIsLoading(true);
-            const result = await getConsumedFoods(idUser, date);
-            addFoodToList([]);
-            addFoodToList(result);
-          } catch (error) {
-            console.log(error);
-          } finally {
-            setIsLoading(false);
-          }
+    // setIdUser(userInfo.user.id);
+    const getFoods = async () => {
+      if (idUser) {
+        try {
+          setIsLoading(true);
+          const result = await getConsumedFoods(idUser, date);
+          addFoodToList([]);
+          addFoodToList(result);
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setIsLoading(false);
         }
-      };
-      getFoods();
-    }
+      }
+    };
+    getFoods();
     const handleResize = () => {
       setIsTabletOrDesktop(window.innerWidth >= 768);
     };
