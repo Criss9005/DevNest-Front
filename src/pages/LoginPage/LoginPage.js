@@ -11,7 +11,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { setIdUser } = useContext(SummaryContext);
+  const { idUser, setIdUser } = useContext(SummaryContext);
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -27,8 +27,8 @@ const LoginPage = () => {
         if (data) {
           const stringData = JSON.stringify(data);
           localStorage.setItem('USER', stringData);
-          // console.log(data.user.id);
-          // console.log(idUser);
+          console.log(data.user.id);
+          console.log(idUser);
           setIdUser(data.user.id);
           navigate('/calculator');
         }
