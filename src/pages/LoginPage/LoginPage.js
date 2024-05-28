@@ -34,6 +34,7 @@ const LoginPage = () => {
       .catch(e => {
         //implementar alertas cuando no inicia
         Notiflix.Notify.failure(e.response.data.message);
+        console.log(IdUser)
         // console.log(e);
       });
   };
