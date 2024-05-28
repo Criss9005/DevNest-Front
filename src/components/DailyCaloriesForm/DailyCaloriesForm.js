@@ -21,12 +21,20 @@ function DailyCaloriesForm() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
+
     const userData = JSON.parse(localStorage.getItem('USER'));
     const token = userData?.accessToken || null;
+    const wg = userData?.user.userData.weight || null;
     setIsLoggedIn(!!token);
-    const newData = JSON.parse(localStorage.getItem('CAL_NO_USER'))
-    if (newData) { 
-      setFormData(newData)
+    if (wg) {
+      const { height, age, desiredWeight, bloodType} = userData.user.userData
+      setFormData({height,  age, currentWeight: wg, desiredWeight, bloodType: bloodType.toString()})
+      
+    } else { 
+      const newData = JSON.parse(localStorage.getItem('CAL_NO_USER'))
+      if (newData) { 
+        setFormData(newData)
+      }
     }
   }, []);
 
@@ -58,6 +66,33 @@ function DailyCaloriesForm() {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+
+
+  const updateData = (formData) => { 
+    const { height, age, currentWeight, desiredWeight, bloodType } = formData
+    const userData = JSON.parse(localStorage.getItem('USER'));
+
+      axios.put('https://devnest-back-1.onrender.com/api/auth/userdata', {
+      id: userData.user.id,
+      age,
+      bloodType,
+      desiredWeight,
+      weight: currentWeight,
+      height,     
+
+      }, {
+         headers: {
+          'Authorization': `Bearer ${userData.accessToken}`
+  }
+      })
+  .then((response) => {
+    
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
+  }
 
   const handleInputChange = e => {
     const { name, value } = e.target;
@@ -99,6 +134,9 @@ function DailyCaloriesForm() {
         };
         localStorage.setItem('USER', JSON.stringify(updatedUserData));
         window.dispatchEvent(new Event('storageUpdate'));
+        //----------logica de setear la nueva data ------------//
+        updateData(formData)
+
         navigate('/diary');
       } else {
         openModal();
