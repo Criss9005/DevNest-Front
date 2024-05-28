@@ -34,11 +34,12 @@
         }
     
         .menuContainer {
-            width: 420px;
+            /* width: 420px; */
             display: flex;
             padding: 15px;
             background-color: #EFF1F3;
             justify-content: center;
+            width: 375px;
     
         }
     
