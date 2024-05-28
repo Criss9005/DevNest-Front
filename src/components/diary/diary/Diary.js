@@ -31,7 +31,7 @@ const Diary = () => {
       if (Array.isArray(food))
         if (!food.length) {
           setFoodList([]);
-          // console.log('clean');
+
         } else {
           setFoodList(prevFoodList => [...prevFoodList, ...food]);
         }
