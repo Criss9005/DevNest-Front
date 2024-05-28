@@ -65,8 +65,7 @@ const DiaryFoodList = ({
   useEffect(() => {
     // setIdUser(userInfo.user.id);
     const getFoods = async () => {
-      console.log(idUser);
-      if (idUser) {
+     if (idUser) {
         try {
           setIsLoading(true);
           const result = await getConsumedFoods(idUser, date);
