@@ -19,6 +19,10 @@
   th {
     background-color: #f2f2f2;
   }
+
+  .svg:hover{
+    cursor: pointer;
+  }
   
   /* Estilos para el botón de agregar */
   .addButtonContainer {
@@ -38,6 +42,18 @@
     font-size: 20px;
     cursor: pointer;
   }
+
+    .addButtonDisabled {
+      width: auto;
+      padding: 10px 15px;
+      background-color: #6a2f06;
+      color: white;
+      border: none;
+      border-radius: 19px;
+      font-size: 20px;
+
+    }
+
   .addPlusButton {
     width: auto;
     padding: 10px 15px;

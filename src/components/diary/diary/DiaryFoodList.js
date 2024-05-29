@@ -22,6 +22,19 @@ const DiaryFoodList = ({
   const [showAddFood, setShowAddFood] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [foodSearch, setFoodsearch] = useState([]);
+  const timeDate = Date.now();
+  const now = new Date(timeDate);
+  let day = now.getDate()
+  let month = now.getMonth()
+  let year = now.getFullYear()
+  
+  const addZero = (value) => { 
+    if (value < 10) { 
+      return `0${value}`
+    }
+    return value
+  }
+  const today = `${addZero(day)}-${addZero(month +1)}-${year}`
   
   const [isTabletOrDesktop, setIsTabletOrDesktop] = useState(
     window.innerWidth >= 768
@@ -117,9 +130,15 @@ const DiaryFoodList = ({
             onChange={e => setGrams(e.target.value)}
             placeholder="Grams"
           />
-          <button className={styles.addButton} onClick={handleAddFood}>
+                        
+          { (date === today) ? <button className={styles.addButton} onClick={handleAddFood}>
             <span>Add</span>
           </button>
+          : <button className={styles.addButtonDisabled} disabled>
+            <span>Add</span>
+          </button>}
+          
+
         </div>
       )}
 
@@ -143,7 +162,7 @@ const DiaryFoodList = ({
                 <td>{food.name}</td>
                 <td>{food.grams}</td>
                 <td>{food.calories}</td>
-                <td>
+                <td className={styles.svg }>
                   <FaTimes onClick={() => removeFoodFromList(food)} />
                 </td>
               </tr>
