@@ -30,8 +30,7 @@ const Modal = ({ isOpen, closeModal, children }) => {
       onClick={closeModal}
     >
       <div className={css.flecha}>
-        <img src={flecha}
-        className={css.flechamenu}></img>
+        <img src={flecha} className={css.flechamenu} alt="arrow"></img>
       </div>
       <div className={css.modcontainer} onClick={e => e.stopPropagation()}>
         <button onClick={closeModal} className={css.modalclose}>
@@ -45,4 +44,3 @@ const Modal = ({ isOpen, closeModal, children }) => {
 };
 
 export default Modal;
-

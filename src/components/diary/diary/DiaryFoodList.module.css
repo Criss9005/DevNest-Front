@@ -19,6 +19,10 @@
   th {
     background-color: #f2f2f2;
   }
+
+  .svg:hover{
+    cursor: pointer;
+  }
   
   /* Estilos para el botón de agregar */
   .addButtonContainer {
@@ -34,7 +38,29 @@
     background-color: #fc842d;
     color: white;
     border: none;
-    border-radius: 50%;
+    border-radius: 19px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+    .addButtonDisabled {
+      width: auto;
+      padding: 10px 15px;
+      background-color: #6a2f06;
+      color: white;
+      border: none;
+      border-radius: 19px;
+      font-size: 20px;
+
+    }
+
+  .addPlusButton {
+    width: auto;
+    padding: 10px 15px;
+    background-color: #fc842d;
+    color: white;
+    border: none;
+    border-radius: 50px;
     font-size: 20px;
     cursor: pointer;
   }
@@ -54,15 +80,15 @@
     z-index: 1000;
   }
   
-  .addFoodSection input[type="text"] {
-    width: calc(80% - 5px);
+  .addFoodSection .inputHolder {
+    /* width: calc(80% - 90px); */
     margin-right: 5px;
     padding: 10px;
   }
   
   .addFoodSection button {
-    width: 55%;
-    height: 40px;
+    width: 41%;
+    height: 51px;
     margin-top: 0px;
   }
   
@@ -93,6 +119,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 34px;
 }
 
 /* Estilo para la sección de agregar comida */
@@ -117,6 +144,16 @@
   position: absolute;
 }
 
+
+.listboxHolder {
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
 /* Media queries para tablet y desktop */
 @media (min-width: 768px) {
   .addFoodSection {
@@ -125,10 +162,12 @@
     height: auto;
     background-color: transparent;
     z-index: auto;
-    display: flow-root;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+    padding: 10px 0px;
+    gap: 10px;
   }
 
   .addFoodSection input[type="text"] {
@@ -137,16 +176,22 @@
     margin-bottom: 10px;
   }
 
-  .addFoodSection button {
-    width: auto;
-    margin-top: 10px;
-  }
-  .addButton {
-    display: none;
-  }
-  .backButton {
-    display: none;
-  }
+/* Mostrar "+" en el botón en tablet y desktop */
+.addFoodSection button::after {
+  content: "+";
+  font-size: 20px;
+  color: white;
+}
+
+/* Ocultar el texto "Add" en tablet y desktop */
+.addFoodSection button span {
+  display: none;
+}
+.addFoodSection button{
+  width: auto;
+  height: auto;
+  border-radius: 50px;
+}
 }
 
 
@@ -155,3 +200,4 @@
     width: 400px;
   }
 }
+

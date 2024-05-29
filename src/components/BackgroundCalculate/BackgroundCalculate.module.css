@@ -4,10 +4,10 @@
   }
   
   @media screen and (min-width: 768px) {
-    .backgroundCalculate__container {
+   /*  .backgroundCalculate__container {
       display: block;
 
-    }
+    } */
     .backgroungCalculate__leavesTablet {
       position: absolute;
       height: auto;
@@ -16,9 +16,9 @@
       right: 0;
       bottom: 0;
     }
-    .backgroung__leavesTablet {
+  /*   .backgroung__leavesTablet {
       
-  }
+  } */
   }
   
   @media screen and (min-width: 768px) {
@@ -32,9 +32,9 @@
       display: none;
     }
 
-    .backgroungCalculate__leaves{
+ /*    .backgroungCalculate__leaves{
       display: block;
-  }
+  } */
   }
 
       

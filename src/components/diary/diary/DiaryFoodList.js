@@ -1,31 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { FaTimes, FaChevronLeft } from 'react-icons/fa';
 import styles from './DiaryFoodList.module.css';
 import Input from '../../AutoCompleteInput/AutoCompleteInput';
+import { SummaryContext } from './summaryContext';
+
 import {
   addConsumedFood,
   searchFood,
   getConsumedFoods,
 } from './api/apiServices';
-const userInfo = JSON.parse(localStorage.getItem('USER'));
+
 
 const DiaryFoodList = ({
-  foodList,
   addFoodToList,
-  setFoodList,
   removeFoodFromList,
-  date,
 }) => {
+  const { foodList, date, idUser } = useContext(SummaryContext);
+
   const [selectedFood, setSelectedFood] = useState('');
   const [grams, setGrams] = useState('');
   const [showAddFood, setShowAddFood] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [foodSearch, setFoodsearch] = useState([]);
+  const timeDate = Date.now();
+  const now = new Date(timeDate);
+  let day = now.getDate()
+  let month = now.getMonth()
+  let year = now.getFullYear()
+  
+  const addZero = (value) => { 
+    if (value < 10) { 
+      return `0${value}`
+    }
+    return value
+  }
+  const today = `${addZero(day)}-${addZero(month +1)}-${year}`
+  
   const [isTabletOrDesktop, setIsTabletOrDesktop] = useState(
     window.innerWidth >= 768
   );
-
-  const idUser = userInfo.user.id;
 
   const handleAddFood = async () => {
     if (selectedFood && grams) {
@@ -34,7 +47,7 @@ const DiaryFoodList = ({
         productName: selectedFood,
         grams: parseFloat(grams),
         idUser,
-        calories: grams * cals,
+        calories: parseFloat((grams * cals) / 100),
       };
       try {
         const res = await addConsumedFood(food);
@@ -59,8 +72,9 @@ const DiaryFoodList = ({
   };
 
   useEffect(() => {
-    if (userInfo) {
-      const getFoods = async () => {
+    // setIdUser(userInfo.user.id);
+    const getFoods = async () => {
+     if (idUser) {
         try {
           setIsLoading(true);
           const result = await getConsumedFoods(idUser, date);
@@ -71,9 +85,9 @@ const DiaryFoodList = ({
         } finally {
           setIsLoading(false);
         }
-      };
-      getFoods();
-    }
+      }
+    };
+    getFoods();
     const handleResize = () => {
       setIsTabletOrDesktop(window.innerWidth >= 768);
     };
@@ -84,7 +98,7 @@ const DiaryFoodList = ({
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [date, idUser, addFoodToList]);
+  }, [date, addFoodToList, idUser]);
 
   return (
     <div>
@@ -106,14 +120,25 @@ const DiaryFoodList = ({
             list={foodSearch}
             setSelectedFood={setSelectedFood}
             setFoodsearch={setFoodsearch}
+            inputClassName={styles.inputHolder} // Clase personalizada para Input
+            listboxClassName={styles.listboxHolder} // Clase personalizada para Listbox
           />
           <input
+            className={styles.inputHolder}
             type="text"
             value={grams}
             onChange={e => setGrams(e.target.value)}
             placeholder="Grams"
           />
-          <button onClick={handleAddFood}>Add</button>
+                        
+          { (date === today) ? <button className={styles.addButton} onClick={handleAddFood}>
+            <span>Add</span>
+          </button>
+          : <button className={styles.addButtonDisabled} disabled>
+            <span>Add</span>
+          </button>}
+          
+
         </div>
       )}
 
@@ -137,7 +162,7 @@ const DiaryFoodList = ({
                 <td>{food.name}</td>
                 <td>{food.grams}</td>
                 <td>{food.calories}</td>
-                <td>
+                <td className={styles.svg }>
                   <FaTimes onClick={() => removeFoodFromList(food)} />
                 </td>
               </tr>
@@ -152,7 +177,7 @@ const DiaryFoodList = ({
       {!isTabletOrDesktop && !showAddFood && (
         <div className={styles.addButtonContainer}>
           <button
-            className={styles.addButton}
+            className={styles.addPlusButton}
             onClick={() => setShowAddFood(true)}
           >
             +

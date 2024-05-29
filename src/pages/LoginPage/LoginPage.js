@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import BackgroundM from 'components/BackgroundM/BackgroundM';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Notiflix from 'notiflix';
 import Header from '../../components/Header/Header';
 import css from './LoginPage.module.css';
-
+import { SummaryContext } from '../../components/diary/diary/summaryContext';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  
+  const { idUser, setIdUser } = useContext(SummaryContext);
+
   const handleSubmit = async event => {
     event.preventDefault();
-    
+
     axios
       .post(`https://devnest-back-1.onrender.com/api/auth/login`, {
         email: email,
@@ -22,18 +23,19 @@ const LoginPage = () => {
       })
       .then(response => {
         const data = response.data;
-       
 
         if (data) {
           const stringData = JSON.stringify(data);
           localStorage.setItem('USER', stringData);
+          setIdUser(data.user.id);
+          localStorage.setItem('ID', idUser);
           navigate('/calculator');
         }
       })
       .catch(e => {
         //implementar alertas cuando no inicia
         Notiflix.Notify.failure(e.response.data.message);
-        console.log(e);
+        // console.log(e);
       });
   };
 
@@ -42,7 +44,7 @@ const LoginPage = () => {
       <Header />
       <BackgroundM />
       <h1 className={css.loginPage}>LOG IN</h1>
-      <form className={css.labelPage} onSubmit={(event) => handleSubmit(event)}>
+      <form className={css.labelPage} onSubmit={event => handleSubmit(event)}>
         <label>
           Email *
           <br />
@@ -50,7 +52,7 @@ const LoginPage = () => {
             className={css.form}
             type="email"
             value={email}
-            onChange={(e)=>setEmail(e.target.value)}
+            onChange={e => setEmail(e.target.value)}
             required
           />
         </label>
@@ -62,7 +64,7 @@ const LoginPage = () => {
             className={css.form}
             type="password"
             value={password}
-            onChange={(e)=> setPassword(e.target.value)}
+            onChange={e => setPassword(e.target.value)}
             required
           />
         </label>
@@ -71,10 +73,13 @@ const LoginPage = () => {
           <button className={css.buttonPage} type="submit">
             Log in
           </button>
-          <button className={css.buttonPage} type='button' onClick={(e) => navigate("/register") }>
+          <button
+            className={css.buttonPage}
+            type="button"
+            onClick={e => navigate('/register')}
+          >
             Register
           </button>
-          
         </div>
       </form>
     </div>
